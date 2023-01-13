@@ -25,35 +25,36 @@ from zhdate import ZhDate
 
 def 年月日时起卦() -> str:
     上卦 = 先天八卦[sum(今时[:3]) % 8 - 1]
-
     下卦 = 先天八卦[sum(今时) % 8 - 1]
-
     动爻 = sum(今时) % 6
+
+    print(六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)], end="\n\t")
+    
     if 动爻:
-        return 六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)
-                    ^ int(bin(1 << 动爻 - 1)[2:], 2)]
+        print("变卦为：" + 六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)
+                    ^ int(bin(1 << 动爻 - 1)[2:], 2)])
     else:
-        return 六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)]
+        print("无变卦")
 
 
 def 以数起卦(n: tuple[int]) -> str:
     上卦 = 先天八卦[n[0] % 8 - 1]
-
     下卦 = 先天八卦[n[1] % 8 - 1]
-
     动爻 = sum(n) % 6
+    
+    print(六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)], end="\n\t")
     if 动爻:
-        return 六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)
-                    ^ int(bin(1 << 动爻 - 1)[2:], 2)]
+        print("变卦为：" + 六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)
+                    ^ int(bin(1 << 动爻 - 1)[2:], 2)])
     else:
-        return 六十四卦[int(bin(上卦)[2:].zfill(3) + bin(下卦)[2:].zfill(3), 2)]
+        print("无变卦")
 
 
 取数 = str(input("输入2个自然数，用空格分隔；\n或直接回车以使用当前年月日时起卦："))
 
 if len(取数) == 0:
-    print(年月日时起卦())
+    年月日时起卦()
 elif len(tuple(map(int, 取数.split(" ")))) == 2 and all(_ >= 0 for _ in tuple(map(int, 取数.split(" ")))):
-    print(以数起卦(tuple(map(int, 取数.split(" ")))))
+    以数起卦(tuple(map(int, 取数.split(" "))))
 else:
     print("输入应当为空或两个自然数")
