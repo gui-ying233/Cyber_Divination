@@ -2,7 +2,6 @@ from zhdate import ZhDate
 from datetime import datetime
 
 六神 = ("大安", "留连", "速喜", "赤口", "小吉", "空亡")
-
 今时 = (
     int(str(ZhDate.from_datetime(datetime.now()))[7:9]),
     int(str(ZhDate.from_datetime(datetime.now()))[10:12]),
