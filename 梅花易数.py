@@ -1,5 +1,6 @@
 from datetime import datetime
 from zhdate import ZhDate
+from re import findall
 
 六十四卦 = (
     "䷁ 坤为地", "䷖ 山地剥", "䷇ 水地比", "䷓ 风地观", "䷏ 雷地豫", "䷢ 火地晋", "䷬ 泽地萃", "䷋ 天地否",
@@ -11,11 +12,13 @@ from zhdate import ZhDate
     "䷒ 地泽临", "䷨ 山泽损", "䷻ 水泽节", "䷼ 风泽中孚", "䷵ 雷泽归妹", "䷥ 火泽睽", "䷹ 兑为泽", "䷉ 天泽履",
     "䷊ 地天泰", "䷙ 山天大畜", "䷄ 水天需", "䷈ 风天小畜", "䷡ 雷天大壮", "䷍ 火天大有", "䷪ 泽天夬", "䷀ 乾为天"
 )
+
 今时 = (
     int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 - 3 if int(str(ZhDate.from_datetime(
         datetime.now()))[2:6]) % 12 > 3 else int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 + 9,
-    int(str(ZhDate.from_datetime(datetime.now()))[7:9]),
-    int(str(ZhDate.from_datetime(datetime.now()))[10:12]),
+    int(findall('年(\d\d?)月', str(ZhDate.from_datetime(datetime.now())))[0]),
+    int(findall('月(\d\d?)日', str(
+        ZhDate.from_datetime(datetime.now())))[0]),
     (int((int(datetime.now().strftime("%H")) - 7) % 24 / 2) + 2) % 12
 )
 
