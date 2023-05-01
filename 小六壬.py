@@ -1,10 +1,13 @@
 from zhdate import ZhDate
 from datetime import datetime
+from re import findall
 
 六神 = ("大安", "留连", "速喜", "赤口", "小吉", "空亡")
 今时 = (
-    int(str(ZhDate.from_datetime(datetime.now()))[7:9]),
-    int(str(ZhDate.from_datetime(datetime.now()))[10:12]),
+    int(findall(r"农历\d\d\d\d年(\d\d?)月\d\d?日", str(
+        ZhDate.from_datetime(datetime.now())))[0]),
+    int(findall(r"农历\d\d\d\d年\d\d?月(\d\d?)日", str(
+        ZhDate.from_datetime(datetime.now())))[0]),
     (int((int(datetime.now().strftime("%H")) - 7) % 24 / 2) + 2) % 12
 )
 
