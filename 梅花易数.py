@@ -16,8 +16,8 @@ from re import findall
 今时 = (
     int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 - 3 if int(str(ZhDate.from_datetime(
         datetime.now()))[2:6]) % 12 > 3 else int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 + 9,
-    int(findall('年(\d\d?)月', str(ZhDate.from_datetime(datetime.now())))[0]),
-    int(findall('月(\d\d?)日', str(
+    int(findall(r'年(\d\d?)月', str(ZhDate.from_datetime(datetime.now())))[0]),
+    int(findall(r'月(\d\d?)日', str(
         ZhDate.from_datetime(datetime.now())))[0]),
     (int((int(datetime.now().strftime("%H")) - 7) % 24 / 2) + 2) % 12
 )
