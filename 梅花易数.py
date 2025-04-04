@@ -81,11 +81,11 @@ from re import findall
 )
 
 
-def reverse3(n):
+def reverse3(n: int) -> int:
     return ((n & 0b001) << 2) | ((n & 0b010)) | ((n & 0b100) >> 2)
 
 
-def reverse6(n):
+def reverse6(n: int) -> int:
     return (
         ((n & 0b000001) << 5)
         | ((n & 0b000010) << 3)
