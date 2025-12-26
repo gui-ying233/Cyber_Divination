@@ -6,12 +6,14 @@ from re import findall
 今时: tuple[int, ...] = (
     int(
         findall(
-            r"农历\d\d\d\d年(\d\d?)月\d\d?日", str(ZhDate.from_datetime(datetime.now()))
+            r"农历\d\d\d\d年(\d\d?)月\d\d?日", str(
+                ZhDate.from_datetime(datetime.now()))
         )[0]
     ),
     int(
         findall(
-            r"农历\d\d\d\d年\d\d?月(\d\d?)日", str(ZhDate.from_datetime(datetime.now()))
+            r"农历\d\d\d\d年\d\d?月(\d\d?)日", str(
+                ZhDate.from_datetime(datetime.now()))
         )[0]
     ),
     (int((int(datetime.now().strftime("%H")) - 7) % 24 / 2) + 2) % 12,
