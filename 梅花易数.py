@@ -2,7 +2,7 @@ from datetime import datetime
 from zhdate import ZhDate
 from re import findall
 
-六十四卦: tuple[str] = (
+六十四卦: tuple[str, ...] = (
     "䷁ 坤为地",
     "䷖ 山地剥",
     "䷇ 水地比",
@@ -69,7 +69,7 @@ from re import findall
     "䷀ 乾为天",
 )
 
-今时: tuple[int] = (
+今时: tuple[int, int, int, int] = (
     (
         int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 - 3
         if int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 > 3
@@ -113,7 +113,7 @@ elif (
 ):
     上卦, 下卦, 动爻 = (8 - 数[0] % 8) % 8, (8 - 数[1] % 8) % 8, sum(数) % 6
 else:
-    print("输入应当为空或两个自然数")
+    raise ValueError("输入应当为空或两个自然数")
 
 print(六十四卦[下卦 << 3 | 上卦], end="\n\t")
 if not 动爻:
