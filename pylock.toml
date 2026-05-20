@@ -1,0 +1,13 @@
+lock-version = "1.0"
+created-by = "pip"
+
+[[packages]]
+name = "zhdate"
+version = "0.1"
+
+[[packages.wheels]]
+name = "zhdate-0.1-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/e5/5e/5ddf769b1ca31d1e997b94a390279da6892c99702593c1feedb93a70f508/zhdate-0.1-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "d003657bf49d6722c4c3adcb9a91722f6de1077bf3be0e54c0f4492b5e028fa4"
