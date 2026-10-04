@@ -1,6 +1,5 @@
 from datetime import datetime
 from zhdate import ZhDate
-from re import findall
 
 六十四卦: tuple[str, ...] = (
     "䷁ 坤为地",
@@ -69,15 +68,13 @@ from re import findall
     "䷀ 乾为天",
 )
 
+时刻 = datetime.now()
+农历 = ZhDate.from_datetime(datetime(时刻.year, 时刻.month, 时刻.day))
 今时: tuple[int, int, int, int] = (
-    (
-        int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 - 3
-        if int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 > 3
-        else int(str(ZhDate.from_datetime(datetime.now()))[2:6]) % 12 + 9
-    ),
-    int(findall(r"年(\d\d?)月", str(ZhDate.from_datetime(datetime.now())))[0]),
-    int(findall(r"月(\d\d?)日", str(ZhDate.from_datetime(datetime.now())))[0]),
-    (int((int(datetime.now().strftime("%H")) - 7) % 24 / 2) + 2) % 12,
+    (农历.lunar_year - 4) % 12 + 1,
+    农历.lunar_month,
+    农历.lunar_day,
+    (时刻.hour + 1) // 2 % 12 + 1,
 )
 
 
@@ -104,24 +101,21 @@ if len(取数) == 0:
     上卦, 下卦, 动爻 = (
         (8 - sum(今时[:3]) % 8) % 8,
         (8 - sum(今时) % 8) % 8,
-        sum(今时) % 6,
+        sum(今时) % 6 or 6,
     )
 elif (
-    (数 := tuple(map(int, 取数.split(" "))))
+    (数 := tuple(map(int, 取数.split())))
     and len(数) == 2
     and all(_ >= 0 for _ in 数)
 ):
-    上卦, 下卦, 动爻 = (8 - 数[0] % 8) % 8, (8 - 数[1] % 8) % 8, sum(数) % 6
+    上卦, 下卦, 动爻 = (8 - 数[0] % 8) % 8, (8 - 数[1] % 8) % 8, sum(数) % 6 or 6
 else:
     raise ValueError("输入应当为空或两个自然数")
 
 print(六十四卦[下卦 << 3 | 上卦], end="\n\t")
-if not 动爻:
-    print("无变卦")
-else:
-    print(
-        "变卦为："
-        + 六十四卦[
-            reverse6(((reverse3(上卦) << 3) | reverse3(下卦)) ^ (1 << (动爻 - 1)))
-        ]
-    )
+print(
+    "变卦为："
+    + 六十四卦[
+        reverse6(((reverse3(上卦) << 3) | reverse3(下卦)) ^ (1 << (动爻 - 1)))
+    ]
+)
