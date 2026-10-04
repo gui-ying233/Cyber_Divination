@@ -1,16 +1,7 @@
 from datetime import datetime
-from zhdate import ZhDate
+from vendor.zhdate.zhdate import ZhDate
 from 易卦 import 六十四卦
-
-时刻 = datetime.now()
-农历 = ZhDate.from_datetime(datetime(时刻.year, 时刻.month, 时刻.day))
-今时: tuple[int, int, int, int] = (
-    (农历.lunar_year - 4) % 12 + 1,
-    农历.lunar_month,
-    农历.lunar_day,
-    (时刻.hour + 1) // 2 % 12 + 1,
-)
-
+from 历法 import 公历时刻
 
 def reverse3(n: int) -> int:
     return ((n & 0b001) << 2) | ((n & 0b010)) | ((n & 0b100) >> 2)
@@ -28,10 +19,16 @@ def reverse6(n: int) -> int:
 
 
 取数: str = str(
-    input("输入2个自然数，用空格分隔；\n或直接回车以使用当前年月日时起卦：")
+    input("输入2个自然数，用空格分隔；\n或直接回车以公历时刻起卦：")
 )
 
 if len(取数) == 0:
+    时刻 = 公历时刻(input("输入公历年月日时（北京时间，如2026 10 04 13；回车为当前时刻）："), True)
+    try:
+        农历 = ZhDate.from_datetime(datetime(时刻.year, 时刻.month, 时刻.day))
+    except (IndexError, ValueError) as 错误:
+        raise ValueError("该公历日期超出ZhDate支持的农历范围") from 错误
+    今时: tuple[int, int, int, int] = ((农历.lunar_year - 4) % 12 + 1, 农历.lunar_month, 农历.lunar_day, (时刻.hour + 1) // 2 % 12 + 1)
     上卦, 下卦, 动爻 = (
         (8 - sum(今时[:3]) % 8) % 8,
         (8 - sum(今时) % 8) % 8,

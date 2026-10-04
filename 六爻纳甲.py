@@ -1,4 +1,5 @@
 from 易卦 import 卦名
+from 历法 import 公历时刻, 日干支
 
 八卦爻: dict[str, int] = {
     "乾": 0b111, "坎": 0b010, "艮": 0b100, "震": 0b001,
@@ -65,9 +66,8 @@ except ValueError as 错误:
 if len(六爻) != 6 or any(爻 not in (6, 7, 8, 9) for 爻 in 六爻):
     raise ValueError("请输入六个6、7、8或9")
 
-日干 = input("占日天干（甲至癸，直接回车则不排六神）：").strip()
-if 日干 and 日干 not in 日干起神:
-    raise ValueError("日干应为甲、乙、丙、丁、戊、己、庚、辛、壬或癸")
+日期 = input("占日公历年 月 日（北京时间，如2026 10 04；回车不排六神）：").strip()
+日干 = 日干支(公历时刻(日期).date())[0] if 日期 else ""
 if 日干:
     六神起例 = input("六神起例：1《卜筮正宗》《增删卜易》，2杨慎《升庵先生文集》（输入1或2）：").strip()
     if 六神起例 not in ("1", "2"):

@@ -1,0 +1,6 @@
+[submodule "vendor/zhdate"]
+	path = vendor/zhdate
+	url = https://github.com/CutePandaSh/zhdate.git
+[submodule "vendor/lunar_python"]
+	path = vendor/lunar_python
+	url = https://github.com/6tail/lunar-python.git
