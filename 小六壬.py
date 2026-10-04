@@ -12,8 +12,7 @@ from datetime import datetime
 
 
 def 入卦(n: tuple[int, ...], 算法: str) -> str:
-    偏移 = 1 if 算法 == "2" else 0
-    return 六神[(sum(n) - len(n) + 偏移) % 6]
+    return 六神[(sum(n) - len(n) + (1 if 算法 == "2" else 0)) % 6]
 
 
 算法 = input("选择算法：1《玉匣记》（正月初一子时大安）；2《多能鄙事》（正月初一子时留连）：")
