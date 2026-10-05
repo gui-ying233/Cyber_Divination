@@ -188,9 +188,13 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("太乙：坎8宫", 输出)
         self.assertIn("文昌：和德（艮）", 输出)
 
+    # 《六壬断案》元集天时第1案韩太守祈雪原记十一月初四己卯寅将，但该日为戊申丑将；十月初四可复盘，月份待校 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集天时第2案只记十二月戊申日子将申时，未记占年，无法唯一换算公历日期 https://tianyugong.com/liurenduanan/
+
     # 《六壬断案》元集宅墓第1案张九翁占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_张九翁占宅(self):
-        输出 = 运行("大六壬.py", "1128 10 11 13\n1\n")
+        输出 = 运行("大六壬.py", "1128 10 11 13\n1\n1\n")
         self.assertIn("庚寅日，天罡辰将加未时", 输出)
         self.assertIn("初传：巳 勾陈 官鬼", 输出)
         self.assertIn("中传：寅 螣蛇 妻财", 输出)
@@ -198,7 +202,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第2案叶助教占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_叶助教占宅(self):
-        输出 = 运行("大六壬.py", "1128 02 15 13\n1\n")
+        输出 = 运行("大六壬.py", "1128 02 15 13\n1\n1\n")
         self.assertIn("辛卯日，神后子将加未时", 输出)
         self.assertIn("初传：卯 玄武 妻财", 输出)
         self.assertIn("中传：申 朱雀 兄弟", 输出)
@@ -206,15 +210,17 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第3案邵三翁占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_邵三翁占宅(self):
-        输出 = 运行("大六壬.py", "1128 10 02 21\n1\n")
+        输出 = 运行("大六壬.py", "1128 10 02 21\n1\n1\n")
         self.assertIn("辛巳日，天罡辰将加亥时", 输出)
         self.assertIn("初传：卯 天后 妻财", 输出)
         self.assertIn("中传：申 天空 兄弟", 输出)
         self.assertIn("末传：丑 螣蛇 父母", 输出)
 
+    # 《六壬断案》元集宅墓第4案邵秀才原记己酉二月乙巳日戌将，1129年乙巳日均不在戌将期间，无法可靠定公历日 https://tianyugong.com/liurenduanan/
+
     # 《六壬断案》元集宅墓第5案邵巡检占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_邵巡检占宅(self):
-        输出 = 运行("大六壬.py", "1128 08 02 03\n1\n")
+        输出 = 运行("大六壬.py", "1128 08 02 03\n1\n1\n")
         self.assertIn("庚辰日，胜光午将加寅时", 输出)
         self.assertIn("初传：辰 玄武 父母", 输出)
         self.assertIn("中传：申 螣蛇 兄弟", 输出)
@@ -222,7 +228,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第6案任三翁占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_任三翁占宅(self):
-        输出 = 运行("大六壬.py", "1128 12 22 15\n1\n")
+        输出 = 运行("大六壬.py", "1128 12 22 15\n1\n1\n")
         self.assertIn("壬寅日，大吉丑将加申时", 输出)
         self.assertIn("初传：子 白虎 兄弟", 输出)
         self.assertIn("中传：巳 贵人 妻财", 输出)
@@ -230,15 +236,25 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第7案邵伯达占宅基 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_邵伯达占宅基(self):
-        输出 = 运行("大六壬.py", "1129 12 05 17\n1\n")
+        输出 = 运行("大六壬.py", "1129 12 05 17\n1\n1\n")
         self.assertIn("庚寅日，功曹寅将加酉时", 输出)
         self.assertIn("初传：子 青龙 子孙", 输出)
         self.assertIn("中传：巳 太阴 官鬼", 输出)
         self.assertIn("末传：戌 六合 父母", 输出)
 
+    # 《六壬断案》元集宅墓第8案童保仪，据孟子翔引录本第93页的六月初四丁巳；另本作初七，与纪日不合 https://files.yijingyixue.com/documents/MZX020_4eef2264aa.pdf#page=93 https://tianyugong.com/liurenduanan/
+    def test_童保仪占宅(self):
+        输出 = 运行("大六壬.py", "1128 07 10 17\n1\n1\n")
+        self.assertIn("丁巳日，小吉未将加酉时", 输出)
+        self.assertIn("初传：丑 勾陈 子孙", 输出)
+        self.assertIn("中传：亥 朱雀 官鬼", 输出)
+        self.assertIn("末传：酉 贵人 妻财", 输出)
+
+    # 《六壬断案》元集宅墓第9案郑宣义未直记占年，1128年可由后续年份反推但仍属推测，暂不固定公历输入 https://tianyugong.com/liurenduanan/
+
     # 《六壬断案》元集宅墓第10案王德卿占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_王德卿占宅(self):
-        输出 = 运行("大六壬.py", "1128 11 02 05\n1\n")
+        输出 = 运行("大六壬.py", "1128 11 02 05\n1\n1\n")
         self.assertIn("壬子日，太冲卯将加卯时", 输出)
         self.assertIn("初传：亥 天空 兄弟", 输出)
         self.assertIn("中传：子 青龙 兄弟", 输出)
@@ -246,15 +262,46 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第11案童得松占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_童得松占宅(self):
-        输出 = 运行("大六壬.py", "1129 07 10 01\n1\n")
+        输出 = 运行("大六壬.py", "1129 07 10 01\n1\n1\n")
         self.assertIn("壬戌日，小吉未将加丑时", 输出)
         self.assertIn("初传：巳 太阴 妻财", 输出)
         self.assertIn("中传：亥 勾陈 兄弟", 输出)
         self.assertIn("末传：巳 太阴 妻财", 输出)
 
+    # 《六壬断案》元集宅墓第12案徐八公据夜贵版和“卯子息爻乘夜贵”断语核对；另本天将作昼贵，儒略历七月九日为本脚本公历七月十六日 https://shuyuan.zhiming.life/read/大六壬断案(亨集)/9 https://tianyugong.com/liurenduanan/
+    def test_徐八公占宅(self):
+        for 昼夜法 in ("1", "3"):
+            输出 = 运行("大六壬.py", f"1128 07 16 17\n1\n{昼夜法}\n")
+            self.assertIn("癸亥日，小吉未将加酉时，夜贵卯", 输出)
+            self.assertIn("初传：未 太常 官鬼", 输出)
+            self.assertIn("中传：巳 太阴 妻财", 输出)
+            self.assertIn("末传：卯 贵人 子孙", 输出)
+        输出 = 运行("大六壬.py", "1128 07 16 17\n1\n2\n")
+        self.assertIn("癸亥日，小吉未将加酉时", 输出)
+        self.assertIn("昼贵巳", 输出)
+        self.assertIn("初传：未 太阴 官鬼", 输出)
+        self.assertIn("中传：巳 贵人 妻财", 输出)
+        self.assertIn("末传：卯 朱雀 子孙", 输出)
+
+    # 《六壬断案》元集宅墓第13案刘将仕，所引页误重第14案课图，依卷一异本辰申子三传核对 https://tianyugong.com/liurenduanan/ https://libokang.com/guji/liuren/六壬断案/
+    def test_刘将仕占宅(self):
+        输出 = 运行("大六壬.py", "1129 06 26 05\n1\n1\n")
+        self.assertIn("戊申日，小吉未将加卯时", 输出)
+        self.assertIn("初传：辰 玄武 兄弟", 输出)
+        self.assertIn("中传：申 青龙 子孙", 输出)
+        self.assertIn("末传：子 螣蛇 妻财", 输出)
+
+    # 《六壬断案》元集宅墓第14案何丞务，己酉年戊子日戌将唯一对应1129-04-07，可复盘但农历和通常节月均未解释原记“二月”，仅存待校例 https://shuyuan.zhiming.life/read/大六壬断案(亨集)/10
+    # def test_何丞务占宅(self):
+    #     输出 = 运行("大六壬.py", "1129 04 07 09\n1\n1\n")
+    #     self.assertIn("戊子日，河魁戌将加巳时", 输出)
+    #     self.assertIn("初传：巳 太常 父母", 输出)
+    #     self.assertIn("中传：戌 六合 兄弟", 输出)
+    #     self.assertIn("末传：卯 太阴 官鬼", 输出)
+
     # 《六壬断案》元集宅墓第15案任太公占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_任太公占宅(self):
-        输出 = 运行("大六壬.py", "1128 02 10 07\n1\n")
+        输出 = 运行("大六壬.py", "1128 02 10 07\n1\n1\n")
         self.assertIn("丙戌日，神后子将加辰时", 输出)
         self.assertIn("初传：酉 太阴 妻财", 输出)
         self.assertIn("中传：巳 天空 兄弟", 输出)
@@ -262,7 +309,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第16案王解元占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_王解元占宅(self):
-        输出 = 运行("大六壬.py", "1129 04 12 13\n1\n")
+        输出 = 运行("大六壬.py", "1129 04 12 13\n1\n1\n")
         self.assertIn("癸巳日，河魁戌将加未时", 输出)
         self.assertIn("初传：申 六合 父母", 输出)
         self.assertIn("中传：亥 天空 兄弟", 输出)
@@ -270,23 +317,47 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第17案何宣义占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_何宣义占宅(self):
-        输出 = 运行("大六壬.py", "1129 04 12 17\n1\n")
+        输出 = 运行("大六壬.py", "1129 04 12 17\n1\n1\n")
         self.assertIn("癸巳日，河魁戌将加酉时", 输出)
         self.assertIn("初传：未 勾陈 官鬼", 输出)
         self.assertIn("中传：申 青龙 父母", 输出)
         self.assertIn("末传：酉 天空 父母", 输出)
 
+    # 《六壬断案》元集宅墓第18案林丞务，辰时尚未交立秋，仍为六月节月；末传据六合本，另录作勾陈 https://shuyuan.zhiming.life/read/大六壬断案(亨集)/10 https://tianyugong.com/liurenduanan/
+    def test_林丞务占宅(self):
+        输出 = 运行("大六壬.py", "1129 08 08 07\n1\n1\n")
+        self.assertIn("辛卯日，胜光午将加辰时", 输出)
+        self.assertIn("初传：巳 天后 官鬼", 输出)
+        self.assertIn("中传：未 螣蛇 父母", 输出)
+        self.assertIn("末传：酉 六合 兄弟", 输出)
+
+    # 《六壬断案》元集宅墓第19案冯修职占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
+    def test_冯修职占宅(self):
+        输出 = 运行("大六壬.py", "1128 06 08 05\n1\n1\n")
+        self.assertIn("乙酉日，传送申将加卯时", 输出)
+        self.assertIn("初传：未 青龙 妻财", 输出)
+        self.assertIn("中传：子 贵人 父母", 输出)
+        self.assertIn("末传：巳 白虎 子孙", 输出)
+
     # 《六壬断案》元集宅墓第20案叶油饼店主占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_叶油饼店主占宅(self):
-        输出 = 运行("大六壬.py", "1128 07 21 17\n1\n")
+        输出 = 运行("大六壬.py", "1128 07 21 17\n1\n1\n")
         self.assertIn("戊辰日，小吉未将加酉时", 输出)
         self.assertIn("初传：丑 天空 兄弟", 输出)
         self.assertIn("中传：亥 太常 妻财", 输出)
         self.assertIn("末传：酉 太阴 子孙", 输出)
 
+    # 《六壬断案》元集宅墓第21案童秀才，所引页未记占时，可由戌将和乙上丑唯一反推丑时；另录已有丑时，仍依要求仅存注释例 https://tianyugong.com/liurenduanan/ https://gushu.net.cn/guji/易藏/术数/六壬断案-3.html
+    # def test_童秀才占宅(self):
+    #     输出 = 运行("大六壬.py", "1128 04 19 02\n1\n1\n")
+    #     self.assertIn("乙未日，河魁戌将加丑时", 输出)
+    #     self.assertIn("初传：丑 青龙 妻财", 输出)
+    #     self.assertIn("中传：戌 朱雀 妻财", 输出)
+    #     self.assertIn("末传：未 天后 妻财", 输出)
+
     # 《六壬断案》元集宅墓第22案何七秀才占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_何七秀才占宅(self):
-        输出 = 运行("大六壬.py", "1128 03 19 11\n1\n")
+        输出 = 运行("大六壬.py", "1128 03 19 11\n1\n1\n")
         self.assertIn("甲子日，登明亥将加午时", 输出)
         self.assertIn("初传：子 螣蛇 父母", 输出)
         self.assertIn("中传：巳 太常 子孙", 输出)
@@ -294,23 +365,27 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第23案某占家宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_某占家宅(self):
-        输出 = 运行("大六壬.py", "1128 10 05 21\n1\n")
+        输出 = 运行("大六壬.py", "1128 10 05 21\n1\n1\n")
         self.assertIn("甲申日，天罡辰将加亥时", 输出)
         self.assertIn("初传：子 青龙 父母", 输出)
         self.assertIn("中传：巳 太阴 子孙", 输出)
         self.assertIn("末传：戌 六合 妻财", 输出)
 
+    # 《六壬断案》元集宅墓第24案郁氏女，完整录文为申将戌时，简录作申时；丙辰年五月初八与丁亥纪日仍不合，暂不能定公历输入 https://gushu.net.cn/guji/易藏/术数/六壬断案-3.html https://tianyugong.com/liurenduanan/
+
     # 《六壬断案》元集宅墓第25案邵三公占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_邵三公占宅(self):
-        输出 = 运行("大六壬.py", "1129 01 31 00\n1\n")
+        输出 = 运行("大六壬.py", "1129 01 31 00\n1\n1\n")
         self.assertIn("壬午日，神后子将加子时", 输出)
         self.assertIn("初传：亥 太常 兄弟", 输出)
         self.assertIn("中传：午 六合 妻财", 输出)
         self.assertIn("末传：子 玄武 兄弟", 输出)
 
+    # 《六壬断案》元集宅墓第26案江文老只记七月十五丁酉日，未载占年，无法唯一定位公历日期 https://tianyugong.com/liurenduanan/
+
     # 《六壬断案》元集宅墓第27案徐大夫占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1128
     def test_徐大夫占宅(self):
-        输出 = 运行("大六壬.py", "1128 02 10 13\n1\n")
+        输出 = 运行("大六壬.py", "1128 02 10 13\n1\n1\n")
         self.assertIn("丙戌日，神后子将加未时", 输出)
         self.assertIn("初传：申 六合 妻财", 输出)
         self.assertIn("中传：丑 太阴 子孙", 输出)
@@ -318,16 +393,56 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》元集宅墓第28案郭德占家宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_郭德占家宅(self):
-        输出 = 运行("大六壬.py", "1129 07 02 11\n1\n")
+        输出 = 运行("大六壬.py", "1129 07 02 11\n1\n1\n")
         self.assertIn("甲寅日，小吉未将加午时", 输出)
         self.assertIn("初传：辰 六合 妻财", 输出)
         self.assertIn("中传：巳 勾陈 子孙", 输出)
         self.assertIn("末传：午 青龙 子孙", 输出)
 
+    # 《六壬断案》元集宅墓第29案叶助教占家宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
+    def test_叶助教占家宅(self):
+        输出 = 运行("大六壬.py", "1129 03 03 11\n1\n1\n")
+        self.assertIn("癸丑日，登明亥将加午时", 输出)
+        self.assertIn("初传：午 螣蛇 妻财", 输出)
+        self.assertIn("中传：亥 天空 兄弟", 输出)
+        self.assertIn("末传：辰 天后 官鬼", 输出)
+
     # 《六壬断案》元集宅墓第30案童三十四公占宅 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
     def test_童三十四公占宅(self):
-        输出 = 运行("大六壬.py", "1129 08 25 05\n1\n")
+        输出 = 运行("大六壬.py", "1129 08 25 05\n1\n1\n")
         self.assertIn("戊申日，太乙巳将加卯时", 输出)
         self.assertIn("初传：子 天后 妻财", 输出)
         self.assertIn("中传：寅 螣蛇 官鬼", 输出)
         self.assertIn("末传：辰 六合 兄弟", 输出)
+
+    # 《六壬断案》元集汪四六公案，所引页误作壬辰，依课图午支及异本壬午日核对 https://tianyugong.com/liurenduanan/ https://shuyuan.zhiming.life/read/大六壬断案(亨集)/12
+    def test_汪四六公占宅(self):
+        输出 = 运行("大六壬.py", "1129 09 28 15\n1\n1\n")
+        self.assertIn("壬午日，天罡辰将加申时", 输出)
+        self.assertIn("初传：戌 白虎 官鬼", 输出)
+        self.assertIn("中传：午 天后 妻财", 输出)
+        self.assertIn("末传：寅 六合 子孙", 输出)
+
+    # 《六壬断案》元集伊伯廷案写己酉年丙午日卯将，但1129年丙午日均不在卯将期间；1128年有同盘，年号待校 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集某占家宅仅记正月丁卯日，未记占年，不能唯一换算公历日期 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集“时生己酉年四十三岁二月朔占”未明记占年和占日干支，无法唯一定位 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集某占宅仅记癸酉日巳将申时，未记占年，不能唯一换算公历日期 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集另一某占家宅仅记正月己巳日午将酉时，未记占年，不能唯一换算公历日期 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集郑三公案己酉年正月二十三壬寅日应在雨水后用亥将，原文却作子将，待校 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集徐承务案原记己酉九月癸卯辰将；可复盘日期属闰八月，且卯时天将起例不合，待校 https://tianyugong.com/liurenduanan/
+
+    # 《六壬断案》元集刘秘教占宅，六月初一戊申日与第13案同日，课图可独立复盘 https://tianyugong.com/liurenduanan/ https://hhl.cnkgraph.com/Calendar/1129
+    def test_刘秘教占宅(self):
+        输出 = 运行("大六壬.py", "1129 06 26 17\n1\n1\n")
+        self.assertIn("戊申日，小吉未将加酉时", 输出)
+        self.assertIn("初传：丑 天空 兄弟", 输出)
+        self.assertIn("中传：亥 太常 妻财", 输出)
+        self.assertIn("末传：酉 太阴 子孙", 输出)
+
+    # 《六壬断案》元集郭仲起案写己酉年六月甲寅日寅将，但该月甲寅日应未将，年或月将待校 https://tianyugong.com/liurenduanan/
