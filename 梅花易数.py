@@ -19,7 +19,7 @@ def reverse6(n: int) -> int:
 
 
 取数: str = str(
-    input("输入2个自然数，用空格分隔；\n或直接回车以公历时刻起卦：")
+    input("输入上卦、下卦两个自然数；加时取动爻可再输入时数（子1至亥12），用空格分隔；\n或直接回车以公历时刻起卦：")
 )
 
 if len(取数) == 0:
@@ -36,12 +36,12 @@ if len(取数) == 0:
     )
 elif (
     (数 := tuple(map(int, 取数.split())))
-    and len(数) == 2
+    and (len(数) == 2 or len(数) == 3 and 1 <= 数[2] <= 12)
     and all(_ >= 0 for _ in 数)
 ):
     上卦, 下卦, 动爻 = (8 - 数[0] % 8) % 8, (8 - 数[1] % 8) % 8, sum(数) % 6 or 6
 else:
-    raise ValueError("输入应当为空或两个自然数")
+    raise ValueError("输入应当为空或两个自然数，可再加1～12的时数")
 
 print(六十四卦[下卦 << 3 | 上卦], end="\n\t")
 print(
