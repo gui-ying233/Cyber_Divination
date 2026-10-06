@@ -1,0 +1,3 @@
+class ShouXingUtil:
+    @staticmethod
+    def calcQi(jd: float) -> int: ...

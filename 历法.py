@@ -1,5 +1,7 @@
 from datetime import date, datetime, timedelta, timezone
+from fractions import Fraction
 from vendor.lunar_python.lunar_python import Solar
+from vendor.lunar_python.lunar_python.util import ShouXingUtil
 
 天干 = "甲乙丙丁戊己庚辛壬癸"
 地支 = "子丑寅卯辰巳午未申酉戌亥"
@@ -34,10 +36,40 @@ def 时支(时刻: datetime) -> str:
     return 地支[(时刻.hour + 1) // 2 % 12]
 
 
-def 月将(时刻: datetime) -> str:
+def 历书中气(时刻: datetime) -> list[tuple[float, str]]:
+    已过: list[tuple[float, str]] = []
+    for 年 in (时刻.year, 时刻.year + 1):
+        if 1106 <= 时刻.year < 1136:
+            天, 余 = divmod((28613460 + 年 - 1100) * 2662626 % 437400, 7290)
+            日期 = date(年 - 1, 12, 1)
+            日期 += timedelta(days=((15 + 天) - (日期.toordinal() + 14)) % 60)
+            冬至 = Fraction(2 * 日期.toordinal() + 3442849, 2) + Fraction(余, 7290)
+            气策 = 15 + Fraction(6371, 29160)
+        elif 1384 <= 时刻.year < 1645:
+            冬至 = Fraction("2226545.5375") + (年 - 1384) * Fraction("365.2425")
+            气策 = Fraction("365.2425") / 24
+        else:
+            return []
+        已过.extend((float(冬至 + 2 * 序 * 气策), 支) for 序, 支 in enumerate("丑子亥戌酉申未午巳辰卯寅"))
+    return 已过
+
+
+def 月将(时刻: datetime, 古历: bool = False) -> str:
     儒略 = 儒略日(时刻)
+    if 古历:
+        中气 = 历书中气(时刻)
+        if 中气:
+            return max((气日, 支) for 气日, 支 in 中气 if 气日 <= 儒略)[1]
     历 = Solar.fromJulianDay(儒略).getLunar()
-    已过 = [(节气.getJulianDay(), 中气月将[名称]) for 名称, 节气 in 历.getJieQiTable().items() if 名称 in 中气月将 and 节气.getJulianDay() <= 儒略]
+    已过: list[tuple[float, str]] = []
+    for 名称, 节气 in 历.getJieQiTable().items():
+        if 名称 not in 中气月将:
+            continue
+        气日 = 节气.getJulianDay()
+        if 古历:
+            气日 = ShouXingUtil.calcQi(气日 - 2451545) + 2451544.5
+        if 气日 <= 儒略:
+            已过.append((气日, 中气月将[名称]))
     if not 已过:
         raise ValueError("无法计算该时刻的月将")
     return max(已过)[1]
