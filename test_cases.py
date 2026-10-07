@@ -28,6 +28,48 @@ class 古籍占例(unittest.TestCase):
 
     # 郭雍《郭氏传家易说》卷七列一挂再扐及爻数，未记十八次实占分策 https://zh.wikisource.org/wiki/郭氏傳家易說_(四庫全書本)/卷07
 
+    # 《左传》庄公二十二年陈侯筮敬仲，宋刊注疏第五册第25–28页记观之否、六四变；爻值依原卦和动爻换算 https://upload.wikimedia.org/wikipedia/commons/a/a9/NLC892-412004000069-405179_附釋音春秋左傳注疏_六十卷_劉叔剛宋刻本_第5冊.pdf#page=25
+    def test_陈侯筮敬仲(self):
+        输出 = 运行("六爻纳甲.py", "8 8 8 6 7 7\n\n")
+        self.assertIn("主卦：䷓ 风地观", 输出)
+        self.assertIn("变卦：䷋ 天地否", 输出)
+        self.assertRegex(输出, r"(?m)^四爻 .*⚋ ×")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
+
+    # 《左传》闵公元年毕万筮仕于晋，宋刊注疏第六册第4–5页记屯之比、初九变；爻值依原卦和动爻换算 https://upload.wikimedia.org/wikipedia/commons/0/0b/NLC892-412004000069-405185_附釋音春秋左傳注疏_六十卷_劉叔剛宋刻本_第6冊.pdf#page=4
+    def test_毕万筮仕于晋(self):
+        输出 = 运行("六爻纳甲.py", "9 8 8 8 7 8\n\n")
+        self.assertIn("主卦：䷂ 水雷屯", 输出)
+        self.assertIn("变卦：䷇ 水地比", 输出)
+        self.assertRegex(输出, r"(?m)^初爻 .*⚊ ○")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["初"])
+
+    # 《周易筮述》卷八京都1793本第263幅，英宗北狩问筮得乾之复，独初爻不变；爻值依原卦和动爻换算 http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/L/A0290263.jpg
+    def test_英宗北狩问筮(self):
+        输出 = 运行("六爻纳甲.py", "7 9 9 9 9 9\n\n")
+        self.assertIn("主卦：䷀ 乾为天", 输出)
+        self.assertIn("变卦：䷗ 地雷复", 输出)
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["上", "五", "四", "三", "二"])
+        self.assertNotIn("×", 输出)
+
+    # 《周易筮述》卷八第264幅原记元仁宗筮遇乾三爻变之睽，乾至睽实际第三、第五两爻变化 http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/L/A0290264.jpg
+
+    # 《周易筮述》卷八京都1793本第264幅，托赵辅和筮父病遇乾四爻变之晋；爻值依原卦和动爻换算 http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/L/A0290264.jpg
+    def test_赵辅和代占父病(self):
+        输出 = 运行("六爻纳甲.py", "9 9 9 7 9 7\n\n")
+        self.assertIn("主卦：䷀ 乾为天", 输出)
+        self.assertIn("变卦：䷢ 火地晋", 输出)
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["五", "三", "二", "初"])
+        self.assertNotIn("×", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第95–96页，大浦难船案记筮得涣之讼、六四；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/95
+    def test_高岛占大浦难船(self):
+        输出 = 运行("六爻纳甲.py", "8 7 8 6 7 7\n\n")
+        self.assertIn("主卦：䷺ 风水涣", 输出)
+        self.assertIn("变卦：䷅ 天水讼", 输出)
+        self.assertRegex(输出, r"(?m)^四爻 .*⚋ ×")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
+
     # 《梅花易数》卷一“观梅占”仅记辰年，缺具体纪年 https://zh.wikisource.org/wiki/梅花易數/卷一#觀梅占 https://jsg.aks.ac.kr/data/serviceFiles/pdf/K3-430_001.pdf#page=22
 
     # 《梅花易数》卷一“牡丹占”仅记巳年，缺具体纪年 https://zh.wikisource.org/wiki/梅花易數/卷一#牡丹占 https://jsg.aks.ac.kr/data/serviceFiles/pdf/K3-430_001.pdf#page=24
