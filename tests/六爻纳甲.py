@@ -51,7 +51,39 @@ class 古籍占例(unittest.TestCase):
         self.assertRegex(输出, r"(?m)^四爻 .*⚋ ×")
         self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
 
-    # 《增删卜易》辰月戊申占父病，原文未记公历年；爻值按所载爻画及占卦法换算 https://zh.wikisource.org/wiki/增刪卜易/9 https://www.shidianguji.com/book/XYXZSBY/chapter/1laba3s8ovar2
+    # 《增删卜易》占卦法假设例，秦慎安校勘本PDF第22–24页记六次背数1、2、3、0、3、2及水火既济；爻值依占卦法换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=23
+
+    def test_占卦法既济例(self):
+        输出 = 运行("六爻纳甲.py", "7 8 9 6 9 8\n\n")
+        self.assertIn("主卦：䷾ 水火既济", 输出)
+        self.assertRegex(输出, r"(?m)^三爻 .*⚊ ○")
+        self.assertRegex(输出, r"(?m)^四爻 .*⚋ ×")
+        self.assertRegex(输出, r"(?m)^五爻 .*⚊ ○")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["五", "四", "三"])
+
+    # 《增删卜易》占卦法再排一卦假设例，秦慎安校勘本PDF第24页记六次背数2、3、2、1、0、1及火水未济；爻值依占卦法换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=24
+
+    def test_占卦法未济例(self):
+        输出 = 运行("六爻纳甲.py", "8 9 8 7 6 7\n\n")
+        self.assertIn("主卦：䷿ 火水未济", 输出)
+        self.assertRegex(输出, r"(?m)^二爻 .*⚊ ○")
+        self.assertRegex(输出, r"(?m)^五爻 .*⚋ ×")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["五", "二"])
+
+    # 《增删卜易》用神章乾卦假设例，秦慎安校勘本PDF第38页原六爻皆静，爻值依爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=38
+
+    def test_用神章乾卦例(self):
+        输出 = 运行("六爻纳甲.py", "7 7 7 7 7 7\n\n")
+        self.assertIn("主卦：䷀ 乾为天（乾宫，属金，世6应3）", 输出)
+        self.assertIn("变卦：䷀ 乾为天（乾宫），无动爻", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 父母 .戌 ⚊ +世$")
+        self.assertRegex(输出, r"(?m)^五爻 兄弟 .申 ⚊")
+        self.assertRegex(输出, r"(?m)^四爻 官鬼 .午 ⚊")
+        self.assertRegex(输出, r"(?m)^三爻 父母 .辰 ⚊ +应$")
+        self.assertRegex(输出, r"(?m)^二爻 妻财 .寅 ⚊")
+        self.assertRegex(输出, r"(?m)^初爻 子孙 .子 ⚊")
+
+    # 《增删卜易》第9章“辰月戊申日占父近病”，秦慎安校勘本PDF第50–51页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=50
 
     def test_辰月戊申占父病(self):
         纳甲 = 运行("六爻纳甲.py", "7 7 7 9 7 7\n\n")
@@ -69,7 +101,37 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("四爻 父母 戊申 ⚋ ×", 纳甲)
         self.assertIn("→ 兄弟 丁亥", 纳甲)
 
-    # 《增删卜易》第十四、十五章以“假令”讲解例式，未记具体实占 https://zh.wikisource.org/wiki/增刪卜易/14 https://zh.wikisource.org/wiki/增刪卜易/15
+    # 《增删卜易》第14章“假令春天寅卯月占得坤卦”假设例，秦慎安校勘本PDF第57页；爻值依原静爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=57
+
+    def test_春天寅卯月坤卦例(self):
+        输出 = 运行("六爻纳甲.py", "8 8 8 8 8 8\n\n")
+        self.assertIn("主卦：䷁ 坤为地（坤宫，属土，世6应3）", 输出)
+        self.assertIn("变卦：䷁ 坤为地（坤宫），无动爻", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 子孙 .酉 ⚋ +世$")
+        self.assertRegex(输出, r"(?m)^五爻 妻财 .亥 ⚋")
+        self.assertRegex(输出, r"(?m)^四爻 兄弟 .丑 ⚋")
+        self.assertRegex(输出, r"(?m)^三爻 官鬼 .卯 ⚋ +应$")
+        self.assertRegex(输出, r"(?m)^二爻 父母 .巳 ⚋")
+        self.assertRegex(输出, r"(?m)^初爻 兄弟 .未 ⚋")
+
+    # 《增删卜易》第14章“假令寅月占得兑卦变归妹”假设例，秦慎安校勘本PDF第58页；爻值依原五爻动爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=58
+
+    def test_寅月兑之归妹例(self):
+        输出 = 运行("六爻纳甲.py", "7 7 8 7 9 8\n\n")
+        self.assertIn("主卦：䷹ 兑为泽（兑宫，属金，世6应3）", 输出)
+        self.assertIn("变卦：䷵ 雷泽归妹", 输出)
+        self.assertRegex(输出, r"(?m)^五爻 兄弟 .酉 ⚊ ○ +→ 兄弟 .申$")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["五"])
+
+    # 《增删卜易》第15章“假令子月卯日占得坤卦变火地晋”假设例，秦慎安校勘本PDF第58–59页；爻值依原四、上爻动爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=58
+
+    def test_子月卯日坤之晋例(self):
+        输出 = 运行("六爻纳甲.py", "8 8 8 6 8 6\n\n")
+        self.assertIn("主卦：䷁ 坤为地（坤宫，属土，世6应3）", 输出)
+        self.assertIn("变卦：䷢ 火地晋", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 子孙 .酉 ⚋ × 世 → 父母 .巳$")
+        self.assertRegex(输出, r"(?m)^四爻 兄弟 .丑 ⚋ × +→ 子孙 .酉$")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["上", "四"])
 
     # 《增删卜易》第16章“寅月庚戌占求财”，秦慎安校勘本PDF第62页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=62
 
@@ -151,28 +213,28 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("上爻 兄弟 丁未 ⚋ ×", 纳甲)
         self.assertIn("→ 兄弟 壬戌", 纳甲)
 
-    # 《增删卜易》第十九章“申月丙子日占出门” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“申月丙子日占得出行”，秦慎安校勘本PDF第75页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=75
 
     def test_申月丙子占出门(self):
         纳甲 = 运行("六爻纳甲.py", "9 8 7 6 8 8\n\n")
         self.assertIn("主卦：䷣ 地火明夷（坎宫，属水，世4应1）", 纳甲)
         self.assertIn("变卦：䷽ 雷山小过", 纳甲)
 
-    # 《增删卜易》第十九章“未月丁巳日占悔婚” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“未月丁巳日占已悔婚还可成否”，秦慎安校勘本PDF第75–76页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=75
 
     def test_未月丁巳占悔婚(self):
         纳甲 = 运行("六爻纳甲.py", "9 8 7 7 8 7\n\n")
         self.assertIn("主卦：䷝ 离为火（离宫，属火，世6应3）", 纳甲)
         self.assertIn("变卦：䷷ 火山旅", 纳甲)
 
-    # 《增删卜易》第十九章“卯月甲寅日占风水” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“卯月甲寅日占风水”，秦慎安校勘本PDF第77页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=77
 
     def test_卯月甲寅占风水(self):
         纳甲 = 运行("六爻纳甲.py", "6 7 8 9 7 8\n\n")
         self.assertIn("主卦：䷮ 泽水困（兑宫，属金，世1应4）", 纳甲)
         self.assertIn("变卦：䷻ 水泽节", 纳甲)
 
-    # 《增删卜易》第十九章“卯月丁巳日争田水” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“卯月丁巳日上下两村因争用水殴打”，秦慎安校勘本PDF第79页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=79
 
     def test_卯月丁巳争田水(self):
         纳甲 = 运行("六爻纳甲.py", "9 8 9 9 8 9\n\n")
@@ -1460,4 +1522,4 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三爻 妻财 乙卯 ⚋ ×", 纳甲)
         self.assertIn("→ 兄弟 丙申", 纳甲)
 
-    # 《升庵先生文集》卷七十五“六神”仅论起例，未载实占；万历刻本第7页为戊己共起勾陈、壬起螣蛇，录文己误为巳 https://upload.wikimedia.org/wikipedia/commons/9/98/Harvard_drs_51546102_%E5%8D%87%E8%8F%B4%E5%85%88%E7%94%9F%E6%96%87%E9%9B%86_v.22.pdf#page=7
+    # 《升庵先生文集》卷七十五“六神”仅论起例，未载实占；万历刻本第7页为戊己共起勾陈、壬起螣蛇 https://upload.wikimedia.org/wikipedia/commons/9/98/Harvard_drs_51546102_%E5%8D%87%E8%8F%B4%E5%85%88%E7%94%9F%E6%96%87%E9%9B%86_v.22.pdf#page=7

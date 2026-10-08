@@ -4,7 +4,41 @@ from . import 运行
 
 
 class 古籍占例(unittest.TestCase):
-    # 《增删卜易》辰月戊申占父病，原文未记公历年；背数按所载爻画及占卦法换算 https://zh.wikisource.org/wiki/增刪卜易/9 https://www.shidianguji.com/book/XYXZSBY/chapter/1laba3s8ovar2
+    # 《增删卜易》占卦法假设例，秦慎安校勘本PDF第22–24页记六次背数1、2、3、0、3、2及水火既济 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=23
+
+    def test_占卦法既济例(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 3 0 3 2\n")
+        self.assertIn("本卦：䷾ 水火既济", 输出)
+        self.assertIn("动爻：三爻、四爻、五爻", 输出)
+        self.assertIn("初爻：1背，7，单（少阳） ⚊", 输出)
+        self.assertIn("二爻：2背，8，拆（少阴） ⚋", 输出)
+        self.assertIn("三爻：3背，9，重（老阳） ⚊ ○", 输出)
+        self.assertIn("四爻：0背，6，交（老阴） ⚋ ×", 输出)
+        self.assertIn("五爻：3背，9，重（老阳） ⚊ ○", 输出)
+        self.assertIn("上爻：2背，8，拆（少阴） ⚋", 输出)
+
+    # 《增删卜易》占卦法再排一卦假设例，秦慎安校勘本PDF第24页记六次背数2、3、2、1、0、1及火水未济 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=24
+
+    def test_占卦法未济例(self):
+        输出 = 运行("金钱卦.py", "1\n2 3 2 1 0 1\n")
+        self.assertIn("本卦：䷿ 火水未济", 输出)
+        self.assertIn("动爻：二爻、五爻", 输出)
+        self.assertIn("初爻：2背，8，拆（少阴） ⚋", 输出)
+        self.assertIn("二爻：3背，9，重（老阳） ⚊ ○", 输出)
+        self.assertIn("三爻：2背，8，拆（少阴） ⚋", 输出)
+        self.assertIn("四爻：1背，7，单（少阳） ⚊", 输出)
+        self.assertIn("五爻：0背，6，交（老阴） ⚋ ×", 输出)
+        self.assertIn("上爻：1背，7，单（少阳） ⚊", 输出)
+
+    # 《增删卜易》用神章乾卦假设例，秦慎安校勘本PDF第38页原六爻皆静，背数依爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=38
+
+    def test_用神章乾卦例(self):
+        输出 = 运行("金钱卦.py", "1\n1 1 1 1 1 1\n")
+        self.assertIn("本卦：䷀ 乾为天", 输出)
+        self.assertIn("动爻：无", 输出)
+        self.assertIn("变卦：无（静卦）", 输出)
+
+    # 《增删卜易》第9章“辰月戊申日占父近病”，秦慎安校勘本PDF第50–51页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=50
 
     def test_辰月戊申占父病(self):
         钱卦 = 运行("金钱卦.py", "1\n1 1 1 3 1 1\n")
@@ -12,15 +46,15 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：四爻", 钱卦)
         self.assertIn("变卦：䷈ 风天小畜", 钱卦)
 
-    # 《增删卜易》第十章“酉月辛亥日占求财” https://zh.wikisource.org/wiki/增刪卜易/10
+    # 《增删卜易》元神忌神衰旺章第十“酉月辛卯日占谒贵求财”，秦慎安校勘本PDF第52页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=52
 
-    def test_酉月辛亥占求财(self):
+    def test_酉月辛卯占谒贵求财(self):
         输出 = 运行("金钱卦.py", "1\n3 1 2 1 3 2\n")
         self.assertIn("本卦：䷹ 兑为泽", 输出)
         self.assertIn("动爻：初爻、五爻", 输出)
         self.assertIn("变卦：䷧ 雷水解", 输出)
 
-    # 《增删卜易》第十章“巳月乙未日自占病” https://zh.wikisource.org/wiki/增刪卜易/10
+    # 《增删卜易》第10章“巳月乙未日自占病”，秦慎安校勘本PDF第54页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=54
 
     def test_巳月乙未自占病(self):
         输出 = 运行("金钱卦.py", "1\n2 1 1 1 3 0\n")
@@ -28,7 +62,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：五爻、上爻", 输出)
         self.assertIn("变卦：䷱ 火风鼎", 输出)
 
-    # 《增删卜易》第十一章“卯月己卯日弟占兄重罪” https://zh.wikisource.org/wiki/增刪卜易/11
+    # 《增删卜易》第11章“卯月己卯日弟占兄重罪”，秦慎安校勘本PDF第54–55页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=54
 
     def test_卯月己卯占兄重罪(self):
         输出 = 运行("金钱卦.py", "1\n1 2 2 0 2 2\n")
@@ -36,7 +70,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：四爻", 输出)
         self.assertIn("变卦：䷲ 震为雷", 输出)
 
-    # 《增删卜易》第十二章“卯月戊寅日占父官事” https://zh.wikisource.org/wiki/增刪卜易/12
+    # 《增删卜易》第12章“卯月戊寅日占父官事”，秦慎安校勘本PDF第55页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=55
 
     def test_卯月戊寅占父官事(self):
         输出 = 运行("金钱卦.py", "1\n0 2 0 1 1 0\n")
@@ -44,7 +78,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：初爻、三爻、上爻", 输出)
         self.assertIn("变卦：䷌ 天火同人", 输出)
 
-    # 《增删卜易》第十二章“卯月戊寅日妹占兄官事” https://zh.wikisource.org/wiki/增刪卜易/12
+    # 《增删卜易》第12章“同日妹占兄官事”，秦慎安校勘本PDF第55–56页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=56
 
     def test_卯月戊寅妹占兄官事(self):
         输出 = 运行("金钱卦.py", "1\n2 0 2 1 1 1\n")
@@ -60,7 +94,29 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：四爻", 钱卦)
         self.assertIn("变卦：䷰ 泽火革", 钱卦)
 
-    # 《增删卜易》第十四、十五章以“假令”讲解例式，未记具体实占 https://zh.wikisource.org/wiki/增刪卜易/14 https://zh.wikisource.org/wiki/增刪卜易/15
+    # 《增删卜易》第14章“假令春天寅卯月占得坤卦”假设例，秦慎安校勘本PDF第57页；背数依原静爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=57
+
+    def test_春天寅卯月坤卦例(self):
+        输出 = 运行("金钱卦.py", "1\n2 2 2 2 2 2\n")
+        self.assertIn("本卦：䷁ 坤为地", 输出)
+        self.assertIn("动爻：无", 输出)
+        self.assertIn("变卦：无（静卦）", 输出)
+
+    # 《增删卜易》第14章“假令寅月占得兑卦变归妹”假设例，秦慎安校勘本PDF第58页；背数依原五爻动爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=58
+
+    def test_寅月兑之归妹例(self):
+        输出 = 运行("金钱卦.py", "1\n1 1 2 1 3 2\n")
+        self.assertIn("本卦：䷹ 兑为泽", 输出)
+        self.assertIn("动爻：五爻", 输出)
+        self.assertIn("变卦：䷵ 雷泽归妹", 输出)
+
+    # 《增删卜易》第15章“假令子月卯日占得坤卦变火地晋”假设例，秦慎安校勘本PDF第58–59页；背数依原四、上爻动爻画换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=58
+
+    def test_子月卯日坤之晋例(self):
+        输出 = 运行("金钱卦.py", "1\n2 2 2 0 2 0\n")
+        self.assertIn("本卦：䷁ 坤为地", 输出)
+        self.assertIn("动爻：四爻、上爻", 输出)
+        self.assertIn("变卦：䷢ 火地晋", 输出)
 
     # 《增删卜易》第16章“寅月庚戌占求财”，秦慎安校勘本PDF第62页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=62
 
@@ -126,7 +182,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：三爻、上爻", 钱卦)
         self.assertIn("变卦：䷉ 天泽履", 钱卦)
 
-    # 《增删卜易》第十八章戊子占生产，扫描初爻勾陈、二爻螣蛇，录文互倒；无占年不伪造日期校六神 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=72 https://zh.wikisource.org/wiki/增刪卜易/18
+    # 《增删卜易》第十八章戊子占生产，秦慎安校勘本PDF第72页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=72
 
     def test_戊子日占生产(self):
         输出 = 运行("金钱卦.py", "1\n2 2 2 2 0 1\n")
@@ -134,7 +190,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：五爻", 输出)
         self.assertIn("变卦：䷓ 风地观", 输出)
 
-    # 《增删卜易》第十八章“申月甲辰日占兄病” https://zh.wikisource.org/wiki/增刪卜易/18
+    # 《增删卜易》第18章“申月甲辰日占兄病”，秦慎安校勘本PDF第72–73页原载屯之震与土申两动，背数据本变换算；五爻动符与变栏不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=73
 
     def test_申月甲辰占兄病(self):
         输出 = 运行("金钱卦.py", "1\n1 2 2 0 3 2\n")
@@ -142,7 +198,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：四爻、五爻", 输出)
         self.assertIn("变卦：䷲ 震为雷", 输出)
 
-    # 《增删卜易》第十九章“申月丙子日占出门” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“申月丙子日占得出行”，秦慎安校勘本PDF第75页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=75
 
     def test_申月丙子占出门(self):
         钱卦 = 运行("金钱卦.py", "1\n3 2 1 0 2 2\n")
@@ -150,7 +206,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：初爻、四爻", 钱卦)
         self.assertIn("变卦：䷽ 雷山小过", 钱卦)
 
-    # 《增删卜易》第十九章“未月丁巳日占悔婚” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“未月丁巳日占已悔婚还可成否”，秦慎安校勘本PDF第75–76页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=75
 
     def test_未月丁巳占悔婚(self):
         钱卦 = 运行("金钱卦.py", "1\n3 2 1 1 2 1\n")
@@ -158,7 +214,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：初爻", 钱卦)
         self.assertIn("变卦：䷷ 火山旅", 钱卦)
 
-    # 《增删卜易》第十九章“卯月甲寅日占风水” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“卯月甲寅日占风水”，秦慎安校勘本PDF第77页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=77
 
     def test_卯月甲寅占风水(self):
         钱卦 = 运行("金钱卦.py", "1\n0 1 2 3 1 2\n")
@@ -166,7 +222,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：初爻、四爻", 钱卦)
         self.assertIn("变卦：䷻ 水泽节", 钱卦)
 
-    # 《增删卜易》第十九章“卯月丁巳日争田水” https://zh.wikisource.org/wiki/增刪卜易/19
+    # 《增删卜易》第19章“卯月丁巳日上下两村因争用水殴打”，秦慎安校勘本PDF第79页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=79
 
     def test_卯月丁巳争田水(self):
         钱卦 = 运行("金钱卦.py", "1\n3 2 3 3 2 3\n")
@@ -174,7 +230,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：初爻、三爻、四爻、上爻", 钱卦)
         self.assertIn("变卦：䷁ 坤为地", 钱卦)
 
-    # 《增删卜易》第二十章“巳月戊戌日占财” https://zh.wikisource.org/wiki/增刪卜易/20
+    # 《增删卜易》第20章“巳月戊戌日占财”，秦慎安校勘本PDF第80–81页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=80
 
     def test_巳月戊戌占财(self):
         输出 = 运行("金钱卦.py", "1\n1 2 2 2 1 1\n")
@@ -182,7 +238,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：无", 输出)
         self.assertIn("变卦：无（静卦）", 输出)
 
-    # 《增删卜易》第二十章“午月丙辰日经商” https://zh.wikisource.org/wiki/增刪卜易/20
+    # 《增删卜易》第20章“午月丙辰日占出外贸易财喜”，秦慎安校勘本PDF第81页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=81
 
     def test_午月丙辰经商(self):
         输出 = 运行("金钱卦.py", "1\n2 3 3 1 2 2\n")
@@ -190,7 +246,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：二爻、三爻", 输出)
         self.assertIn("变卦：䷏ 雷地豫", 输出)
 
-    # 《增删卜易》第二十章“酉月乙未日占子” https://zh.wikisource.org/wiki/增刪卜易/20
+    # 《增删卜易》第20章“酉月乙未日占子久出不归”，秦慎安校勘本PDF第81–82页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=81
 
     def test_酉月乙未占子(self):
         输出 = 运行("金钱卦.py", "1\n2 2 2 2 2 2\n")
@@ -198,7 +254,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：无", 输出)
         self.assertIn("变卦：无（静卦）", 输出)
 
-    # 《增删卜易》第二十章“巳月甲寅日严师训子” https://zh.wikisource.org/wiki/增刪卜易/20
+    # 《增删卜易》第20章“巳月甲寅日占延师训子”，秦慎安校勘本PDF第82页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=82
 
     def test_巳月甲寅严师训子(self):
         输出 = 运行("金钱卦.py", "1\n0 0 0 1 1 1\n")
@@ -206,9 +262,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：初爻、二爻、三爻", 输出)
         self.assertIn("变卦：䷀ 乾为天", 输出)
 
-    # 《增删卜易》第二十章“申月己卯日父子七人” https://zh.wikisource.org/wiki/增刪卜易/20
+    # 《增删卜易》第20章“申月乙卯日父子七人”，秦慎安校勘本PDF第82–83页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=82
 
-    def test_申月己卯父子七人(self):
+    def test_申月乙卯父子七人(self):
         输出 = 运行("金钱卦.py", "1\n2 3 3 2 3 3\n")
         self.assertIn("本卦：䷸ 巽为风", 输出)
         self.assertIn("动爻：二爻、三爻、五爻、上爻", 输出)
@@ -1190,4 +1246,4 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：三爻、上爻", 钱卦)
         self.assertIn("变卦：䷠ 天山遁", 钱卦)
 
-    # 《祛疑说·易占说》只记投钱规则和制器法，未记六次实掷钱数及所得实占卦，反旧法暂无可复现历史案例 https://zh.wikisource.org/zh-hans/祛疑説#易占說
+    # 《祛疑说·易占说》国图藏刻本PDF第1～2页载面背及木丸规则，未记六次钱数和所得卦 https://upload.wikimedia.org/wikipedia/commons/5/53/NCL-07324_%E7%A5%9B%E7%96%91%E8%AA%AA.pdf#page=1
