@@ -15,7 +15,50 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           submodules: true
+          fetch-depth: 0
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.14'
-      - run: python -S -B -m unittest -v test_cases
+      - run: |
+          python -S -B - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          names = ("大六壬", "太乙", "小六壬", "梅花易数", "蓍草筮法", "金钱卦", "六爻纳甲")
+          mapping = {
+              path: f"tests.{name}"
+              for name in names
+              for path in (f"{name}.py", f"tests/{name}.py")
+          }
+          modules = {"tests"}
+          try:
+              event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+              if os.environ["GITHUB_EVENT_NAME"] == "pull_request":
+                  base = event["pull_request"]["base"]["sha"]
+                  head = event["pull_request"]["head"]["sha"]
+              else:
+                  base = event["before"]
+                  head = os.environ["GITHUB_SHA"]
+              if not base or not head or set(base) == {"0"} or set(head) == {"0"}:
+                  raise ValueError("没有可用的提交比较基准")
+              if os.environ["GITHUB_EVENT_NAME"] == "pull_request":
+                  base = subprocess.check_output(["git", "merge-base", base, head], text=True).strip()
+              paths = subprocess.check_output([
+                  "git", "diff", "--name-only", "-z", "--no-renames", base, head, "--"
+              ])
+              changed = {path.decode("utf-8", "surrogateescape") for path in paths.split(b"\0") if path}
+              if changed and changed <= {"README.md"}:
+                  print("仅 README.md 修改，无需运行测试。", flush=True)
+                  sys.exit(0)
+              if changed and all(path in mapping or path == "README.md" for path in changed):
+                  selected = {mapping[path] for path in changed if path in mapping}
+                  if all(Path(module.replace(".", "/") + ".py").is_file() for module in selected):
+                      modules = selected
+          except (OSError, KeyError, TypeError, ValueError, subprocess.CalledProcessError) as error:
+              print(f"无法确定改动范围，执行全部测试：{error}", flush=True)
+          print("测试模块：" + ", ".join(sorted(modules)), flush=True)
+          sys.exit(subprocess.call([sys.executable, "-S", "-B", "-m", "unittest", "-v", *sorted(modules)]))
+          PY
