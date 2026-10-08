@@ -6,3 +6,9 @@ updates:
       interval: daily
     cooldown:
       default-days: 1
+  - package-ecosystem: pip
+    directory: /.github
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 1

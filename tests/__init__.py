@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 import unittest
@@ -9,8 +10,11 @@ from pathlib import Path
 
 
 def 运行(脚本: str, 输入: str) -> str:
+    命令 = [sys.executable, "-S", "-B", str(目录 / 脚本)]
+    if 配置 := os.environ.get("COVERAGE_PROCESS_START"):
+        命令 = [sys.executable, "-B", "-m", "coverage", "run", "--rcfile", 配置, str(目录 / 脚本)]
     return subprocess.run(
-        [sys.executable, "-S", "-B", str(目录 / 脚本)],
+        命令,
         input=输入,
         text=True,
         capture_output=True,

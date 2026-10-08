@@ -1,0 +1,9 @@
+[run]
+branch = True
+parallel = True
+relative_files = True
+source = .
+omit =
+    tests/*
+    vendor/*
+    typings/*
