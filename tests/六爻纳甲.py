@@ -42,6 +42,51 @@ class 古籍占例(unittest.TestCase):
         self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["五", "三", "二", "初"])
         self.assertNotIn("×", 输出)
 
+    # 《高島易斷》1901增补本下经贞原影第7幅，缙绅某占气运得革之夬、六二；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/7
+
+    def test_高岛占缙绅气运六二(self):
+        输出 = 运行("六爻纳甲.py", "7 6 7 7 7 8\n\n")
+        self.assertIn("主卦：䷰ 泽火革", 输出)
+        self.assertIn("变卦：䷪ 泽天夬", 输出)
+        self.assertRegex(输出, r"(?m)^二爻 .*⚋ ×")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["二"])
+
+    # 《高島易斷》1901增补本下经贞原影第8幅，友人某占气运得革之既济、九四；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/8
+
+    def test_高岛占友人气运九四(self):
+        输出 = 运行("六爻纳甲.py", "7 8 7 9 7 8\n\n")
+        self.assertIn("主卦：䷰ 泽火革", 输出)
+        self.assertIn("变卦：䷾ 水火既济", 输出)
+        self.assertRegex(输出, r"(?m)^四爻 .*⚊ ○")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
+
+    # 《高島易斷》1901增补本下经贞原影第9幅，明治28年2月5日占北洋舰队得革之既济、九四；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/9
+
+    def test_高岛占北洋舰队(self):
+        输出 = 运行("六爻纳甲.py", "7 8 7 9 7 8\n\n")
+        self.assertIn("主卦：䷰ 泽火革", 输出)
+        self.assertIn("变卦：䷾ 水火既济", 输出)
+        self.assertRegex(输出, r"(?m)^四爻 .*⚊ ○")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
+
+    # 《高島易斷》1901增补本下经贞原影第10幅，某诸侯派庶子问国政得革之丰、九五；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/10
+
+    def test_高岛占诸侯国政(self):
+        输出 = 运行("六爻纳甲.py", "7 8 7 7 9 8\n\n")
+        self.assertIn("主卦：䷰ 泽火革", 输出)
+        self.assertIn("变卦：䷶ 雷火丰", 输出)
+        self.assertRegex(输出, r"(?m)^五爻 .*⚊ ○")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["五"])
+
+    # 《高島易斷》1901增补本下经贞原影第11幅，缙绅某占气运得革之同人、上六；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/11
+
+    def test_高岛占缙绅气运上六(self):
+        输出 = 运行("六爻纳甲.py", "7 8 7 7 7 6\n\n")
+        self.assertIn("主卦：䷰ 泽火革", 输出)
+        self.assertIn("变卦：䷌ 天火同人", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 .*⚋ ×")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["上"])
+
     # 《高島易斷》1901增补本下经贞原影第95–96页，大浦难船案记筮得涣之讼、六四；爻值依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/95
 
     def test_高岛占大浦难船(self):
@@ -49,6 +94,39 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("主卦：䷺ 风水涣", 输出)
         self.assertIn("变卦：䷅ 天水讼", 输出)
         self.assertRegex(输出, r"(?m)^四爻 .*⚋ ×")
+        self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
+
+    # 《易林补遗》卷1“易林总断”演例，明刻本PDF第50页载未月壬戌日父占子病得乾卦安静；爻值依原卦换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=50
+
+    def test_易林未月壬戌父占子病(self):
+        输出 = 运行("六爻纳甲.py", "7 7 7 7 7 7\n\n")
+        self.assertIn("主卦：䷀ 乾为天", 输出)
+        self.assertIn("变卦：䷀ 乾为天（乾宫），无动爻", 输出)
+
+    # 《易林补遗》卷1“易林总断”演例，明刻本PDF第50页载秋月甲申日求财得睽之归妹，未明记动爻；依本变卦唯一反推上爻阳动 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=50
+
+    # def test_易林秋月甲申求财(self):
+    #     输出 = 运行("六爻纳甲.py", "7 7 8 7 8 9\n\n")
+    #     self.assertIn("主卦：䷥ 火泽睽", 输出)
+    #     self.assertIn("变卦：䷵ 雷泽归妹", 输出)
+    #     self.assertRegex(输出, r"(?m)^上爻 .*⚊ ○")
+    #     self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["上"])
+
+    # 《易林补遗》卷1“易林总断”演例，明刻本PDF第51页载甲辰旬丁未日得兑之艮，未明记动爻；依本变卦唯一反推六爻全动 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=51
+
+    # def test_易林丁未兑之艮(self):
+    #     输出 = 运行("六爻纳甲.py", "9 9 6 9 9 6\n\n")
+    #     self.assertIn("主卦：䷹ 兑为泽", 输出)
+    #     self.assertIn("变卦：䷳ 艮为山", 输出)
+    #     self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["上", "五", "四", "三", "二", "初"])
+
+    # 《易林补遗》卷1“易林总断”演例，明刻本PDF第51页载七月丙辰日占长子病得恒九四动之升、内卦不动；爻值依原卦和动爻换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=51
+
+    def test_易林七月丙辰占长子病(self):
+        输出 = 运行("六爻纳甲.py", "8 7 7 9 8 8\n\n")
+        self.assertIn("主卦：䷟ 雷风恒", 输出)
+        self.assertIn("变卦：䷭ 地风升", 输出)
+        self.assertRegex(输出, r"(?m)^四爻 .*⚊ ○")
         self.assertEqual([行[0] for 行 in 输出.splitlines() if "○" in 行 or "×" in 行], ["四"])
 
     # 《增删卜易》占卦法假设例，秦慎安校勘本PDF第22–24页记六次背数1、2、3、0、3、2及水火既济；爻值依占卦法换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=23
@@ -91,6 +169,50 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("变卦：䷈ 风天小畜", 纳甲)
         self.assertIn("四爻 官鬼 壬午 ⚊ ○", 纳甲)
         self.assertIn("→ 父母 辛未", 纳甲)
+
+    # 《增删卜易》第10章“酉月辛卯日占谒贵求财”，秦慎安校勘本PDF第52页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=52
+
+    def test_酉月辛卯占谒贵求财(self):
+        输出 = 运行("六爻纳甲.py", "9 7 8 7 9 8\n\n")
+        self.assertIn("主卦：䷹ 兑为泽", 输出)
+        self.assertIn("变卦：䷧ 雷水解", 输出)
+        self.assertRegex(输出, r"(?m)^五爻 兄弟 .酉 ⚊ ○ +→ 兄弟 .申$")
+        self.assertRegex(输出, r"(?m)^初爻 官鬼 .巳 ⚊ ○ +→ 妻财 .寅$")
+
+    # 《增删卜易》第10章“巳月乙未日自占病”，秦慎安校勘本PDF第54页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=54
+
+    def test_巳月乙未自占病(self):
+        输出 = 运行("六爻纳甲.py", "8 7 7 7 9 6\n\n")
+        self.assertIn("主卦：䷛ 泽风大过", 输出)
+        self.assertIn("变卦：䷱ 火风鼎", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 妻财 .未 ⚋ × +→ 子孙 .巳$")
+        self.assertRegex(输出, r"(?m)^五爻 官鬼 .酉 ⚊ ○ +→ 妻财 .未$")
+
+    # 《增删卜易》第11章“卯月己卯日弟占兄已得重罪，母叩阍能救否”，秦慎安校勘本PDF第54～55页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=55
+
+    def test_卯月己卯占兄重罪(self):
+        输出 = 运行("六爻纳甲.py", "7 8 8 6 8 8\n\n")
+        self.assertIn("主卦：䷗ 地雷复", 输出)
+        self.assertIn("变卦：䷲ 震为雷", 输出)
+        self.assertRegex(输出, r"(?m)^四爻 兄弟 .丑 ⚋ × .*→ 父母 .午$")
+
+    # 《增删卜易》第12章“卯月戊寅日占父官事已拟重罪”，秦慎安校勘本PDF第55页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=55
+
+    def test_卯月戊寅占父官事(self):
+        输出 = 运行("六爻纳甲.py", "6 8 6 7 7 6\n\n")
+        self.assertIn("主卦：䷬ 泽地萃", 输出)
+        self.assertIn("变卦：䷌ 天火同人", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 父母 .未 ⚋ × +→ 父母 .戌$")
+        self.assertRegex(输出, r"(?m)^三爻 妻财 .卯 ⚋ × +→ 子孙 .亥$")
+        self.assertRegex(输出, r"(?m)^初爻 父母 .未 ⚋ × +→ 妻财 .卯$")
+
+    # 《增删卜易》第12章“同日妹占兄官事同此一案亦拟重罪”，秦慎安校勘本PDF第56页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=56
+
+    def test_卯月戊寅妹占兄官事(self):
+        输出 = 运行("六爻纳甲.py", "8 6 8 7 7 7\n\n")
+        self.assertIn("主卦：䷋ 天地否", 输出)
+        self.assertIn("变卦：䷅ 天水讼", 输出)
+        self.assertRegex(输出, r"(?m)^二爻 官鬼 .巳 ⚋ ×")
 
     # 《增删卜易》第13章“辰月丙申占弟痘症”，秦慎安校勘本PDF第57页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=57
 
@@ -213,6 +335,23 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("上爻 兄弟 丁未 ⚋ ×", 纳甲)
         self.assertIn("→ 兄弟 壬戌", 纳甲)
 
+    # 《增删卜易》第18章“戊子日占生产”，秦慎安校勘本PDF第72页载剥之观及子水化巳火，爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=72
+
+    def test_戊子日占生产(self):
+        输出 = 运行("六爻纳甲.py", "8 8 8 8 6 7\n\n")
+        self.assertIn("主卦：䷖ 山地剥", 输出)
+        self.assertIn("变卦：䷓ 风地观", 输出)
+        self.assertRegex(输出, r"(?m)^五爻 子孙 .子 ⚋ × 世 → 官鬼 .巳$")
+
+    # 《增删卜易》第18章“申月甲辰日占兄病”，秦慎安校勘本PDF第72～73页题屯之震、文言土申两动，图却四爻未标动、五爻标×而变午火；按本变卦唯一反推四阴五阳两动 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=73
+
+    # def test_申月甲辰占兄病(self):
+    #     输出 = 运行("六爻纳甲.py", "7 8 8 6 9 8\n\n")
+    #     self.assertIn("主卦：䷂ 水雷屯", 输出)
+    #     self.assertIn("变卦：䷲ 震为雷", 输出)
+    #     self.assertRegex(输出, r"(?m)^五爻 父母 .申 ⚊ ○ +→ 妻财 .午$")
+    #     self.assertRegex(输出, r"(?m)^四爻 官鬼 .辰 ⚋ × +→ 兄弟 .子$")
+
     # 《增删卜易》第19章“申月丙子日占得出行”，秦慎安校勘本PDF第75页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=75
 
     def test_申月丙子占出门(self):
@@ -240,6 +379,52 @@ class 古籍占例(unittest.TestCase):
         纳甲 = 运行("六爻纳甲.py", "9 8 9 9 8 9\n\n")
         self.assertIn("主卦：䷝ 离为火（离宫，属火，世6应3）", 纳甲)
         self.assertIn("变卦：䷁ 坤为地", 纳甲)
+
+    # 《增删卜易》第20章“巳月戊戌日占财”，秦慎安校勘本PDF第80～81页载风雷益静卦，爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=81
+
+    def test_巳月戊戌占财(self):
+        输出 = 运行("六爻纳甲.py", "7 8 8 8 7 7\n\n")
+        self.assertIn("主卦：䷩ 风雷益", 输出)
+        self.assertIn("变卦：䷩ 风雷益（巽宫），无动爻", 输出)
+        self.assertRegex(输出, r"(?m)^三爻 妻财 .辰 ⚋ +世$")
+
+    # 《增删卜易》第20章“午月丙辰日占出外贸易财喜”，秦慎安校勘本PDF第81页载恒之豫，爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=81
+
+    def test_午月丙辰经商(self):
+        输出 = 运行("六爻纳甲.py", "8 9 9 7 8 8\n\n")
+        self.assertIn("主卦：䷟ 雷风恒", 输出)
+        self.assertIn("变卦：䷏ 雷地豫", 输出)
+        self.assertRegex(输出, r"(?m)^三爻 官鬼 .酉 ⚊ ○ 世 → 兄弟 .卯$")
+        self.assertRegex(输出, r"(?m)^二爻 父母 .亥 ⚊ ○ +→ 子孙 .巳$")
+
+    # 《增删卜易》第20章“酉月乙未日占子久出不归生死何如”，秦慎安校勘本PDF第81～82页载坤卦，爻值依原静爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=81
+
+    def test_酉月乙未占子(self):
+        输出 = 运行("六爻纳甲.py", "8 8 8 8 8 8\n\n")
+        self.assertIn("主卦：䷁ 坤为地", 输出)
+        self.assertIn("变卦：䷁ 坤为地（坤宫），无动爻", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 子孙 .酉 ⚋ +世$")
+
+    # 《增删卜易》第20章“巳月甲寅日占延师训子”，秦慎安校勘本PDF第82页载否之乾，爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=82
+
+    def test_巳月甲寅严师训子(self):
+        输出 = 运行("六爻纳甲.py", "6 6 6 7 7 7\n\n")
+        self.assertIn("主卦：䷋ 天地否", 输出)
+        self.assertIn("变卦：䷀ 乾为天", 输出)
+        self.assertRegex(输出, r"(?m)^三爻 妻财 .卯 ⚋ × 世 → 父母 .辰$")
+        self.assertRegex(输出, r"(?m)^二爻 官鬼 .巳 ⚋ × +→ 妻财 .寅$")
+        self.assertRegex(输出, r"(?m)^初爻 父母 .未 ⚋ × +→ 子孙 .子$")
+
+    # 《增删卜易》第20章“申月乙卯日父子七人俱蒙拿问”，秦慎安校勘本PDF第82～83页载巽之坤，爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=83
+
+    def test_申月乙卯父子七人(self):
+        输出 = 运行("六爻纳甲.py", "8 9 9 8 9 9\n\n")
+        self.assertIn("主卦：䷸ 巽为风", 输出)
+        self.assertIn("变卦：䷁ 坤为地", 输出)
+        self.assertRegex(输出, r"(?m)^上爻 兄弟 .卯 ⚊ ○ 世 → 官鬼 .酉$")
+        self.assertRegex(输出, r"(?m)^五爻 子孙 .巳 ⚊ ○ +→ 父母 .亥$")
+        self.assertRegex(输出, r"(?m)^三爻 官鬼 .酉 ⚊ ○ 应 → 兄弟 .卯$")
+        self.assertRegex(输出, r"(?m)^二爻 父母 .亥 ⚊ ○ +→ 子孙 .巳$")
 
     # 《增删卜易》第21章“寅月庚申占子痘症”，秦慎安校勘本PDF第83页；爻值依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=83
 
@@ -291,6 +476,15 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("→ 官鬼 戊子", 纳甲)
         self.assertIn("二爻 子孙 己丑 ⚋ ×", 纳甲)
         self.assertIn("→ 子孙 戊辰", 纳甲)
+
+    # 《卜筮正宗》卷3“辟易林补遗终身大小限之谬”，光绪十五年重刻本第二册PDF第24～26页载戊辰年辰月丙辰日自占终身成败旅之蛊，未排爻画；依本变卦唯一反推二阴四阳动 https://commons.wikimedia.org/wiki/File:NCPSSD-70017387_卜筮正宗十四卷_第二册.pdf?page=25
+
+    # def test_自占终身成败(self):
+    #     输出 = 运行("六爻纳甲.py", "8 6 7 9 8 7\n\n")
+    #     self.assertIn("主卦：䷷ 火山旅", 输出)
+    #     self.assertIn("变卦：䷑ 山风蛊", 输出)
+    #     self.assertRegex(输出, r"(?m)^四爻 妻财 .酉 ⚊ ○ +→ 子孙 .戌$")
+    #     self.assertRegex(输出, r"(?m)^二爻 兄弟 .午 ⚋ × +→ 官鬼 .亥$")
 
     # 《卜筮正宗》十八问答所记伏神、暗动、月破、应期等未在当前脚本输出，只重放明爻主变与纳甲 https://commons.wikimedia.org/wiki/File:NCPSSD-70017391_卜筮正宗十四卷_第六册.pdf
 

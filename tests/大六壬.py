@@ -4,13 +4,13 @@ from . import 运行
 
 
 class 古籍占例(unittest.TestCase):
-    # 《六壬断案》韩太守祈雪，《断案新编》现代书影第10页（印002）题己酉十一月初四己卯寅将；该日为戊申丑将，十月初四才是己卯寅将 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=10
+    # 《六壬断案》韩太守祈雪，旧抄本第6页与《断案新编》第10页同题己酉十一月初四己卯寅将；该日为戊申丑将，十月初四才是己卯寅将；旧抄本PDF第6页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=6 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=10
 
-    # 《六壬断案》元集天时十二月戊申子将申时占晴雨，书影题目及断语均未载占年 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=13
+    # 《六壬断案》元集天时十二月戊申子将申时占晴雨，书影题目及断语均未载占年；旧抄本PDF第7页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=7 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=13
 
-    # 《六壬断案》元集天时浙江大旱，九月十五癸丑日辰将辰时，未载占年，未取得对应书影 https://daizhige.org/易藏/术数/六壬断案.html
+    # 《六壬断案》元集天时浙江大旱，九月十五癸丑日辰将辰时，旧抄本第7～8页仍未载占年，原课三传丑丑丑同乘勾陈；旧抄本PDF第7页（左末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=7 https://daizhige.org/易藏/术数/六壬断案.html
 
-    # 《六壬断案》元集宅墓第1案张九翁占宅，《断案新编》PDF16 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=16
+    # 《六壬断案》元集宅墓第1案张九翁占宅，《断案新编》PDF16；旧抄本PDF第8页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=8 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=16
     def test_张九翁占宅(self):
         输出 = 运行("大六壬.py", "1128 10 11 13\n1\n1\n")
         self.assertIn("庚寅日，天罡辰将加未时", 输出)
@@ -18,7 +18,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：寅 螣蛇 妻财", 输出)
         self.assertIn("末传：亥 太阴 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第2案叶助教占宅，《断案新编》PDF19 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=19
+    # 《六壬断案》元集宅墓第2案叶助教占宅，《断案新编》PDF19；旧抄本PDF第9页（右末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=9 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=19
     def test_叶助教占宅(self):
         输出 = 运行("大六壬.py", "1128 02 15 13\n1\n1\n")
         self.assertIn("辛卯日，神后子将加未时", 输出)
@@ -26,7 +26,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 朱雀 兄弟", 输出)
         self.assertIn("末传：丑 白虎 父母", 输出)
 
-    # 《六壬断案》元集宅墓第3案邵三翁占宅，《断案新编》PDF22 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=22
+    # 《六壬断案》元集宅墓第3案邵三翁占宅，《断案新编》PDF22；旧抄本PDF第10页（右末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=10 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=22
     def test_邵三翁占宅(self):
         输出 = 运行("大六壬.py", "1128 10 02 21\n1\n1\n")
         self.assertIn("辛巳日，天罡辰将加亥时", 输出)
@@ -34,9 +34,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 天空 兄弟", 输出)
         self.assertIn("末传：丑 螣蛇 父母", 输出)
 
-    # 《六壬断案》邵秀才，《断案新编》现代书影第25页（印032）题己酉二月乙巳戌将亥时，年日与戌将不合；先干不重位取辰卯寅 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=25
+    # 《六壬断案》邵秀才，《断案新编》现代书影第25页（印032）题己酉二月乙巳戌将亥时，年日与戌将不合；先干不重位取辰卯寅；旧抄本PDF第11页（右） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=11 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=25
 
-    # 《六壬断案》元集宅墓第5案邵巡检占宅，《断案新编》PDF28 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=28
+    # 《六壬断案》元集宅墓第5案邵巡检占宅，《断案新编》PDF28；旧抄本PDF第11页（左末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=11 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=28
     def test_邵巡检占宅(self):
         输出 = 运行("大六壬.py", "1128 08 02 03\n1\n1\n")
         self.assertIn("庚辰日，胜光午将加寅时", 输出)
@@ -44,7 +44,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 螣蛇 兄弟", 输出)
         self.assertIn("末传：子 青龙 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第6案任三翁占宅，《断案新编》PDF31 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=31
+    # 《六壬断案》元集宅墓第6案任三翁占宅，《断案新编》PDF31；旧抄本PDF第12页（左末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=12 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=31
     def test_任三翁占宅(self):
         输出 = 运行("大六壬.py", "1128 12 22 15\n1\n1\n")
         self.assertIn("壬寅日，大吉丑将加申时", 输出)
@@ -52,7 +52,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 贵人 妻财", 输出)
         self.assertIn("末传：戌 青龙 官鬼", 输出)
 
-    # 《六壬断案》元集宅墓第7案邵伯达占宅基，《断案新编》PDF34 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=34
+    # 《六壬断案》元集宅墓第7案邵伯达占宅基，《断案新编》PDF34；旧抄本PDF第13页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=13 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=34
     def test_邵伯达占宅基(self):
         输出 = 运行("大六壬.py", "1129 12 05 17\n1\n1\n")
         self.assertIn("庚寅日，功曹寅将加酉时", 输出)
@@ -60,7 +60,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 太阴 官鬼", 输出)
         self.assertIn("末传：戌 六合 父母", 输出)
 
-    # 《六壬断案》元集宅墓第8案童保仪，据孟子翔引录本第93页的六月初四丁巳；另本作初七，与纪日不合 https://files.yijingyixue.com/documents/MZX020_4eef2264aa.pdf#page=93 https://tianyugong.com/liurenduanan/
+    # 《六壬断案》童保仪，旧抄本第14页题戊申年六月丁巳日初七，纪日不合；孟子翔引录本第93页作六月初四丁巳，按后者排盘 https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=14 https://files.yijingyixue.com/documents/MZX020_4eef2264aa.pdf#page=93 https://tianyugong.com/liurenduanan/
     def test_童保仪占宅(self):
         输出 = 运行("大六壬.py", "1128 07 10 17\n1\n1\n")
         self.assertIn("丁巳日，小吉未将加酉时", 输出)
@@ -68,9 +68,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 朱雀 官鬼", 输出)
         self.assertIn("末传：酉 贵人 妻财", 输出)
 
-    # 《六壬断案》元集郑宣义占宅，书影只载八月癸丑巳将丑时；辛亥造酒房和己酉交易不能唯一确定占年 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=40
+    # 《六壬断案》元集郑宣义占宅，书影只载八月癸丑巳将丑时；辛亥造酒房和己酉交易不能唯一确定占年；旧抄本PDF第15页（右末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=15 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=40
 
-    # 《六壬断案》元集宅墓第10案王德卿占宅，《断案新编》PDF43 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=43
+    # 《六壬断案》元集宅墓第10案王德卿占宅，《断案新编》PDF43；旧抄本PDF第16页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=16 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=43
     def test_王德卿占宅(self):
         输出 = 运行("大六壬.py", "1128 11 02 05\n1\n1\n")
         self.assertIn("壬子日，太冲卯将加卯时", 输出)
@@ -78,7 +78,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：子 青龙 兄弟", 输出)
         self.assertIn("末传：卯 朱雀 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第11案童得松占宅，《断案新编》PDF46 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=46
+    # 《六壬断案》元集宅墓第11案童得松占宅，《断案新编》PDF46；旧抄本PDF第17页（右末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=17 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=46
     def test_童得松占宅(self):
         输出 = 运行("大六壬.py", "1129 07 10 01\n1\n1\n")
         self.assertIn("壬戌日，小吉未将加丑时", 输出)
@@ -86,7 +86,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 勾陈 兄弟", 输出)
         self.assertIn("末传：巳 太阴 妻财", 输出)
 
-    # 《六壬断案》元集宅墓第12案徐八公据夜贵版和“卯子息爻乘夜贵”断语核对；另本天将作昼贵，儒略历七月九日为本脚本公历七月十六日 https://shuyuan.zhiming.life/read/大六壬断案(亨集)/9 https://tianyugong.com/liurenduanan/ 《断案新编》PDF49为昼贵图 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=49
+    # 《六壬断案》元集宅墓第12案徐八公据夜贵版和“卯子息爻乘夜贵”断语核对；另本天将作昼贵，儒略历七月九日为本脚本公历七月十六日；旧抄本PDF第17页（左末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=17 https://shuyuan.zhiming.life/read/大六壬断案(亨集)/9 https://tianyugong.com/liurenduanan/ 《断案新编》PDF49为昼贵图 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=49
     def test_徐八公占宅(self):
         for 昼夜法 in ("1", "3"):
             输出 = 运行("大六壬.py", f"1128 07 16 17\n1\n{昼夜法}\n")
@@ -101,7 +101,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 贵人 妻财", 输出)
         self.assertIn("末传：卯 朱雀 子孙", 输出)
 
-    # 《六壬断案》元集刘将仕占宅，《断案新编》PDF52原注六月朔未交小暑，故以五月论 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=52
+    # 《六壬断案》元集刘将仕占宅，《断案新编》PDF52原注六月朔未交小暑，故以五月论；旧抄本PDF第18页（左末） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=18 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=52
     def test_刘将仕占宅(self):
         输出 = 运行("大六壬.py", "1129 06 26 05\n1\n1\n")
         self.assertIn("戊申日，小吉未将加卯时", 输出)
@@ -109,7 +109,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 青龙 子孙", 输出)
         self.assertIn("末传：子 螣蛇 妻财", 输出)
 
-    # 《六壬断案》元集宅墓第14案；《断案新编》现代书影第55页（印092）记己酉二月戊子戌将巳时，古历平气清明当日傍晚交节，巳时仍为二月节月 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=55
+    # 《六壬断案》元集宅墓第14案；《断案新编》现代书影第55页（印092）记己酉二月戊子戌将巳时，古历平气清明当日傍晚交节，巳时仍为二月节月；旧抄本PDF第19页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=19 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=55
     def test_何丞务占宅(self):
         输出 = 运行("大六壬.py", "1129 04 07 09\n1\n1\n")
         self.assertIn("戊子日，河魁戌将加巳时", 输出)
@@ -117,7 +117,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 六合 兄弟", 输出)
         self.assertIn("末传：卯 太阴 官鬼", 输出)
 
-    # 《六壬断案》元集宅墓第15案任太公占宅，《断案新编》PDF58 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=58
+    # 《六壬断案》元集宅墓第15案任太公占宅，《断案新编》PDF58；旧抄本PDF第20页（左） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=20 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=58
     def test_任太公占宅(self):
         输出 = 运行("大六壬.py", "1128 02 10 07\n1\n1\n")
         self.assertIn("丙戌日，神后子将加辰时", 输出)
@@ -369,7 +369,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》亨集应秀才己卯日占前程，仅载己卯日、午将、丑时，未载占年；《断案新编》PDF154 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=154
 
-    # 《六壬断案》亨集叶助教占前程，《精抄历代六壬占验汇选》卷2戊寅日原稿明载建炎己酉五月，公开书影第7页 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=7
+    # 《六壬断案》亨集叶助教占前程，《壬占汇选》卷2戊寅日原稿明载建炎己酉五月，公开书影第7页 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=7
     def test_叶助教占前程(self):
         输出 = 运行("大六壬.py", "1129 05 27 13\n1\n1\n")
         self.assertIn("戊寅日，传送申将加未时", 输出)
@@ -405,7 +405,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上卯，太常", 输出)
         self.assertIn("四课：卯上巳，天空", 输出)
 
-    # 《六壬断案》亨集占升迁，《精抄历代六壬占验汇选》卷2丙子日原稿冯知丞同课 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_95.jpg
+    # 《六壬断案》亨集占升迁，《壬占汇选》卷2丙子日原稿冯知丞同课 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_95.jpg
     def test_冯知丞占升迁(self):
         输出 = 运行("大六壬.py", "1129 11 21 01\n1\n1\n")
         self.assertIn("丙子日，太冲卯将加丑时", 输出)
@@ -861,7 +861,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬断案》亨集陈殿院占谪官，甲申秋壬辰巳将在1104年无匹配，原年日将不合；《断案新编》PDF300 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=300
 
-    # 《六壬断案》亨集李大夫占银网事，《精抄历代六壬占验汇选》卷1甲子日原稿明载大观己丑十二月，1109年甲子日无子将，原年日将不合 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=3
+    # 《六壬断案》亨集李大夫占银网事，《壬占汇选》卷1甲子日原稿明载大观己丑十二月，1109年甲子日无子将，原年日将不合 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=3
 
     # 《六壬断案》亨集姜伯达占前程, 宋本更正未将寅时 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=306
     def test_姜伯达占前程(self):
@@ -1732,7 +1732,7 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：辰 太阴 父母", 输出)
     #     self.assertIn("末传：亥 六合 子孙", 输出)
 
-    # 《精抄历代六壬占验汇选》卷1丙寅日吴公望问终身，原稿以康熙24年五月初七丙寅申将酉时的生辰演课 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_35.jpg
+    # 《壬占汇选》卷1丙寅日吴公望问终身，原稿以康熙24年五月初七丙寅申将酉时的生辰演课 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_35.jpg
     def test_吴公望生辰占终身(self):
         输出 = 运行("大六壬.py", "1685 06 08 17\n1\n1\n")
         self.assertIn("丙寅日，传送申将加酉时", 输出)
@@ -1744,7 +1744,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上丑，太常", 输出)
         self.assertIn("四课：丑上子，玄武", 输出)
 
-    # 《精抄历代六壬占验汇选》卷2丙子日孙兴功占赵福星升迁，原稿注“辰时必错当是卯时” https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_98.jpg
+    # 《壬占汇选》卷2丙子日孙兴功占赵福星升迁，原稿注“辰时必错当是卯时” https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_98.jpg
     def test_孙兴功占赵福星升迁(self):
         输出 = 运行("大六壬.py", "1648 05 03 05\n1\n1\n")
         self.assertIn("丙子日，从魁酉将加卯时", 输出)
@@ -1756,7 +1756,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上午，青龙", 输出)
         self.assertIn("四课：午上子，天后", 输出)
 
-    # 《精抄历代六壬占验汇选》卷2丁丑日王得俊占前程，原稿建炎己酉闰八月丁丑巳将酉时 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_101.jpg
+    # 《壬占汇选》卷2丁丑日王得俊占前程，原稿建炎己酉闰八月丁丑巳将酉时 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_101.jpg
     def test_王得俊占前程(self):
         输出 = 运行("大六壬.py", "1129 09 23 17\n1\n1\n1\n")
         self.assertIn("丁丑日，太乙巳将加酉时", 输出)
@@ -1768,7 +1768,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上酉，贵人", 输出)
         self.assertIn("四课：酉上巳，太常", 输出)
 
-    # 《精抄历代六壬占验汇选》卷4乙未日司化南占何官，原稿戊子六月乙未未将卯时，公开书影第11页 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=11
+    # 《壬占汇选》卷4乙未日司化南占何官，原稿戊子六月乙未未将卯时，公开书影第11页 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=11
     def test_司化南占何官(self):
         输出 = 运行("大六壬.py", "1648 07 21 05\n1\n1\n")
         self.assertIn("乙未日，小吉未将加卯时", 输出)
@@ -2807,3 +2807,521 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("初传：午 青龙 子孙", 输出)
         self.assertIn("中传：辰 六合 妻财", 输出)
         self.assertIn("末传：寅 螣蛇 兄弟", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第15页；凡例正月甲子雨水寅时用亥、丑时前仍子演例，未给交节的绝对年月日与气刻；不能任配同日丑寅时为原例 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=15
+
+    # 《大六壬探原》1946年五版国图扫描第31页；正月雨水后亥将寅时、二月春分后戌将寅时两天盘演例，未给日干支，只有天盘十二宫 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=31
+
+    # 《大六壬探原》1946年五版国图扫描第32页；三月谷雨后甲子日酉将丑时演例，四课与第34页三传图同盘；2032-05-18只是相同日将时的等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=32
+    def test_探原演例四课(self):
+        输出 = 运行("大六壬.py", "2032 05 18 01\n2\n1\n")
+        self.assertIn("甲子日，从魁酉将加丑时", 输出)
+        self.assertIn("初传：戌 ", 输出)
+        self.assertIn("中传：午 ", 输出)
+        self.assertIn("末传：寅 ", 输出)
+        self.assertIn("一课：甲上戌，", 输出)
+        self.assertIn("二课：戌上午，", 输出)
+        self.assertIn("三课：子上申，", 输出)
+        self.assertIn("四课：申上辰，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第33页；干课嵌套甲子寅上戌同第32页盘；另如寅上午只列干上两课，未给另盘的月将占时与完整三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=33
+
+    # 《大六壬探原》1946年五版国图扫描第35页；二月春分后甲子日、寅宫上戌图，按节令取戌将并由盘差反推寅时；2027-04-15仅为图盘等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=35
+    # def test_探原演例重审(self):
+    #     输出 = 运行("大六壬.py", "2027 04 15 03\n2\n1\n")
+    #     self.assertIn("甲子日，河魁戌将加寅时", 输出)
+    #     self.assertIn("初传：戌 ", 输出)
+    #     self.assertIn("中传：午 ", 输出)
+    #     self.assertIn("末传：寅 ", 输出)
+    #     self.assertIn("一课：甲上戌，", 输出)
+    #     self.assertIn("二课：戌上午，", 输出)
+    #     self.assertIn("三课：子上申，", 输出)
+    #     self.assertIn("四课：申上辰，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第35页；四月小满后丁丑日申将子时演例，图在第36页；2029-06-16零时只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=35
+    def test_探原演例元首(self):
+        输出 = 运行("大六壬.py", "2029 06 16 00\n2\n1\n")
+        self.assertIn("丁丑日，传送申将加子时", 输出)
+        self.assertIn("初传：巳 ", 输出)
+        self.assertIn("中传：丑 ", 输出)
+        self.assertIn("末传：酉 ", 输出)
+        self.assertIn("一课：丁上卯，", 输出)
+        self.assertIn("二课：卯上亥，", 输出)
+        self.assertIn("三课：丑上酉，", 输出)
+        self.assertIn("四课：酉上巳，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第37页；七月处暑后戊寅日巳将子时演例；2026-09-01零时只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=37
+    def test_探原演例比用(self):
+        输出 = 运行("大六壬.py", "2026 09 01 00\n2\n1\n")
+        self.assertIn("戊寅日，太乙巳将加子时", 输出)
+        self.assertIn("初传：子 ", 输出)
+        self.assertIn("中传：巳 ", 输出)
+        self.assertIn("末传：戌 ", 输出)
+        self.assertIn("一课：戊上戌，", 输出)
+        self.assertIn("二课：戌上卯，", 输出)
+        self.assertIn("三课：寅上未，", 输出)
+        self.assertIn("四课：未上子，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第39页；正月甲辰日亥将卯时演例，天将图在第80页、六亲图在第83页；2029-03-15只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=39
+    def test_探原演例涉害(self):
+        输出 = 运行("大六壬.py", "2029 03 15 05\n2\n1\n1\n")
+        self.assertIn("甲辰日，登明亥将加卯时", 输出)
+        self.assertIn("初传：子 ", 输出)
+        self.assertIn("中传：申 ", 输出)
+        self.assertIn("末传：辰 ", 输出)
+        self.assertIn("一课：甲上戌，", 输出)
+        self.assertIn("二课：戌上午，", 输出)
+        self.assertIn("三课：辰上子，", 输出)
+        self.assertIn("四课：子上申，", 输出)
+        self.assertIn("昼贵未，天将顺行", 输出)
+        self.assertIn("初传：子 青龙 父母", 输出)
+        self.assertIn("中传：申 螣蛇 官鬼", 输出)
+        self.assertIn("末传：辰 玄武 妻财", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第40页；戊辰干上子为涉害取季反诘，未载原月将占时与完整四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=40
+
+    # 《大六壬探原》1946年五版国图扫描第41页；涉害无克及旧诀支字讨论，未载另一套完整日将时占课 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=41
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表甲申日干上戌三传子申辰，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表甲午日干上子三传寅子戌，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表甲辰日干上未三传子巳戌，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表甲辰日干上戌三传子申辰，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表乙卯日干上寅三传亥酉未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表乙卯日干上申三传亥卯未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第42页；涉害条件表乙卯日干上亥三传午丑申，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=42
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表丁卯日干上巳三传亥酉未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表丁卯日干上亥三传亥卯未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表己卯日干上巳三传亥酉未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表己亥日干上亥三传亥卯未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表己酉日干上卯三传卯亥未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表庚寅日干上辰三传子申辰，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表庚辰日干上午三传寅子戌，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表辛卯日干上寅三传亥卯未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表辛卯日干上申三传亥酉未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表癸酉日干上申三传亥午丑，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表癸未日干上酉三传卯亥未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第43页；涉害条件表癸卯日干上亥三传亥酉未，未载月将占时；仅保留原日与干上神条件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=43
+
+    # 《大六壬探原》1946年五版国图扫描第44页；返吟戊辰干上亥条件图示亥寅巳，未给月将占时；干宫巳冲亥只定盘差六，不能声称原题某将某时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=44
+
+    # 《大六壬探原》1946年五版国图扫描第44页；六月丙子日午将亥时演例，夜贵天将图在第80页；2028-08-19只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=44
+    def test_探原演例见机(self):
+        输出 = 运行("大六壬.py", "2028 08 19 21\n2\n1\n1\n")
+        self.assertIn("丙子日，胜光午将加亥时", 输出)
+        self.assertIn("初传：子 ", 输出)
+        self.assertIn("中传：未 ", 输出)
+        self.assertIn("末传：寅 ", 输出)
+        self.assertIn("一课：丙上子，", 输出)
+        self.assertIn("二课：子上未，", 输出)
+        self.assertIn("三课：子上未，", 输出)
+        self.assertIn("四课：未上寅，", 输出)
+        self.assertIn("夜贵亥，天将顺行", 输出)
+        self.assertIn("初传：子 螣蛇 ", 输出)
+        self.assertIn("中传：未 太常 ", 输出)
+        self.assertIn("末传：寅 六合 ", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第44页；四月庚午日申将辰时演例，昼贵丑天将图在第81页；2027-06-20只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=44
+    def test_探原演例察微(self):
+        输出 = 运行("大六壬.py", "2027 06 20 07\n2\n1\n1\n")
+        self.assertIn("庚午日，传送申将加辰时", 输出)
+        self.assertIn("初传：辰 ", 输出)
+        self.assertIn("中传：申 ", 输出)
+        self.assertIn("末传：子 ", 输出)
+        self.assertIn("一课：庚上子，", 输出)
+        self.assertIn("二课：子上辰，", 输出)
+        self.assertIn("三课：午上戌，", 输出)
+        self.assertIn("四课：戌上寅，", 输出)
+        self.assertIn("昼贵丑，天将逆行", 输出)
+        self.assertIn("初传：辰 玄武 ", 输出)
+        self.assertIn("中传：申 青龙 ", 输出)
+        self.assertIn("末传：子 螣蛇 ", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第45页；十二月戊辰日子将巳时演例，第46页缀瑕图重复同盘；2027-02-18只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=45
+    def test_探原演例缀瑕(self):
+        输出 = 运行("大六壬.py", "2027 02 18 09\n2\n1\n1\n")
+        self.assertIn("戊辰日，神后子将加巳时", 输出)
+        self.assertIn("初传：子 ", 输出)
+        self.assertIn("中传：未 ", 输出)
+        self.assertIn("末传：寅 ", 输出)
+        self.assertIn("一课：戊上子，", 输出)
+        self.assertIn("二课：子上未，", 输出)
+        self.assertIn("三课：辰上亥，", 输出)
+        self.assertIn("四课：亥上午，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第46页；七月壬辰日巳将寅时演例，图在第47页；2026-09-15只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=46
+    def test_探原演例蒿矢(self):
+        输出 = 运行("大六壬.py", "2026 09 15 03\n2\n1\n")
+        self.assertIn("壬辰日，太乙巳将加寅时", 输出)
+        self.assertIn("初传：戌 ", 输出)
+        self.assertIn("中传：丑 ", 输出)
+        self.assertIn("末传：辰 ", 输出)
+        self.assertIn("一课：壬上寅，", 输出)
+        self.assertIn("二课：寅上巳，", 输出)
+        self.assertIn("三课：辰上未，", 输出)
+        self.assertIn("四课：未上戌，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第47页；五月壬申日未将辰时演例，第47页昴星段前图仍属本例射弹；2026-06-27只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=47
+    def test_探原演例弹射(self):
+        输出 = 运行("大六壬.py", "2026 06 27 07\n2\n1\n")
+        self.assertIn("壬申日，小吉未将加辰时", 输出)
+        self.assertIn("初传：巳 ", 输出)
+        self.assertIn("中传：申 ", 输出)
+        self.assertIn("末传：亥 ", 输出)
+        self.assertIn("一课：壬上寅，", 输出)
+        self.assertIn("二课：寅上巳，", 输出)
+        self.assertIn("三课：申上亥，", 输出)
+        self.assertIn("四课：亥上寅，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第48页；戊寅日子将申时演例；2029-02-17只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=48
+    def test_探原演例虎视(self):
+        输出 = 运行("大六壬.py", "2029 02 17 15\n2\n1\n")
+        self.assertIn("戊寅日，神后子将加申时", 输出)
+        self.assertIn("初传：丑 ", 输出)
+        self.assertIn("中传：午 ", 输出)
+        self.assertIn("末传：酉 ", 输出)
+        self.assertIn("一课：戊上酉，", 输出)
+        self.assertIn("二课：酉上丑，", 输出)
+        self.assertIn("三课：寅上午，", 输出)
+        self.assertIn("四课：午上戌，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第49页；别责甲日取己宫、己日取甲宫为局部取用规则，未给日支月将占时与中末传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=49
+
+    # 《大六壬探原》1946年五版国图扫描第49页；丁亥日卯将子时演例；2026-11-09零时只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=49
+    def test_探原演例冬蛇掩目(self):
+        输出 = 运行("大六壬.py", "2026 11 09 00\n2\n1\n")
+        self.assertIn("丁亥日，太冲卯将加子时", 输出)
+        self.assertIn("初传：午 ", 输出)
+        self.assertIn("中传：戌 ", 输出)
+        self.assertIn("末传：寅 ", 输出)
+        self.assertIn("一课：丁上戌，", 输出)
+        self.assertIn("二课：戌上丑，", 输出)
+        self.assertIn("三课：亥上寅，", 输出)
+        self.assertIn("四课：寅上巳，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第50页；阴日別责子日前三合辰、辰日前三合申为日支规则，未给完整日干将时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=50
+
+    # 《大六壬探原》1946年五版国图扫描第50页；丙辰日午将巳时演例，原图三传亥午午、干上午；2026-08-10只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=50
+    def test_探原演例阳日别责(self):
+        输出 = 运行("大六壬.py", "2026 08 10 09\n2\n1\n")
+        self.assertIn("丙辰日，胜光午将加巳时", 输出)
+        self.assertIn("初传：亥 ", 输出)
+        self.assertIn("中传：午 ", 输出)
+        self.assertIn("末传：午 ", 输出)
+        self.assertIn("一课：丙上午，", 输出)
+        self.assertIn("二课：午上未，", 输出)
+        self.assertIn("三课：辰上巳，", 输出)
+        self.assertIn("四课：巳上午，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第51页；八专甲寅庚申癸丑丁未己未为干支同位日型定义，未给另盘将时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=51
+
+    # 《大六壬探原》1946年五版国图扫描第51页；辛酉日亥将子时演例，夜贵天将图在第82页；2032-03-16零时只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=51
+    def test_探原演例阴日别责(self):
+        输出 = 运行("大六壬.py", "2032 03 16 00\n2\n1\n")
+        self.assertIn("辛酉日，登明亥将加子时", 输出)
+        self.assertIn("初传：丑 ", 输出)
+        self.assertIn("中传：酉 ", 输出)
+        self.assertIn("末传：酉 ", 输出)
+        self.assertIn("一课：辛上酉，", 输出)
+        self.assertIn("二课：酉上申，", 输出)
+        self.assertIn("三课：酉上申，", 输出)
+        self.assertIn("四课：申上未，", 输出)
+        self.assertIn("夜贵午，天将逆行", 输出)
+        self.assertIn("初传：丑 青龙 ", 输出)
+        self.assertIn("中传：酉 玄武 ", 输出)
+        self.assertIn("末传：酉 玄武 ", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第52页；甲寅日子将卯时演例；2026-02-09只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=52
+    def test_探原演例阳日八专(self):
+        输出 = 运行("大六壬.py", "2026 02 09 05\n2\n1\n")
+        self.assertIn("甲寅日，神后子将加卯时", 输出)
+        self.assertIn("初传：丑 ", 输出)
+        self.assertIn("中传：亥 ", 输出)
+        self.assertIn("末传：亥 ", 输出)
+        self.assertIn("一课：甲上亥，", 输出)
+        self.assertIn("二课：亥上申，", 输出)
+        self.assertIn("三课：寅上亥，", 输出)
+        self.assertIn("四课：亥上申，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第52页；丁未日丑将戌时演例，图在第53页；2029-01-17只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=52
+    def test_探原演例阴日八专(self):
+        输出 = 运行("大六壬.py", "2029 01 17 19\n2\n1\n")
+        self.assertIn("丁未日，大吉丑将加戌时", 输出)
+        self.assertIn("初传：亥 ", 输出)
+        self.assertIn("中传：戌 ", 输出)
+        self.assertIn("末传：戌 ", 输出)
+        self.assertIn("一课：丁上戌，", 输出)
+        self.assertIn("二课：戌上丑，", 输出)
+        self.assertIn("三课：未上戌，", 输出)
+        self.assertIn("四课：戌上丑，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第53页；返吟辛未辛丑丁丑己丑驿马与干上取用规则，未载各日完整月将占时四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=53
+
+    # 《大六壬探原》1946年五版国图扫描第53页；己未日午将辰时演例；2026-08-13只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=53
+    def test_探原演例独足(self):
+        输出 = 运行("大六壬.py", "2026 08 13 07\n2\n1\n")
+        self.assertIn("己未日，胜光午将加辰时", 输出)
+        self.assertIn("初传：酉 ", 输出)
+        self.assertIn("中传：酉 ", 输出)
+        self.assertIn("末传：酉 ", 输出)
+        self.assertIn("一课：己上酉，", 输出)
+        self.assertIn("二课：酉上亥，", 输出)
+        self.assertIn("三课：未上酉，", 输出)
+        self.assertIn("四课：酉上亥，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第54页；庚戌日亥将巳时演例；2030-03-16只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=54
+    def test_探原演例返吟无依(self):
+        输出 = 运行("大六壬.py", "2030 03 16 09\n2\n1\n")
+        self.assertIn("庚戌日，登明亥将加巳时", 输出)
+        self.assertIn("初传：寅 ", 输出)
+        self.assertIn("中传：申 ", 输出)
+        self.assertIn("末传：寅 ", 输出)
+        self.assertIn("一课：庚上寅，", 输出)
+        self.assertIn("二课：寅上申，", 输出)
+        self.assertIn("三课：戌上辰，", 输出)
+        self.assertIn("四课：辰上戌，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第55页；辛丑日申将寅时演例；2026-05-27只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=55
+    def test_探原演例返吟无亲(self):
+        输出 = 运行("大六壬.py", "2026 05 27 03\n2\n1\n")
+        self.assertIn("辛丑日，传送申将加寅时", 输出)
+        self.assertIn("初传：亥 ", 输出)
+        self.assertIn("中传：未 ", 输出)
+        self.assertIn("末传：辰 ", 输出)
+        self.assertIn("一课：辛上辰，", 输出)
+        self.assertIn("二课：辰上戌，", 输出)
+        self.assertIn("三课：丑上未，", 输出)
+        self.assertIn("四课：未上丑，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第56页；伏吟癸未辛未中传自刑取冲等为旧诀与本法规则，未载各日完整月将占时四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=56
+
+    # 《大六壬探原》1946年五版国图扫描第57页；癸丑日子将子时演例；2026-02-08零时只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=57
+    def test_探原演例伏吟不虞(self):
+        输出 = 运行("大六壬.py", "2026 02 08 00\n2\n1\n")
+        self.assertIn("癸丑日，神后子将加子时", 输出)
+        self.assertIn("初传：丑 ", 输出)
+        self.assertIn("中传：戌 ", 输出)
+        self.assertIn("末传：未 ", 输出)
+        self.assertIn("一课：癸上丑，", 输出)
+        self.assertIn("二课：丑上丑，", 输出)
+        self.assertIn("三课：丑上丑，", 输出)
+        self.assertIn("四课：丑上丑，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第57页；丙辰日寅将寅时演例；2026-12-08只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=57
+    def test_探原演例伏吟自任(self):
+        输出 = 运行("大六壬.py", "2026 12 08 03\n2\n1\n")
+        self.assertIn("丙辰日，功曹寅将加寅时", 输出)
+        self.assertIn("初传：巳 ", 输出)
+        self.assertIn("中传：申 ", 输出)
+        self.assertIn("末传：寅 ", 输出)
+        self.assertIn("一课：丙上巳，", 输出)
+        self.assertIn("二课：巳上巳，", 输出)
+        self.assertIn("三课：辰上辰，", 输出)
+        self.assertIn("四课：辰上辰，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第57页；丁丑日申将申时演例，图在第58页；2029-06-16只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=57
+    def test_探原演例伏吟自信(self):
+        输出 = 运行("大六壬.py", "2029 06 16 15\n2\n1\n")
+        self.assertIn("丁丑日，传送申将加申时", 输出)
+        self.assertIn("初传：丑 ", 输出)
+        self.assertIn("中传：戌 ", 输出)
+        self.assertIn("末传：未 ", 输出)
+        self.assertIn("一课：丁上未，", 输出)
+        self.assertIn("二课：未上未，", 输出)
+        self.assertIn("三课：丑上丑，", 输出)
+        self.assertIn("四课：丑上丑，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第58页；壬辰日亥将亥时演例；2026-03-19只是等价公历 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=58
+    def test_探原演例伏吟杜传(self):
+        输出 = 运行("大六壬.py", "2026 03 19 21\n2\n1\n")
+        self.assertIn("壬辰日，登明亥将加亥时", 输出)
+        self.assertIn("初传：亥 ", 输出)
+        self.assertIn("中传：辰 ", 输出)
+        self.assertIn("末传：戌 ", 输出)
+        self.assertIn("一课：壬上亥，", 输出)
+        self.assertIn("二课：亥上亥，", 输出)
+        self.assertIn("三课：辰上辰，", 输出)
+        self.assertIn("四课：辰上辰，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第60页；六十花甲三传条件表跨第60至76页，六十日各列干上十二神共720格；仅给日干支、干上神、三传与课名，未载月将占时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=60
+
+    # 《大六壬探原》1946年五版国图扫描第69页；丁酉日干上亥原表列亥卯午，盘差四位而卯上为未，原表末传与本盘矛盾 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=69
+
+    # 《大六壬探原》1946年五版国图扫描第71页；甲辰日干上巳原表列申辰寅，盘差三位而申上为亥，原表中传与本盘矛盾 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=71
+
+    # 《大六壬探原》1946年五版国图扫描第75页；辛酉日上酉列午辰寅、上申列丑酉酉，两格表头对应互换；第51页辛酉亥将子时、干上酉例确载丑酉酉 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=75
+
+    # 《大六壬探原》1946年五版国图扫描第76页；丙寅甲子旬、丙子甲戌旬为旬干起例，未载月将占时；完整旬干图另在第77页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=76
+
+    # 《大六壬探原》1946年五版国图扫描第77页；第76页文字丙寅日酉将申时，图却丙上申、寅上巳、三传申亥寅；据图唯一反推午时，2026-04-22仅为图盘等价公历，未按原题启用 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=77
+    # def test_探原演例旬干图(self):
+    #     输出 = 运行("大六壬.py", "2026 04 22 11\n2\n1\n")
+    #     self.assertIn("丙寅日，从魁酉将加午时", 输出)
+    #     self.assertIn("初传：申 ", 输出)
+    #     self.assertIn("中传：亥 ", 输出)
+    #     self.assertIn("末传：寅 ", 输出)
+    #     self.assertIn("一课：丙上申，", 输出)
+    #     self.assertIn("二课：申上亥，", 输出)
+    #     self.assertIn("三课：寅上巳，", 输出)
+    #     self.assertIn("四课：巳上申，", 输出)
+
+    # 《大六壬探原》1946年五版国图扫描第78页；日夜贵歌十干条件表，甲昼未夜丑、戊庚昼丑夜未；本页不是实际占课 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=78
+
+    # 《大六壬探原》1946年五版国图扫描第79页；甲辰亥将卯时昼贵顺行图复用第39页涉害盘，天将断言已并入原例 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=79
+
+    # 《大六壬探原》1946年五版国图扫描第80页；丙子午将亥时夜贵顺行图复用第44页见机盘，天将断言已并入原例 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=80
+
+    # 《大六壬探原》1946年五版国图扫描第81页；庚午申将辰时昼贵丑逆行图复用第44页察微盘，辛酉亥将子时图在第82页；天将断言已并入原例 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=81
+
+    # 《大六壬探原》1946年五版国图扫描第83页；甲辰亥将卯时六亲图复用第39页涉害盘；男四十四岁己酉、女三十四岁己亥为行年局部规则，当前接口不输入年龄性别 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=83
+
+    # 《大六壬探原》1946年五版国图扫描第84页；男女一至六十岁行年条件表跨第84至86页，当前接口不输入年龄性别，未造为完整占课 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=84
+
+    # 《大六壬探原》1946年五版国图扫描第86页；甲子年四十四岁推本命辛巳及男女行年为年命示例；接口不输入年龄性别，完整甲辰亥将卯时图另见第87页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=86
+
+    # 《大六壬探原》1946年五版国图扫描第92页；假如四课无克等只说明断法，没有日将时及另一套四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=92
+
+    # 《大六壬探原》1946年五版国图扫描第98页；甲子至甲戌各旬空亡规则跨第98至99页，只有旬的条件，没有完整月将占时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=98
+
+    # 《大六壬探原》1946年五版国图扫描第100页；五行六亲各日干局部生克例未给日支月将占时与完整课传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=100
+
+    # 《大六壬探原》1946年五版国图扫描第103页；甲日夜贵丑阴神取巳是贵人阴神归类，未给日支月将占时与完整课传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=103
+
+    # 《大六壬探原》1946年五版国图扫描第104页；六月月建入传与太岁行年为年度断法，未给完整独立课盘 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=104
+
+    # 《大六壬探原》1946年五版国图扫描第106页；天德月德日德日禄条件表跨第106至107页，只有月或日干，未给完整课盘 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=106
+
+    # 《大六壬探原》1946年五版国图扫描第108页；六合三合天合为干支配对规则，没有新完整排盘输入 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=108
+
+    # 《大六壬探原》1946年五版国图扫描第110页；甲日未墓等长生乘墓局部条件例，未给日支月将占时与完整课传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=110
+
+    # 《大六壬探原》论应期，1946年五版国图扫描第115页；甲子年子用、正月寅用、卯将卯用分别只是应期规则，未载完整占日将时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=115
+
+    # 《大六壬探原》论应期，1946年五版国图扫描第115页；立春乙丑丑用、丁卯日甲子用及雨水三候例未载月将占时与完整三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=115
+
+    # 《大六壬探原》论应期，1946年五版国图扫描第115页；庚午日诸发用例未载月将占时，午时午用及丑日寅用又缺完整日干支 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=115
+
+    # 《大六壬探原》论应期，1946年五版国图扫描第116页；戊己日卯加辰、甲乙日巳加申只示月期，未记日支与完整三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=116
+
+    # 《大六壬探原》论天将乘神生克，1946年五版国图扫描第135页；辛酉日寅午戌例未载月将占时，三传只能确定盘差四，不能唯一反推原输入 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=135
+
+    # 《大六壬探原》论贵贱，1946年五版国图扫描第141页；甲子日丑贵加申、未贵加辰为贵神临地宫，未载月将占时 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=141
+
+    # 《大六壬探原》论贵贱，1946年五版国图扫描第141页；庚寅日见丙戌例未载月将占时及完整四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=141
+
+    # 《大六壬探原》论胜负，1946年五版国图扫描第143页；己未日卯乘六合、寅乘青龙例未载月将占时及完整四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=143
+
+    # 《大六壬探原》瑣记，1946年五版国图扫描第151页；六十岁巳行年巳上酉例未载占年月日将时及四课三传 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=151
+
+    # 《大六壬探原》占卜一斑录从戎，1946年五版国图扫描第172页；原载己酉七月十七巳将巳时，图甲子伏吟自任，用昼贵未 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=172
+    def test_探原安徽某君从戎(self):
+        输出 = 运行("大六壬.py", "1909 09 01 09\n2\n1\n")
+        self.assertIn("甲子日，太乙巳将加巳时", 输出)
+        self.assertIn("初传：寅 青龙 兄弟", 输出)
+        self.assertIn("中传：巳 朱雀 子孙", 输出)
+        self.assertIn("末传：申 天后 官鬼", 输出)
+        self.assertIn("一课：甲上寅，青龙", 输出)
+        self.assertIn("二课：寅上寅，青龙", 输出)
+        self.assertIn("三课：子上子，白虎", 输出)
+        self.assertIn("四课：子上子，白虎", 输出)
+
+    # 《大六壬探原》占卜一斑录家务，1946年五版国图扫描第173页，图在第174页；原载己酉十一月二十丑将子时，图丙寅，用夜贵亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=174
+    def test_探原某君家务(self):
+        输出 = 运行("大六壬.py", "1910 01 01 00\n2\n1\n")
+        self.assertIn("丙寅日，大吉丑将加子时", 输出)
+        self.assertIn("初传：辰 白虎 子孙", 输出)
+        self.assertIn("中传：巳 天空 兄弟", 输出)
+        self.assertIn("末传：午 青龙 兄弟", 输出)
+        self.assertIn("一课：丙上午，青龙", 输出)
+        self.assertIn("二课：午上未，勾陈", 输出)
+        self.assertIn("三课：寅上卯，太常", 输出)
+        self.assertIn("四课：卯上辰，白虎", 输出)
+
+    # 《大六壬探原》占卜一斑录谋事，1946年五版国图扫描第175页；原载己酉十二月十三子将未时，图戊子铸印，用昼贵丑 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=175
+    def test_探原某君谋事(self):
+        输出 = 运行("大六壬.py", "1910 01 23 13\n2\n1\n")
+        self.assertIn("戊子日，神后子将加未时", 输出)
+        self.assertIn("初传：巳 太常 父母", 输出)
+        self.assertIn("中传：戌 六合 兄弟", 输出)
+        self.assertIn("末传：卯 太阴 官鬼", 输出)
+        self.assertIn("一课：戊上戌，六合", 输出)
+        self.assertIn("二课：戌上卯，太阴", 输出)
+        self.assertIn("三课：子上巳，太常", 输出)
+        self.assertIn("四课：巳上戌，六合", 输出)
+
+    # 《大六壬探原》占卜一斑录借债，1946年五版国图扫描第176页；原载己酉十二月十五子将亥时，图庚寅，用夜贵未 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=176
+    def test_探原某君借债(self):
+        输出 = 运行("大六壬.py", "1910 01 25 21\n2\n1\n")
+        self.assertIn("庚寅日，神后子将加亥时", 输出)
+        self.assertIn("初传：辰 六合 父母", 输出)
+        self.assertIn("中传：巳 朱雀 官鬼", 输出)
+        self.assertIn("末传：午 螣蛇 官鬼", 输出)
+        self.assertIn("一课：庚上酉，太阴", 输出)
+        self.assertIn("二课：酉上戌，玄武", 输出)
+        self.assertIn("三课：寅上卯，勾陈", 输出)
+        self.assertIn("四课：卯上辰，六合", 输出)
+
+    # 《大六壬探原》占卜一斑录婚姻，1946年五版国图扫描第177页；原载庚戌九月廿五卯将午时，图乙丑，用昼贵申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=177
+    def test_探原瓜洲乡人婚姻(self):
+        输出 = 运行("大六壬.py", "1910 10 27 11\n2\n1\n")
+        self.assertIn("乙丑日，太冲卯将加午时", 输出)
+        self.assertIn("初传：丑 青龙 妻财", 输出)
+        self.assertIn("中传：戌 朱雀 妻财", 输出)
+        self.assertIn("末传：未 天后 妻财", 输出)
+        self.assertIn("一课：乙上丑，青龙", 输出)
+        self.assertIn("二课：丑上戌，朱雀", 输出)
+        self.assertIn("三课：丑上戌，朱雀", 输出)
+        self.assertIn("四课：戌上未，天后", 输出)
+
+    # 《大六壬探原》占卜一斑录担保，1946年五版国图扫描第178页，后两课在第179页；原载庚戌十月廿七寅将寅时，图丁酉杜传，用夜贵酉 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=178
+    def test_探原某君担保(self):
+        输出 = 运行("大六壬.py", "1910 11 28 03\n2\n1\n")
+        self.assertIn("丁酉日，功曹寅将加寅时", 输出)
+        self.assertIn("初传：酉 贵人 妻财", 输出)
+        self.assertIn("中传：未 朱雀 子孙", 输出)
+        self.assertIn("末传：丑 太常 子孙", 输出)
+        self.assertIn("一课：丁上未，朱雀", 输出)
+        self.assertIn("二课：未上未，朱雀", 输出)
+        self.assertIn("三课：酉上酉，贵人", 输出)
+        self.assertIn("四课：酉上酉，贵人", 输出)
+
+    # 《大六壬探原》占卜一斑录赴任，1946年五版国图扫描第179页；原载庚戌十一月廿一寅将戌时，图辛酉，用夜贵午，当时未到冬至气刻 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=179
+    def test_探原某君赴任(self):
+        输出 = 运行("大六壬.py", "1910 12 22 19\n2\n1\n")
+        self.assertIn("辛酉日，功曹寅将加戌时", 输出)
+        self.assertIn("初传：寅 太常 妻财", 输出)
+        self.assertIn("中传：午 贵人 官鬼", 输出)
+        self.assertIn("末传：戌 勾陈 父母", 输出)
+        self.assertIn("一课：辛上寅，太常", 输出)
+        self.assertIn("二课：寅上午，贵人", 输出)
+        self.assertIn("三课：酉上丑，白虎", 输出)
+        self.assertIn("四课：丑上巳，天后", 输出)
+
+    # 《大六壬探原》占卜一斑录争讼，1946年五版国图扫描第180页，四课三传在第181页；原载庚戌十二月初三丑将戌时，图癸酉，用夜贵卯 https://commons.wikimedia.org/wiki/File:NLC416-12jh005312-44906_大六壬探原.pdf?page=181
+    def test_探原某君兄弟争讼(self):
+        输出 = 运行("大六壬.py", "1911 01 03 19\n2\n1\n")
+        self.assertIn("癸酉日，大吉丑将加戌时", 输出)
+        self.assertIn("初传：辰 螣蛇 官鬼", 输出)
+        self.assertIn("中传：未 勾陈 官鬼", 输出)
+        self.assertIn("末传：戌 白虎 官鬼", 输出)
+        self.assertIn("一课：癸上辰，螣蛇", 输出)
+        self.assertIn("二课：辰上未，勾陈", 输出)
+        self.assertIn("三课：酉上子，玄武", 输出)
+        self.assertIn("四课：子上卯，贵人", 输出)
