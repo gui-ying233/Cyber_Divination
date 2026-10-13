@@ -44,6 +44,144 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：上爻", 输出)
         self.assertIn("变卦：䷌ 天火同人", 输出)
 
+    # 《高島易斷》1901增补本下经贞原影第15幅（原叶14），缙绅占夫人病得鼎之大有，原文明确引初六爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/15
+
+    def test_高岛缙绅占夫人病(self):
+        输出 = 运行("金钱卦.py", "1\n0 1 1 1 2 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：初爻", 输出)
+        self.assertIn("变卦：䷍ 火天大有", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第16幅（原叶15），明治十三年占大阪两氏被疑拘留得鼎之旅，原文明确引九二爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/16
+
+    def test_高岛明治十三年占大阪两氏被疑拘留(self):
+        输出 = 运行("金钱卦.py", "1\n2 3 1 1 2 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：二爻", 输出)
+        self.assertIn("变卦：䷷ 火山旅", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第16幅（原叶15），友人占说亲女子姿容得鼎之旅，原文明确引九二爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/16
+
+    def test_高岛友人占说亲女子姿容(self):
+        输出 = 运行("金钱卦.py", "1\n2 3 1 1 2 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：二爻", 输出)
+        self.assertIn("变卦：䷷ 火山旅", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第17幅（原叶16），明治三十一年占英德交际得鼎之旅，原文明确引九二爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/17
+
+    def test_高岛明治三十一年占英德交际(self):
+        输出 = 运行("金钱卦.py", "1\n2 3 1 1 2 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：二爻", 输出)
+        self.assertIn("变卦：䷷ 火山旅", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第18幅（原叶17），明治二十年占某公朝运得鼎之未济，原文明确引九三爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/18
+
+    def test_高岛明治二十年占某公朝运(self):
+        输出 = 运行("金钱卦.py", "1\n2 1 3 1 2 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：三爻", 输出)
+        self.assertIn("变卦：䷿ 火水未济", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第19幅（原叶18），明治十五年七月占朝鲜内变仅记筮得鼎之象及九四论，未明确本次动爻和变卦，不能确定完整背数输入。 https://dl.ndl.go.jp/pid/760555/1/19
+
+    # 《高島易斷》1901增补本下经贞原影第20幅（原叶19），商人占气运得鼎之姤，原文明确引六五爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/20
+
+    def test_高岛商人占气运(self):
+        输出 = 运行("金钱卦.py", "1\n2 1 1 1 0 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：五爻", 输出)
+        self.assertIn("变卦：䷫ 天风姤", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第20幅（原叶19），明治三十一年占改进党气运得鼎之姤，原文明确引六五爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/20
+
+    def test_高岛明治三十一年占改进党气运(self):
+        输出 = 运行("金钱卦.py", "1\n2 1 1 1 0 1\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：五爻", 输出)
+        self.assertIn("变卦：䷫ 天风姤", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第21幅（原叶20），缙绅占气运上九得鼎之恒，原文明确引上九爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/21
+
+    def test_高岛缙绅占气运上九(self):
+        输出 = 运行("金钱卦.py", "1\n2 1 1 1 2 3\n")
+        self.assertIn("本卦：䷱ 火风鼎", 输出)
+        self.assertIn("动爻：上爻", 输出)
+        self.assertIn("变卦：䷟ 雷风恒", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第25幅（原叶24），友人占气运初九得震之豫，原文明确引初九爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/25
+
+    def test_高岛友人占气运初九(self):
+        输出 = 运行("金钱卦.py", "1\n3 2 2 1 2 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：初爻", 输出)
+        self.assertIn("变卦：䷏ 雷地豫", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第25幅（原叶24），占米价初九得震之豫，原文明确引初九爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/25
+
+    def test_高岛占米价初九(self):
+        输出 = 运行("金钱卦.py", "1\n3 2 2 1 2 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：初爻", 输出)
+        self.assertIn("变卦：䷏ 雷地豫", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第26幅（原叶25），金田孝占运气得震之归妹，原文明确引六二爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/26
+
+    def test_高岛金田孝占运气(self):
+        输出 = 运行("金钱卦.py", "1\n1 0 2 1 2 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：二爻", 输出)
+        self.assertIn("变卦：䷵ 雷泽归妹", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第26幅（原叶25），华族隐居君占切要之事得震之归妹，原文明确引六二爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/26
+
+    def test_高岛华族隐居君占切要之事(self):
+        输出 = 运行("金钱卦.py", "1\n1 0 2 1 2 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：二爻", 输出)
+        self.assertIn("变卦：䷵ 雷泽归妹", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第27幅（原叶26），明治二十五年占制造社运得震之丰，原文明确引六三爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/27
+
+    def test_高岛明治二十五年占制造社运(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 0 1 2 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：三爻", 输出)
+        self.assertIn("变卦：䷶ 雷火丰", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第28幅（原叶27），友人占气运九四得震之复，原文明确引九四爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/28
+
+    def test_高岛友人占气运九四(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 2 3 2 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：四爻", 输出)
+        self.assertIn("变卦：䷗ 地雷复", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第29幅（原叶28），友人占气运六五得震之随，原文明确引六五爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/29
+
+    def test_高岛友人占气运六五(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 2 1 0 2\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：五爻", 输出)
+        self.assertIn("变卦：䷐ 泽雷随", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第30幅（原叶29），明治十八年占亲妹行踪得震之噬嗑，原文明确引上六爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/30
+
+    def test_高岛明治十八年占亲妹行踪(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 2 1 2 0\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：上爻", 输出)
+        self.assertIn("变卦：䷔ 火雷噬嗑", 输出)
+
+    # 《高島易斷》1901增补本下经贞原影第30幅（原叶29），明治二十八年占我国与朝鲜交际得震之噬嗑，原文明确引上六爻辞；背数依原卦和动爻换算 https://dl.ndl.go.jp/pid/760555/1/30
+
+    def test_高岛明治二十八年占我国与朝鲜交际(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 2 1 2 0\n")
+        self.assertIn("本卦：䷲ 震为雷", 输出)
+        self.assertIn("动爻：上爻", 输出)
+        self.assertIn("变卦：䷔ 火雷噬嗑", 输出)
+
     # 《易林补遗》卷1“易林总断”演例，明刻本PDF第50页载未月壬戌日父占子病得乾卦安静；背数依原卦换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=50
 
     def test_易林未月壬戌父占子病(self):
@@ -75,6 +213,48 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("本卦：䷟ 雷风恒", 输出)
         self.assertIn("动爻：四爻", 输出)
         self.assertIn("变卦：䷭ 地风升", 输出)
+
+    # 《易林补遗》元集卷1“易林总断章第一”假设例，明刻本PDF第56页原叶八载戌月丁亥日巳时求财得蒙卦安静；背数依原静爻换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=56
+
+    def test_易林戌月丁亥蒙静求财(self):
+        输出 = 运行("金钱卦.py", "1\n2 1 2 2 2 1\n")
+        self.assertIn("本卦：䷃ 山水蒙", 输出)
+        self.assertIn("动爻：无", 输出)
+        self.assertIn("变卦：无（静卦）", 输出)
+
+    # 《易林补遗》元集卷1“易林总断章第一”，明刻本PDF第56页原叶八载丁酉日妻占远路行夫得旅卦，未明记动静，不能补作静卦输入 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=56
+
+    # 《易林补遗》元集卷3“六亲寿命章第八”假设例，明刻本PDF第94页原叶九载丙辰年七月己丑日子占父寿得革卦安静；背数依原静爻换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=94
+
+    def test_易林丙辰子占父寿革静(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 1 1 1 2\n")
+        self.assertIn("本卦：䷰ 泽火革", 输出)
+        self.assertIn("动爻：无", 输出)
+        self.assertIn("变卦：无（静卦）", 输出)
+
+    # 《易林补遗》元集卷3“六亲寿命章第八”假设例，明刻本PDF第94页原叶九载戊辰年六月戊戌日夫占妻寿得丰卦安静；背数依原静爻换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=94
+
+    def test_易林戊辰夫占妻寿丰静(self):
+        输出 = 运行("金钱卦.py", "1\n1 2 1 1 2 2\n")
+        self.assertIn("本卦：䷶ 雷火丰", 输出)
+        self.assertIn("动爻：无", 输出)
+        self.assertIn("变卦：无（静卦）", 输出)
+
+    # 《易林补遗》利集卷7“何处得病章第六十六”，明刻本PDF第152页原叶五记家人卦三爻伏官鬼辛酉金、飞神己亥水，未明记动静；金钱卦不列纳甲六亲，且不能补作静卦输入 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=152
+
+    # 《易林补遗》利集卷7“疾病吉凶章第六十九”假设例，明刻本PDF第160页版心叶号有遮损载三月甲子日妻占夫病得观之益，未明记动爻；依本变卦唯一反推初爻阴动，背数由爻值换算 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=160
+
+    # def test_易林三月甲子妻占夫病(self):
+    #     输出 = 运行("金钱卦.py", "1\n0 2 2 2 1 1\n")
+    #     self.assertIn("本卦：䷓ 风地观", 输出)
+    #     self.assertIn("动爻：初爻", 输出)
+    #     self.assertIn("变卦：䷩ 风雷益", 输出)
+
+    # 《易林补遗》利集卷7“疾病吉凶章第六十九”假设例，明刻本PDF第160页版心叶号有遮损载十月戊辰日弟占兄病得剥、初二三爻皆动，原输出申金兄弟伏在世爻子水之下；金钱卦不列该纳甲六亲，原文亦未名变卦，不能将推算大畜作原输出 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=160
+
+    # 《易林补遗》利集卷7“疾病吉凶章第六十九”假设例，明刻本PDF第160页版心叶号有遮损载五月甲午旬癸卯日父占子病得萃、上六父动化进气；金钱卦不列该纳甲六亲，原文亦未名变卦，不能将推算否卦作原输出 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=160
+
+    # 《易林补遗》贞集卷11“离枷出狱章第一百二十七”假设例，明刻本PDF第223页原叶五载戌日占风地观、二爻巳火官爻，未明记动静；不能补作静卦输入 https://commons.wikimedia.org/wiki/File:NCL-06549_易林補遺.pdf?page=223
 
     # 《增删卜易》占卦法假设例，秦慎安校勘本PDF第22–24页记六次背数1、2、3、0、3、2及水火既济 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=23
 
@@ -262,13 +442,13 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("动爻：五爻", 输出)
         self.assertIn("变卦：䷓ 风地观", 输出)
 
-    # 《增删卜易》第18章“申月甲辰日占兄病”，秦慎安校勘本PDF第72–73页原载屯之震与土申两动，背数据本变换算；五爻动符与变栏不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=73
+    # 《增删卜易》第18章“申月甲辰日占兄病”，秦慎安校勘本PDF第72～73页（卷二原页二～三）题屯之震，文言土、申两动；图四爻辰土未标动、五爻申金标×而化午火，四阴五阳动须据本变卦唯一反推，背数由爻值换算 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=73
 
-    def test_申月甲辰占兄病(self):
-        输出 = 运行("金钱卦.py", "1\n1 2 2 0 3 2\n")
-        self.assertIn("本卦：䷂ 水雷屯", 输出)
-        self.assertIn("动爻：四爻、五爻", 输出)
-        self.assertIn("变卦：䷲ 震为雷", 输出)
+    # def test_申月甲辰占兄病(self):
+    #     输出 = 运行("金钱卦.py", "1\n1 2 2 0 3 2\n")
+    #     self.assertIn("本卦：䷂ 水雷屯", 输出)
+    #     self.assertIn("动爻：四爻、五爻", 输出)
+    #     self.assertIn("变卦：䷲ 震为雷", 输出)
 
     # 《增删卜易》第19章“申月丙子日占得出行”，秦慎安校勘本PDF第75页；背数依原爻画换算，未记年份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005345-45344_增刪卜易.pdf?page=75
 
@@ -389,6 +569,22 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("本卦：䷷ 火山旅", 输出)
     #     self.assertIn("动爻：二爻、四爻", 输出)
     #     self.assertIn("变卦：䷑ 山风蛊", 输出)
+
+    # 《卜筮正宗》卷3“辟易林补遗婚姻嫁娶之谬”，光绪十五年重刻本第二册PDF第29页左叶载午建乙卯日女择婿得否卦安静、世阴应阳；爻值依原卦换算，未载年份 https://commons.wikimedia.org/wiki/File:NCPSSD-70017387_卜筮正宗十四卷_第二册.pdf?page=29
+
+    def test_卜筮正宗午月乙卯女择婿(self):
+        输出 = 运行("金钱卦.py", "1\n2 2 2 1 1 1\n")
+        self.assertIn("本卦：䷋ 天地否", 输出)
+        self.assertIn("动爻：无", 输出)
+        self.assertIn("变卦：无（静卦）", 输出)
+
+    # 《卜筮正宗》卷3“辟易林补遗婚姻嫁娶之谬”，光绪十五年重刻本第二册PDF第29页左叶载申月甲午日女择婿得复之睽，未明记动爻；依本变卦唯一反推二、四、上爻阴动，未载年份 https://commons.wikimedia.org/wiki/File:NCPSSD-70017387_卜筮正宗十四卷_第二册.pdf?page=29
+
+    # def test_卜筮正宗申月甲午女择婿(self):
+    #     输出 = 运行("金钱卦.py", "1\n1 0 2 0 2 0\n")
+    #     self.assertIn("本卦：䷗ 地雷复", 输出)
+    #     self.assertIn("动爻：二爻、四爻、上爻", 输出)
+    #     self.assertIn("变卦：䷥ 火泽睽", 输出)
 
     # 《卜筮正宗》十八问答所记伏神、暗动、月破、应期等未在当前脚本输出，只重放明爻主变与纳甲 https://commons.wikimedia.org/wiki/File:NCPSSD-70017391_卜筮正宗十四卷_第六册.pdf
 

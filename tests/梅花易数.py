@@ -116,6 +116,14 @@ class 古籍占例(unittest.TestCase):
         输出 = 运行("梅花易数.py", "1 8 / 6\n")
         self.assertRegex(输出, r"变卦为：[^\n]* 泽地")
 
+    # 《梅花易数》卷2文明书局本原卷2第37页“内外论金银”，震巽为体遇金银以金克木断不吉，未载完整六爻本卦、动爻或变卦。 https://upload.wikimedia.org/wikipedia/commons/a/af/NLC416-12jh005426-44577_%E6%A2%85%E8%8A%B1%E6%98%93%E6%95%B8.pdf#page=91
+
+    # 《梅花易数》卷2文明书局本原卷2第37页“内外论兵刃”，坎为体遇兵刃以金生水断不凶，未载完整六爻本卦、动爻或变卦。 https://upload.wikimedia.org/wikipedia/commons/a/af/NLC416-12jh005426-44577_%E6%A2%85%E8%8A%B1%E6%98%93%E6%95%B8.pdf#page=91
+
+    # 《梅花易数》卷2文明书局本原卷2第37页“内外论产见男子”，坎为体遇少男艮土以土克水断产不吉，未载完整六爻本卦、动爻或变卦。 https://upload.wikimedia.org/wikipedia/commons/a/af/NLC416-12jh005426-44577_%E6%A2%85%E8%8A%B1%E6%98%93%E6%95%B8.pdf#page=91
+
+    # 《梅花易数》卷2文明书局本原卷2第37页“内外论病见棺”，离为体见棺以木生火断反吉，未载完整六爻本卦、动爻或变卦。 https://upload.wikimedia.org/wikipedia/commons/a/af/NLC416-12jh005426-44577_%E6%A2%85%E8%8A%B1%E6%98%93%E6%95%B8.pdf#page=91
+
     # 《梅花易数》卷2“起卦加数例王姓屋宅”，两本均载寅3、十二月12、初一1、午7、王4，原合数20、27，丰三变震。 https://commons.wikimedia.org/wiki/File:CNTS-00047981941_2_新刻增定邵康節先生梅花觀梅折字數全集._卷1-5-_邵雍(宋)_著.pdf?page=54 https://upload.wikimedia.org/wikipedia/commons/a/af/NLC416-12jh005426-44577_%E6%A2%85%E8%8A%B1%E6%98%93%E6%95%B8.pdf#page=95
 
     def test_王姓屋宅(self):

@@ -125,23 +125,31 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 天空 兄弟", 输出)
         self.assertIn("末传：丑 朱雀 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第16案王解元占宅，《断案新编》PDF61 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=61
+    # 《六壬断案》元集宅墓第16案王解元占宅，《断案新编》PDF61；旧抄本PDF第21页（左；宅墓叶16正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=21 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=61
     def test_王解元占宅(self):
         输出 = 运行("大六壬.py", "1129 04 12 13\n1\n1\n")
         self.assertIn("癸巳日，河魁戌将加未时", 输出)
         self.assertIn("初传：申 六合 父母", 输出)
         self.assertIn("中传：亥 天空 兄弟", 输出)
         self.assertIn("末传：寅 玄武 子孙", 输出)
+        self.assertIn("一课：癸上辰，天后", 输出)
+        self.assertIn("二课：辰上未，朱雀", 输出)
+        self.assertIn("三课：巳上申，六合", 输出)
+        self.assertIn("四课：申上亥，天空", 输出)
 
-    # 《六壬断案》元集宅墓第17案何宣义占宅，《断案新编》PDF64 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=64
+    # 《六壬断案》元集宅墓第17案何宣义占宅，《断案新编》PDF64；旧抄本PDF第22页（左；宅墓叶17正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=22 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=64
     def test_何宣义占宅(self):
         输出 = 运行("大六壬.py", "1129 04 12 17\n1\n1\n")
         self.assertIn("癸巳日，河魁戌将加酉时", 输出)
         self.assertIn("初传：未 勾陈 官鬼", 输出)
         self.assertIn("中传：申 青龙 父母", 输出)
         self.assertIn("末传：酉 天空 父母", 输出)
+        self.assertIn("一课：癸上寅，天后", 输出)
+        self.assertIn("二课：寅上卯，贵人", 输出)
+        self.assertIn("三课：巳上午，六合", 输出)
+        self.assertIn("四课：午上未，勾陈", 输出)
 
-    # 《六壬断案》元集林承务占宅，《断案新编》PDF67记辛卯午将辰时，末传酉乘六合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=67
+    # 《六壬断案》元集林承务占宅，《断案新编》PDF67记辛卯午将辰时，末传酉乘六合；旧抄本PDF第23页（右末；宅墓叶17背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=23 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=67
     def test_林承务占宅(self):
         输出 = 运行("大六壬.py", "1129 08 08 07\n1\n1\n")
         self.assertIn("辛卯日，胜光午将加辰时", 输出)
@@ -149,7 +157,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：未 螣蛇 父母", 输出)
         self.assertIn("末传：酉 六合 兄弟", 输出)
 
-    # 《六壬断案》元集宅墓第19案冯修职占宅，《断案新编》PDF70 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=70
+    # 《六壬断案》元集宅墓第19案冯修职占宅，《断案新编》PDF70；旧抄本PDF第24页（右；宅墓叶18背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=24 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=70
     def test_冯修职占宅(self):
         输出 = 运行("大六壬.py", "1128 06 08 05\n1\n1\n")
         self.assertIn("乙酉日，传送申将加卯时", 输出)
@@ -157,7 +165,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：子 贵人 父母", 输出)
         self.assertIn("末传：巳 白虎 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第20案叶油饼店主占宅，《断案新编》PDF73 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=73
+    # 《六壬断案》元集宅墓第20案叶油饼店主占宅，《断案新编》PDF73；旧抄本PDF第24页（左末，课图见25右；宅墓叶19正～背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=24 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=73
     def test_叶油饼店主占宅(self):
         输出 = 运行("大六壬.py", "1128 07 21 17\n1\n1\n")
         self.assertIn("戊辰日，小吉未将加酉时", 输出)
@@ -165,15 +173,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 太常 妻财", 输出)
         self.assertIn("末传：酉 太阴 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第21案童秀才，清抄公开书影第26幅明确戊申三月十一乙未戌将丑时，与课图相合，不需反推占时 https://www.yeshuxiang.com/72732.html
+    # 《六壬断案》元集宅墓第21案童秀才，清抄公开书影第26幅明确戊申三月十一乙未戌将丑时，与课图相合，不需反推占时；旧抄本PDF第26页（右；宅墓叶20背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=26 https://www.yeshuxiang.com/72732.html
     def test_童秀才占宅(self):
         输出 = 运行("大六壬.py", "1128 04 19 02\n1\n1\n")
         self.assertIn("乙未日，河魁戌将加丑时", 输出)
         self.assertIn("初传：丑 青龙 妻财", 输出)
         self.assertIn("中传：戌 朱雀 妻财", 输出)
         self.assertIn("末传：未 天后 妻财", 输出)
+        self.assertIn("一课：乙上丑，青龙", 输出)
+        self.assertIn("二课：丑上戌，朱雀", 输出)
+        self.assertIn("三课：未上辰，太常", 输出)
+        self.assertIn("四课：辰上丑，青龙", 输出)
 
-    # 《六壬断案》元集宅墓第22案何七秀才占宅，《断案新编》PDF79 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=79
+    # 《六壬断案》元集宅墓第22案何七秀才占宅，《断案新编》PDF79；旧抄本PDF第26页（左末，课图见27右；宅墓叶21正～背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=26 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=79
     def test_何七秀才占宅(self):
         输出 = 运行("大六壬.py", "1128 03 19 11\n1\n1\n")
         self.assertIn("甲子日，登明亥将加午时", 输出)
@@ -181,7 +193,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 太常 子孙", 输出)
         self.assertIn("末传：戌 六合 妻财", 输出)
 
-    # 《六壬断案》元集宅墓第23案某占家宅，《断案新编》PDF82 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=82
+    # 《六壬断案》元集宅墓第23案某占家宅，《断案新编》PDF82；旧抄本PDF第27页（左；宅墓叶22正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=27 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=82
     def test_某占家宅(self):
         输出 = 运行("大六壬.py", "1128 10 05 21\n1\n1\n")
         self.assertIn("甲申日，天罡辰将加亥时", 输出)
@@ -189,9 +201,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 太阴 子孙", 输出)
         self.assertIn("末传：戌 六合 妻财", 输出)
 
-    # 《六壬断案》郁氏女，《断案新编》现代书影第85页（印152）完整作申将戌时；丙辰1076五月初八为癸亥，且该年无丁亥申将 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=85
+    # 《六壬断案》郁氏女，《断案新编》现代书影第85页（印152）完整作申将戌时；丙辰1076五月初八为癸亥，且该年无丁亥申将；旧抄本PDF第28页（右；宅墓叶22背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=28 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=85
 
-    # 《六壬断案》元集宅墓第25案邵三公占宅，《断案新编》PDF88 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=88
+    # 《六壬断案》元集宅墓第25案邵三公占宅，《断案新编》PDF88；旧抄本PDF第28页（左末；宅墓叶23正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=28 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=88
     def test_邵三公占宅(self):
         输出 = 运行("大六壬.py", "1129 01 31 00\n1\n1\n")
         self.assertIn("壬午日，神后子将加子时", 输出)
@@ -199,7 +211,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：午 六合 妻财", 输出)
         self.assertIn("末传：子 玄武 兄弟", 输出)
 
-    # 《六壬断案》元集江文老占宅，书影只载七月十五丁酉午将辰时；依弁言邵氏1065～1133年生卒范围日历唯一得1128-08-19，占年为反推 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=91
+    # 《六壬断案》元集江文老占宅，书影只载七月十五丁酉午将辰时；依弁言邵氏1065～1133年生卒范围日历唯一得1128-08-19，占年为反推；旧抄本PDF第29页（左；宅墓叶24正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=29 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=91
     # def test_江文老占家宅(self):
     #     输出 = 运行("大六壬.py", "1128 08 19 07\n1\n1\n")
     #     self.assertIn("丁酉日，胜光午将加辰时", 输出)
@@ -207,7 +219,7 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：亥 贵人 官鬼", 输出)
     #     self.assertIn("末传：丑 太阴 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第27案徐大夫占宅，《断案新编》PDF94 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=94
+    # 《六壬断案》元集宅墓第27案徐大夫占宅，《断案新编》PDF94；旧抄本PDF第30页（右；宅墓叶24背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=30 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=94
     def test_徐大夫占宅(self):
         输出 = 运行("大六壬.py", "1128 02 10 13\n1\n1\n")
         self.assertIn("丙戌日，神后子将加未时", 输出)
@@ -215,7 +227,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：丑 太阴 子孙", 输出)
         self.assertIn("末传：午 青龙 兄弟", 输出)
 
-    # 《六壬断案》元集宅墓第28案郭德占家宅，《断案新编》PDF97 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=97
+    # 《六壬断案》元集宅墓第28案郭德占家宅，《断案新编》PDF97；旧抄本PDF第31页（右；宅墓叶25背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=31 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=97
     def test_郭德占家宅(self):
         输出 = 运行("大六壬.py", "1129 07 02 11\n1\n1\n")
         self.assertIn("甲寅日，小吉未将加午时", 输出)
@@ -223,7 +235,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 勾陈 子孙", 输出)
         self.assertIn("末传：午 青龙 子孙", 输出)
 
-    # 《六壬断案》元集宅墓第29案叶助教占家宅，《断案新编》PDF100 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=100
+    # 《六壬断案》元集宅墓第29案叶助教占家宅，《断案新编》PDF100；旧抄本PDF第31页（左；宅墓叶26正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=31 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=100
     def test_叶助教占家宅(self):
         输出 = 运行("大六壬.py", "1129 03 03 11\n1\n1\n")
         self.assertIn("癸丑日，登明亥将加午时", 输出)
@@ -231,33 +243,45 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 天空 兄弟", 输出)
         self.assertIn("末传：辰 天后 官鬼", 输出)
 
-    # 《六壬断案》元集宅墓第30案童三十四公占宅，《断案新编》PDF103 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=103
-    def test_童三十四公占宅(self):
-        输出 = 运行("大六壬.py", "1129 08 25 05\n1\n1\n")
-        self.assertIn("戊申日，太乙巳将加卯时", 输出)
-        self.assertIn("初传：子 天后 妻财", 输出)
-        self.assertIn("中传：寅 螣蛇 官鬼", 输出)
-        self.assertIn("末传：辰 六合 兄弟", 输出)
+    # 《六壬断案》元集童三十四公，旧抄本与《断案新编》PDF103只载己酉戊申巳将卯时，未载占月；按年日将唯一得1129-08-25，日期为反推；旧抄本PDF第32页（右；宅墓叶26背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=32 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=103
+    # def test_童三十四公占宅(self):
+    #     输出 = 运行("大六壬.py", "1129 08 25 05\n1\n1\n")
+    #     self.assertIn("戊申日，太乙巳将加卯时", 输出)
+    #     self.assertIn("初传：子 天后 妻财", 输出)
+    #     self.assertIn("中传：寅 螣蛇 官鬼", 输出)
+    #     self.assertIn("末传：辰 六合 兄弟", 输出)
+    #     self.assertIn("一课：戊上未，天空", 输出)
+    #     self.assertIn("二课：未上酉，太常", 输出)
+    #     self.assertIn("三课：申上戌，玄武", 输出)
+    #     self.assertIn("四课：戌上子，天后", 输出)
 
-    # 《六壬断案》元集汪四六公占宅，《断案新编》PDF106记己酉壬午日辰将申时 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=106
-    def test_汪四六公占宅(self):
-        输出 = 运行("大六壬.py", "1129 09 28 15\n1\n1\n")
-        self.assertIn("壬午日，天罡辰将加申时", 输出)
-        self.assertIn("初传：戌 白虎 官鬼", 输出)
-        self.assertIn("中传：午 天后 妻财", 输出)
-        self.assertIn("末传：寅 六合 子孙", 输出)
+    # 《六壬断案》元集汪四六公，旧抄本与《断案新编》PDF106只载己酉壬午辰将申时，未载占月；按年日将唯一得1129-09-28，日期为反推；旧抄本PDF第33页（右；宅墓叶27背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=33 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=106
+    # def test_汪四六公占宅(self):
+    #     输出 = 运行("大六壬.py", "1129 09 28 15\n1\n1\n")
+    #     self.assertIn("壬午日，天罡辰将加申时", 输出)
+    #     self.assertIn("初传：戌 白虎 官鬼", 输出)
+    #     self.assertIn("中传：午 天后 妻财", 输出)
+    #     self.assertIn("末传：寅 六合 子孙", 输出)
+    #     self.assertIn("一课：壬上未，太阴", 输出)
+    #     self.assertIn("二课：未上卯，朱雀", 输出)
+    #     self.assertIn("三课：午上寅，六合", 输出)
+    #     self.assertIn("四课：寅上戌，白虎", 输出)
 
-    # 《六壬断案》元集伊伯廷；《断案新编》现代书影第109页（印200）記己酉丙午卯将申时，按古历气法取卯将 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=109
-    def test_伊伯廷占宅(self):
-        输出 = 运行("大六壬.py", "1129 10 22 15\n2\n1\n1\n")
-        self.assertIn("丙午日，太冲卯将加申时", 输出)
-        self.assertIn("初传：子 螣蛇 官鬼", 输出)
-        self.assertIn("中传：未 太常 子孙", 输出)
-        self.assertIn("末传：寅 六合 父母", 输出)
+    # 《六壬断案》元集伊伯廷，旧抄本与《断案新编》PDF109只载己酉丙午卯将申时，未载占月；按纪元历气法唯一得1129-10-22，日期为反推；旧抄本PDF第33页（左；宅墓叶28正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=33 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=109
+    # def test_伊伯廷占宅(self):
+    #     输出 = 运行("大六壬.py", "1129 10 22 15\n2\n1\n1\n")
+    #     self.assertIn("丙午日，太冲卯将加申时", 输出)
+    #     self.assertIn("初传：子 螣蛇 官鬼", 输出)
+    #     self.assertIn("中传：未 太常 子孙", 输出)
+    #     self.assertIn("末传：寅 六合 父母", 输出)
+    #     self.assertIn("一课：丙上子，螣蛇", 输出)
+    #     self.assertIn("二课：子上未，太常", 输出)
+    #     self.assertIn("三课：午上丑，朱雀", 输出)
+    #     self.assertIn("四课：丑上申，玄武", 输出)
 
-    # 《六壬断案》元集正月丁卯子将卯时占宅，书影题目及断语均未载占年 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=112
+    # 《六壬断案》元集正月丁卯子将卯时占宅，书影题目及断语均未载占年；旧抄本PDF第34页（右；宅墓叶28背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=34 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=112
 
-    # 《六壬断案》元集汪解元占宅基，书影补全己酉二月朔庚戌亥将酉时，图酉时用昼贵 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=115
+    # 《六壬断案》元集汪解元占宅基，书影补全己酉二月朔庚戌亥将酉时，图酉时用昼贵；旧抄本PDF第34页（左末；宅墓叶29正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=34 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=115
     def test_汪解元占宅基(self):
         输出 = 运行("大六壬.py", "1129 02 28 17\n1\n2\n")
         self.assertIn("庚戌日，登明亥将加酉时", 输出)
@@ -269,11 +293,11 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：戌上子，天后", 输出)
         self.assertIn("四课：子上寅，螣蛇", 输出)
 
-    # 《六壬断案》元集癸酉巳将申时占宅，书影题目及断语均未载占年 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=118
+    # 《六壬断案》元集癸酉巳将申时占宅，书影题目及断语均未载占年；旧抄本PDF第35页（左；宅墓叶30正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=35 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=118
 
-    # 《六壬断案》元集正月己巳占宅，书影题午将酉时而课图为子加酉；占年未载 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=121
+    # 《六壬断案》元集正月己巳占宅，书影题午将酉时而课图为子加酉；占年未载；旧抄本PDF第36页（右；宅墓叶30背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=36 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=121
 
-    # 《六壬断案》元集郑三公；《断案新编》现代书影第124页（印230）记己酉正月二十三壬寅子将寅时，按古历气法取子将 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=124
+    # 《六壬断案》元集郑三公；《断案新编》现代书影第124页（印230）记己酉正月二十三壬寅子将寅时，按古历气法取子将；旧抄本PDF第36页（左；宅墓叶31正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=36 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=124
     def test_郑三公占坟地(self):
         输出 = 运行("大六壬.py", "1129 02 20 03\n2\n1\n1\n")
         self.assertIn("壬寅日，神后子将加寅时", 输出)
@@ -281,7 +305,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 白虎 父母", 输出)
         self.assertIn("末传：午 玄武 妻财", 输出)
 
-    # 《六壬断案》元集徐承务；《断案新编》现代书影第127页（印236）记己酉九月癸卯辰将卯时，九月按节月成立，图用夜贵；孟子翔引录本第97页另排昼贵 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=127
+    # 《六壬断案》元集徐承务；《断案新编》现代书影第127页（印236）记己酉九月癸卯辰将卯时，九月按节月成立，图用夜贵；孟子翔引录本第97页另排昼贵；旧抄本PDF第37页（右末，课图见左；宅墓叶31背～32正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=37 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=127
     def test_徐承务占坟地(self):
         输出 = 运行("大六壬.py", "1129 10 19 05\n1\n3\n")
         self.assertIn("癸卯日，天罡辰将加卯时", 输出)
@@ -289,7 +313,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 朱雀 妻财", 输出)
         self.assertIn("末传：午 六合 妻财", 输出)
 
-    # 《六壬断案》元集刘秘教占宅，六月初一戊申日与第13案同日，课图可独立复盘，《断案新编》PDF130 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=130
+    # 《六壬断案》元集刘秘教占宅，六月初一戊申日与第13案同日，课图可独立复盘，《断案新编》PDF130；旧抄本PDF第38页（右；宅墓叶32背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=38 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=130
     def test_刘秘教占宅(self):
         输出 = 运行("大六壬.py", "1129 06 26 17\n1\n1\n")
         self.assertIn("戊申日，小吉未将加酉时", 输出)
@@ -297,15 +321,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 太常 妻财", 输出)
         self.assertIn("末传：酉 太阴 子孙", 输出)
 
-    # 《六壬断案》元集郭仲起；《断案新编》现代书影第133页（印248）明确未将寅时，与课图相合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=133
+    # 《六壬断案》元集郭仲起；《断案新编》现代书影第133页（印248）明确未将寅时，与课图相合；旧抄本PDF第38页（左末，课图见39右；宅墓叶33正～背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=38 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C/%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=133
     def test_郭仲起占宅(self):
         输出 = 运行("大六壬.py", "1129 07 02 03\n1\n1\n")
         self.assertIn("甲寅日，小吉未将加寅时", 输出)
         self.assertIn("初传：子 青龙 父母", 输出)
         self.assertIn("中传：巳 太阴 子孙", 输出)
         self.assertIn("末传：戌 六合 妻财", 输出)
+        self.assertIn("一课：甲上未，贵人", 输出)
+        self.assertIn("二课：未上子，青龙", 输出)
+        self.assertIn("三课：寅上未，贵人", 输出)
+        self.assertIn("四课：未上子，青龙", 输出)
 
-    # 《六壬断案》亨集应贡元占前程，《断案新编》PDF136 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=136
+    # 《六壬断案》亨集应贡元占前程，《断案新编》PDF136；旧抄本PDF第43页（左，亨集第1叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=43 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=136
     def test_应贡元占前程(self):
         输出 = 运行("大六壬.py", "1128 07 30 13\n1\n1\n")
         self.assertIn("丁丑日，胜光午将加未时", 输出)
@@ -317,7 +345,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上子，螣蛇", 输出)
         self.assertIn("四课：子上亥，贵人", 输出)
 
-    # 《六壬断案》亨集何秀才占应试，《断案新编》PDF139 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=139
+    # 《六壬断案》亨集何秀才占应试，《断案新编》PDF139；旧抄本PDF第44页（右，亨集第1叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=44 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=139
     def test_何秀才占应试(self):
         输出 = 运行("大六壬.py", "1129 01 29 17\n1\n1\n")
         self.assertIn("庚辰日，神后子将加酉时", 输出)
@@ -329,9 +357,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：辰上未，贵人", 输出)
         self.assertIn("四课：未上戌，六合", 输出)
 
-    # 《六壬断案》亨集应秀才同课占前程，仅称与何秀才同课，程注又明言月将不同，未载该次年月日时；《断案新编》PDF142 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=142
+    # 《六壬断案》亨集应秀才同课占前程，仅称与何秀才同课，程注又明言月将不同，未载该次年月日时；《断案新编》PDF142；旧抄本PDF第45页（右，亨集第2叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=45 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=142
 
-    # 《六壬断案》亨集徐将仕占前程，《断案新编》PDF145 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=145
+    # 《六壬断案》亨集徐将仕占前程，《断案新编》PDF145；旧抄本PDF第46页（右，亨集第3叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=46 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=145
     def test_徐将仕占前程(self):
         输出 = 运行("大六壬.py", "1128 07 21 09\n1\n1\n")
         self.assertIn("戊辰日，小吉未将加巳时", 输出)
@@ -343,7 +371,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：辰上午，青龙", 输出)
         self.assertIn("四课：午上申，白虎", 输出)
 
-    # 《六壬断案》亨集徐教授占前程 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=148
+    # 《六壬断案》亨集徐教授占前程；旧抄本PDF第47页（右，亨集第5叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=47 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=148
     def test_徐教授占前程(self):
         输出 = 运行("大六壬.py", "1128 03 21 15\n2\n1\n1\n")
         self.assertIn("丙寅日，登明亥将加申时", 输出)
@@ -355,7 +383,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上巳，天空", 输出)
         self.assertIn("四课：巳上申，六合", 输出)
 
-    # 《六壬断案》亨集杨秀才占前程，《断案新编》PDF151 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=151
+    # 《六壬断案》亨集杨秀才占前程，《断案新编》PDF151；旧抄本PDF第48页（右，亨集第6叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=48 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=151
     def test_杨秀才占前程(self):
         输出 = 运行("大六壬.py", "1129 02 28 07\n1\n1\n")
         self.assertIn("庚戌日，登明亥将加辰时", 输出)
@@ -367,9 +395,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：戌上巳，太常", 输出)
         self.assertIn("四课：巳上子，螣蛇", 输出)
 
-    # 《六壬断案》亨集应秀才己卯日占前程，仅载己卯日、午将、丑时，未载占年；《断案新编》PDF154 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=154
+    # 《六壬断案》亨集应秀才己卯日占前程，仅载己卯日、午将、丑时，未载占年；《断案新编》PDF154；旧抄本PDF第48页（左，亨集第7叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=48 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=154
 
-    # 《六壬断案》亨集叶助教占前程，《壬占汇选》卷2戊寅日原稿明载建炎己酉五月，公开书影第7页 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=7
+    # 《六壬断案》亨集叶助教占前程，《壬占汇选》卷2戊寅日原稿明载建炎己酉五月，公开书影第7页；旧抄本PDF第49页（左，亨集第8叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=49 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=7
     def test_叶助教占前程(self):
         输出 = 运行("大六壬.py", "1129 05 27 13\n1\n1\n")
         self.assertIn("戊寅日，传送申将加未时", 输出)
@@ -381,19 +409,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上卯，朱雀", 输出)
         self.assertIn("四课：卯上辰，六合", 输出)
 
-    # 《六壬断案》亨集伊秀才占科试，《断案新编》PDF160 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=160
-    def test_伊秀才占科试(self):
-        输出 = 运行("大六壬.py", "1128 07 16 09\n1\n1\n1\n1\n")
-        self.assertIn("癸亥日，小吉未将加巳时", 输出)
-        self.assertIn("初传：丑 太常 官鬼", 输出)
-        self.assertIn("中传：卯 太阴 子孙", 输出)
-        self.assertIn("末传：巳 贵人 妻财", 输出)
-        self.assertIn("一课：癸上卯，太阴", 输出)
-        self.assertIn("二课：卯上巳，贵人", 输出)
-        self.assertIn("三课：亥上丑，太常", 输出)
-        self.assertIn("四课：丑上卯，太阴", 输出)
+    # 《六壬断案》亨集伊秀才占科试，旧抄本及《断案新编》均只载戊申癸亥日未将巳时，未载占月；按戊申年日干支及未将唯一得1128-07-16，日期为反推；《断案新编》PDF160；旧抄本PDF第50页（右，亨集第8叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=50 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=160
+    # def test_伊秀才占科试(self):
+    #     输出 = 运行("大六壬.py", "1128 07 16 09\n1\n1\n1\n1\n")
+    #     self.assertIn("癸亥日，小吉未将加巳时", 输出)
+    #     self.assertIn("初传：丑 太常 官鬼", 输出)
+    #     self.assertIn("中传：卯 太阴 子孙", 输出)
+    #     self.assertIn("末传：巳 贵人 妻财", 输出)
+    #     self.assertIn("一课：癸上卯，太阴", 输出)
+    #     self.assertIn("二课：卯上巳，贵人", 输出)
+    #     self.assertIn("三课：亥上丑，太常", 输出)
+    #     self.assertIn("四课：丑上卯，太阴", 输出)
 
-    # 《六壬断案》亨集应寺簿占前程，《断案新编》PDF163 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=163
+    # 《六壬断案》亨集应寺簿占前程，《断案新编》PDF163；旧抄本PDF第51页（右，亨集第9叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=51 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=163
     def test_应寺簿占前程(self):
         输出 = 运行("大六壬.py", "1129 07 25 07\n1\n1\n")
         self.assertIn("丁丑日，胜光午将加辰时", 输出)
@@ -405,7 +433,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上卯，太常", 输出)
         self.assertIn("四课：卯上巳，天空", 输出)
 
-    # 《六壬断案》亨集占升迁，《壬占汇选》卷2丙子日原稿冯知丞同课 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_95.jpg
+    # 《六壬断案》亨集占升迁，旧抄本作马知丞（旁注“一作宋冯丞”），《壬占汇选》作冯知丞，两本均题己酉十月丙子卯将丑时；《壬占汇选》卷2丙子日原稿冯知丞同课；旧抄本PDF第52页（右，亨集第10叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=52 https://img.xiandtang.com/i/2024/11/15/精抄历代六壬占验汇选_95.jpg
     def test_冯知丞占升迁(self):
         输出 = 运行("大六壬.py", "1129 11 21 01\n1\n1\n")
         self.assertIn("丙子日，太冲卯将加丑时", 输出)
@@ -417,15 +445,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上寅，白虎", 输出)
         self.assertIn("四课：寅上辰，青龙", 输出)
 
-    # 《六壬断案》亨集赵将仕占武试, 十二月按节月，公历1129-01-29尚未交春，《断案新编》PDF169 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=169
+    # 《六壬断案》亨集赵将仕占武试, 十二月按节月，公历1129-01-29尚未交春，《断案新编》PDF169；旧抄本PDF第52页（左，亨集第11叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=52 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=169
     def test_赵将仕占武试(self):
         输出 = 运行("大六壬.py", "1129 01 29 00\n1\n1\n")
         self.assertIn("庚辰日，神后子将加子时", 输出)
         self.assertIn("初传：申 天后 兄弟", 输出)
         self.assertIn("中传：寅 青龙 妻财", 输出)
         self.assertIn("末传：巳 朱雀 官鬼", 输出)
+        self.assertIn("一课：庚上申，天后", 输出)
+        self.assertIn("二课：申上申，天后", 输出)
+        self.assertIn("三课：辰上辰，六合", 输出)
+        self.assertIn("四课：辰上辰，六合", 输出)
 
-    # 《六壬断案》亨集邹大官人占弓马，《断案新编》PDF172 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=172
+    # 《六壬断案》亨集邹大官人占弓马，《断案新编》PDF172；旧抄本PDF第53页（右，亨集第11叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=53 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=172
     def test_邹大官人占弓马(self):
         输出 = 运行("大六壬.py", "1129 04 27 15\n1\n1\n")
         self.assertIn("戊申日，从魁酉将加申时", 输出)
@@ -437,7 +469,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上酉，太常", 输出)
         self.assertIn("四课：酉上戌，玄武", 输出)
 
-    # 《六壬断案》亨集龚县尉占前程，《断案新编》PDF175 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=175
+    # 《六壬断案》亨集龚县尉占前程，《断案新编》PDF175；旧抄本PDF第53页（左，亨集第12叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=53 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=175
     def test_龚县尉占前程(self):
         输出 = 运行("大六壬.py", "1129 11 27 03\n1\n1\n")
         self.assertIn("壬午日，功曹寅将加寅时", 输出)
@@ -449,7 +481,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上午，六合", 输出)
         self.assertIn("四课：午上午，六合", 输出)
 
-    # 《六壬断案》亨集郭巡辖占赴任，《断案新编》PDF178 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=178
+    # 《六壬断案》亨集郭巡辖占赴任，《断案新编》PDF178；旧抄本PDF第54页（左，亨集第13叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=54 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=178
     def test_郭巡辖占赴任(self):
         输出 = 运行("大六壬.py", "1129 04 27 00\n1\n1\n")
         self.assertIn("戊申日，从魁酉将加子时", 输出)
@@ -461,7 +493,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上巳，朱雀", 输出)
         self.assertIn("四课：巳上寅，青龙", 输出)
 
-    # 《六壬断案》亨集徐学士占前程，《断案新编》PDF181 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=181
+    # 《六壬断案》亨集徐学士占前程，《断案新编》PDF181；旧抄本PDF第55页（左，亨集第14叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=55 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=181
     def test_徐学士占前程(self):
         输出 = 运行("大六壬.py", "1128 03 19 09\n1\n1\n1\n")
         self.assertIn("甲子日，登明亥将加巳时", 输出)
@@ -473,7 +505,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上午，白虎", 输出)
         self.assertIn("四课：午上子，螣蛇", 输出)
 
-    # 《六壬断案》亨集谢省元占赴省试，《断案新编》PDF184 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=184
+    # 《六壬断案》亨集谢省元占赴省试，《断案新编》PDF184；旧抄本PDF第56页（右，亨集第14叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=56 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=184
     def test_谢省元占赴省试(self):
         输出 = 运行("大六壬.py", "1129 11 09 03\n1\n1\n")
         self.assertIn("甲子日，太冲卯将加寅时", 输出)
@@ -485,11 +517,11 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上丑，天空", 输出)
         self.assertIn("四课：丑上寅，青龙", 输出)
 
-    # 《六壬断案》亨集赵公占子国子监试，只载己酉辛巳子将亥时，1129-01-30与1130-01-25均可，未载占月；《断案新编》PDF187 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=187
+    # 《六壬断案》亨集赵公占子国子监试，只载己酉辛巳子将亥时，1129-01-30与1130-01-25均可，未载占月；《断案新编》PDF187；旧抄本PDF第57页（右，亨集第15叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=57 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=187
 
-    # 《六壬断案》亨集邵二十一公占孙前程，程注按年岁推戊申，未直载占年月日时，不能把前案公历日期移来；《断案新编》PDF190 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=190
+    # 《六壬断案》亨集邵二十一公占孙前程，程注按年岁推戊申，未直载占年月日时，不能把前案公历日期移来；《断案新编》PDF190；旧抄本PDF第57页（左，亨集第16叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=57 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=190
 
-    # 《六壬断案》亨集何知丞占赴任，《断案新编》PDF193 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=193
+    # 《六壬断案》亨集何知丞占赴任，《断案新编》PDF193；旧抄本PDF第58页（右，亨集第16叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=58 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=193
     def test_何知丞占赴任(self):
         输出 = 运行("大六壬.py", "1129 01 02 13\n1\n1\n")
         self.assertIn("癸丑日，大吉丑将加未时", 输出)
@@ -501,7 +533,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上未，朱雀", 输出)
         self.assertIn("四课：未上丑，太常", 输出)
 
-    # 《六壬断案》亨集陈学谕占前程，《断案新编》PDF196 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=196
+    # 《六壬断案》亨集陈学谕占前程，《断案新编》PDF196；旧抄本PDF第58页（左，亨集第17叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=58 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=196
     def test_陈学谕占前程(self):
         输出 = 运行("大六壬.py", "1128 10 05 21\n1\n1\n")
         self.assertIn("甲申日，天罡辰将加亥时", 输出)
@@ -513,7 +545,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上丑，天空", 输出)
         self.assertIn("四课：丑上午，天后", 输出)
 
-    # 《六壬断案》亨集施主簿占前程，《断案新编》PDF199 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=199
+    # 《六壬断案》亨集施主簿占前程，《断案新编》PDF199；旧抄本PDF第59页（左，亨集第18叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=59 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=199
     def test_施主簿占前程(self):
         输出 = 运行("大六壬.py", "1128 10 17 01\n1\n1\n")
         self.assertIn("丙申日，天罡辰将加丑时", 输出)
@@ -525,11 +557,11 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上亥，太阴", 输出)
         self.assertIn("四课：亥上寅，白虎", 输出)
 
-    # 《六壬断案》亨集邵梓材占前程，书影仍记戊申九月二十一壬寅辰将酉时；该日1128-10-23定气与纪元历皆卯将，原日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=202
+    # 《六壬断案》亨集邵梓材占前程，书影仍记戊申九月二十一壬寅辰将酉时；该日1128-10-23定气与纪元历皆卯将，原日将不合；旧抄本PDF第60页（右，亨集第18叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=60 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=202
 
-    # 《六壬断案》亨集邓省干占前程，书影仍记戊申九月二十一壬寅辰将未时；该日1128-10-23定气与纪元历皆卯将，原日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=205
+    # 《六壬断案》亨集邓省干占前程，书影仍记戊申九月二十一壬寅辰将未时；该日1128-10-23定气与纪元历皆卯将，原日将不合；旧抄本PDF第61页（右，亨集第19叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=61 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=205
 
-    # 《六壬断案》亨集江司户占官职, 寅时课图用昼贵，《断案新编》PDF208 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=208
+    # 《六壬断案》亨集江司户占官职, 寅时课图用昼贵，《断案新编》PDF208；旧抄本PDF第61页（左，亨集第20叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=61 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=208
     def test_江司户占官职(self):
         输出 = 运行("大六壬.py", "1128 11 08 03\n1\n2\n")
         self.assertIn("戊午日，太冲卯将加寅时", 输出)
@@ -541,7 +573,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上未，天空", 输出)
         self.assertIn("四课：未上申，白虎", 输出)
 
-    # 《六壬断案》亨集冯机宜占前程，《断案新编》PDF211 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=211
+    # 《六壬断案》亨集冯机宜占前程，《断案新编》PDF211；旧抄本PDF第62页（左，亨集第21叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=62 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=211
     def test_冯机宜占前程(self):
         输出 = 运行("大六壬.py", "1129 11 21 19\n1\n1\n")
         self.assertIn("丙子日，太冲卯将加戌时", 输出)
@@ -553,7 +585,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上巳，太常", 输出)
         self.assertIn("四课：巳上戌，螣蛇", 输出)
 
-    # 《六壬断案》亨集刘运干占前程，《断案新编》PDF214 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=214
+    # 《六壬断案》亨集刘运干占前程，《断案新编》PDF214；旧抄本PDF第63页（右，亨集第21叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=63 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=214
     def test_刘运干占前程(self):
         输出 = 运行("大六壬.py", "1128 11 05 13\n1\n1\n")
         self.assertIn("乙卯日，太冲卯将加未时", 输出)
@@ -565,7 +597,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上亥，天后", 输出)
         self.assertIn("四课：亥上未，白虎", 输出)
 
-    # 《六壬断案》亨集郑子云占前程，《断案新编》PDF219 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=219
+    # 《六壬断案》亨集郑子云占前程，《断案新编》PDF219；旧抄本PDF第64页（右，亨集第22叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=64 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=219
     def test_郑子云占前程(self):
         输出 = 运行("大六壬.py", "1128 11 05 07\n1\n1\n")
         self.assertIn("乙卯日，太冲卯将加辰时", 输出)
@@ -577,7 +609,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上寅，朱雀", 输出)
         self.assertIn("四课：寅上丑，螣蛇", 输出)
 
-    # 《六壬断案》亨集何上舍占前程 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=222
+    # 《六壬断案》亨集何上舍占前程；旧抄本PDF第64页（左，亨集第23叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=64 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=222
     def test_何上舍占前程(self):
         输出 = 运行("大六壬.py", "1128 11 11 13\n1\n1\n")
         self.assertIn("辛酉日，太冲卯将加未时", 输出)
@@ -589,7 +621,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("一课：辛上午，贵人", 输出)
         self.assertIn("四课：巳上丑，青龙", 输出)
 
-    # 《六壬断案》亨集童七秀才占前程，《断案新编》PDF225 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=225
+    # 《六壬断案》亨集童七秀才占前程，《断案新编》PDF225；旧抄本PDF第65页（左，亨集第24叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=65 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=225
     def test_童七秀才占前程(self):
         输出 = 运行("大六壬.py", "1128 07 10 13\n1\n1\n")
         self.assertIn("丁巳日，小吉未将加未时", 输出)
@@ -601,7 +633,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上巳，天空", 输出)
         self.assertIn("四课：巳上巳，天空", 输出)
 
-    # 《六壬断案》亨集陈主簿占官任, 课图按《六壬指南》涉害先孟取午，《断案新编》PDF228 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=228
+    # 《六壬断案》亨集陈主簿占官任, 课图按《六壬指南》涉害先孟取午，《断案新编》PDF228；旧抄本PDF第66页（右，亨集第24叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=66 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=228
     def test_陈主簿占官任(self):
         输出 = 运行("大六壬.py", "1129 11 25 07\n1\n1\n2\n")
         self.assertIn("庚辰日，功曹寅将加辰时", 输出)
@@ -613,9 +645,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：辰上寅，螣蛇", 输出)
         self.assertIn("四课：寅上子，天后", 输出)
 
-    # 《六壬断案》亨集徐通判占赴任，书影仍题戊申十二月壬辰丑将；该年壬辰日无丑将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=231
+    # 《六壬断案》亨集徐通判占赴任，书影仍题戊申十二月壬辰丑将；该年壬辰日无丑将，原年日将不合；旧抄本PDF第67页（右，亨集第25叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=67 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=231
 
-    # 《六壬断案》亨集钱通判占前程，《断案新编》PDF234 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=234
+    # 《六壬断案》亨集钱通判占前程，《断案新编》PDF234；旧抄本PDF第68页（右，亨集第26叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=68 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=234
     def test_钱通判占前程(self):
         输出 = 运行("大六壬.py", "1129 01 29 09\n1\n1\n1\n")
         self.assertIn("庚辰日，神后子将加巳时", 输出)
@@ -627,7 +659,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：辰上亥，朱雀", 输出)
         self.assertIn("四课：亥上午，白虎", 输出)
 
-    # 《六壬断案》亨集时监院占迁转，《断案新编》PDF237 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=237
+    # 《六壬断案》亨集时监院占迁转，《断案新编》PDF237；旧抄本PDF第68页（左，亨集第27叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=68 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=237
     def test_时监院占迁转(self):
         输出 = 运行("大六壬.py", "1129 01 30 17\n1\n1\n")
         self.assertIn("辛巳日，神后子将加酉时", 输出)
@@ -639,7 +671,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上申，天空", 输出)
         self.assertIn("四课：申上亥，玄武", 输出)
 
-    # 《六壬断案》亨集陈上舍占科举，《断案新编》PDF240 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=240
+    # 《六壬断案》亨集陈上舍占科举，《断案新编》PDF240；旧抄本PDF第69页（左，亨集第28叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=69 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=240
     def test_陈上舍占科举(self):
         输出 = 运行("大六壬.py", "1129 02 17 13\n1\n1\n")
         self.assertIn("己亥日，神后子将加未时", 输出)
@@ -651,7 +683,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上辰，太常", 输出)
         self.assertIn("四课：辰上酉，六合", 输出)
 
-    # 《六壬断案》亨集欧阳秘教占秋试，《断案新编》PDF243 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=243
+    # 《六壬断案》亨集欧阳秘教占秋试，《断案新编》PDF243；旧抄本PDF第70页（左，亨集第29叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=70 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=243
     def test_欧阳秘教占秋试(self):
         输出 = 运行("大六壬.py", "1129 07 27 19\n1\n1\n1\n")
         self.assertIn("己卯日，胜光午将加戌时", 输出)
@@ -663,19 +695,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上亥，六合", 输出)
         self.assertIn("四课：亥上未，天后", 输出)
 
-    # 《六壬断案》亨集徐秀才占秋试，《断案新编》PDF246 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=246
-    def test_徐秀才占秋试(self):
-        输出 = 运行("大六壬.py", "1129 03 12 15\n1\n1\n")
-        self.assertIn("壬戌日，登明亥将加申时", 输出)
-        self.assertIn("初传：辰 天后 官鬼", 输出)
-        self.assertIn("中传：未 朱雀 官鬼", 输出)
-        self.assertIn("末传：戌 青龙 官鬼", 输出)
-        self.assertIn("一课：壬上寅，玄武", 输出)
-        self.assertIn("二课：寅上巳，贵人", 输出)
-        self.assertIn("三课：戌上丑，太常", 输出)
-        self.assertIn("四课：丑上辰，天后", 输出)
+    # 《六壬断案》亨集徐秀才占秋试，旧抄本及《断案新编》均只载己酉年壬戌日亥将申时，未载占月；按原年日干支及月将唯一得1129-03-12，日期为反推，定气与古历均为亥将；《断案新编》PDF246；旧抄本PDF第71页（右，亨集第29叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=71 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=246
+    # def test_徐秀才占秋试(self):
+    #     输出 = 运行("大六壬.py", "1129 03 12 15\n1\n1\n")
+    #     self.assertIn("壬戌日，登明亥将加申时", 输出)
+    #     self.assertIn("初传：辰 天后 官鬼", 输出)
+    #     self.assertIn("中传：未 朱雀 官鬼", 输出)
+    #     self.assertIn("末传：戌 青龙 官鬼", 输出)
+    #     self.assertIn("一课：壬上寅，玄武", 输出)
+    #     self.assertIn("二课：寅上巳，贵人", 输出)
+    #     self.assertIn("三课：戌上丑，太常", 输出)
+    #     self.assertIn("四课：丑上辰，天后", 输出)
 
-    # 《六壬断案》亨集何知录占前程，《断案新编》PDF249 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=249
+    # 《六壬断案》亨集何知录占前程，《断案新编》PDF249；旧抄本PDF第72页（右，亨集第30叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=72 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=249
     def test_何知录占前程(self):
         输出 = 运行("大六壬.py", "1128 06 09 13\n1\n1\n")
         self.assertIn("丙戌日，传送申将加未时", 输出)
@@ -687,7 +719,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：戌上亥，贵人", 输出)
         self.assertIn("四课：亥上子，天后", 输出)
 
-    # 《六壬断案》亨集童学生占前程, 程注古本明载己酉三月十七日，《断案新编》PDF252 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=252
+    # 《六壬断案》亨集童学生占前程, 程注古本明载己酉三月十七日，《断案新编》PDF252；旧抄本PDF第73页（右，亨集第31叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=73 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=252
     def test_童学生占前程(self):
         输出 = 运行("大六壬.py", "1129 04 14 09\n1\n1\n")
         self.assertIn("乙未日，河魁戌将加巳时", 输出)
@@ -699,7 +731,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：未上子，贵人", 输出)
         self.assertIn("四课：子上巳，白虎", 输出)
 
-    # 《六壬断案》亨集盖判院占前程，《断案新编》PDF255 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=255
+    # 《六壬断案》亨集盖判院占前程，《断案新编》PDF255；旧抄本PDF第74页（右，亨集第32叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=74 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=255
     def test_盖判院占前程(self):
         输出 = 运行("大六壬.py", "1129 06 30 00\n1\n1\n")
         self.assertIn("壬子日，小吉未将加子时", 输出)
@@ -711,19 +743,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上未，太常", 输出)
         self.assertIn("四课：未上寅，螣蛇", 输出)
 
-    # 《六壬断案》亨集应解元占前程, 午时课图用夜贵，《断案新编》PDF258 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=258
-    def test_应解元占前程(self):
-        输出 = 运行("大六壬.py", "1129 01 27 11\n1\n3\n")
-        self.assertIn("戊寅日，神后子将加午时", 输出)
-        self.assertIn("初传：寅 白虎 官鬼", 输出)
-        self.assertIn("中传：申 螣蛇 子孙", 输出)
-        self.assertIn("末传：寅 白虎 官鬼", 输出)
-        self.assertIn("一课：戊上亥，勾陈", 输出)
-        self.assertIn("二课：亥上巳，太阴", 输出)
-        self.assertIn("三课：寅上申，螣蛇", 输出)
-        self.assertIn("四课：申上寅，白虎", 输出)
+    # 《六壬断案》亨集应解元占前程，旧抄本及《断案新编》均只载戊申年戊寅日子将午时，未载占月；按原年日干支及月将唯一得1129-01-27，日期为反推，按戊申农历年筛选；课图用夜贵；《断案新编》PDF258；旧抄本PDF第74页（左，亨集第33叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=74 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=258
+    # def test_应解元占前程(self):
+    #     输出 = 运行("大六壬.py", "1129 01 27 11\n1\n3\n")
+    #     self.assertIn("戊寅日，神后子将加午时", 输出)
+    #     self.assertIn("初传：寅 白虎 官鬼", 输出)
+    #     self.assertIn("中传：申 螣蛇 子孙", 输出)
+    #     self.assertIn("末传：寅 白虎 官鬼", 输出)
+    #     self.assertIn("一课：戊上亥，勾陈", 输出)
+    #     self.assertIn("二课：亥上巳，太阴", 输出)
+    #     self.assertIn("三课：寅上申，螣蛇", 输出)
+    #     self.assertIn("四课：申上寅，白虎", 输出)
 
-    # 《六壬断案》亨集方县尉占前程, 程注古本明载己酉五月初一，《断案新编》PDF261 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=261
+    # 《六壬断案》亨集方县尉占前程, 程注古本明载己酉五月初一，《断案新编》PDF261；旧抄本PDF第75页（右，亨集第33叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=75 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=261
     def test_方县尉占前程(self):
         输出 = 运行("大六壬.py", "1129 05 27 07\n1\n1\n")
         self.assertIn("戊寅日，传送申将加辰时", 输出)
@@ -735,9 +767,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上午，白虎", 输出)
         self.assertIn("四课：午上戌，六合", 输出)
 
-    # 《六壬断案》亨集仪上舍占前程，仅载辛巳日、申将、寅时，未载占年；《断案新编》PDF264 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=264
+    # 《六壬断案》亨集仪上舍占前程，仅载辛巳日、申将、寅时，未载占年；《断案新编》PDF264；旧抄本PDF第76页（右，亨集第34叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=76 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=264
 
-    # 《六壬断案》亨集毛主簿占前程，《断案新编》PDF267 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=267
+    # 《六壬断案》亨集毛主簿占前程，《断案新编》PDF267；旧抄本PDF第76页（左，亨集第35叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=76 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=267
     def test_毛主簿占前程(self):
         输出 = 运行("大六壬.py", "1128 06 10 11\n1\n1\n")
         self.assertIn("丁亥日，传送申将加午时", 输出)
@@ -749,7 +781,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上丑，太阴", 输出)
         self.assertIn("四课：丑上卯，太常", 输出)
 
-    # 《六壬断案》亨集王法司占前程，《断案新编》PDF270 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=270
+    # 《六壬断案》亨集王法司占前程，《断案新编》PDF270；旧抄本PDF第77页（左，亨集第36叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=77 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=270
     def test_王法司占前程(self):
         输出 = 运行("大六壬.py", "1128 07 07 19\n1\n1\n")
         self.assertIn("甲寅日，小吉未将加戌时", 输出)
@@ -761,7 +793,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上亥，太常", 输出)
         self.assertIn("四课：亥上申，天后", 输出)
 
-    # 《六壬断案》亨集赵监务占赴任, 原注己酉正月初二，未交春仍题戊申，《断案新编》PDF273 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=273
+    # 《六壬断案》亨集赵监务占赴任, 原注己酉正月初二，未交春仍题戊申，《断案新编》PDF273；旧抄本PDF第78页（右，亨集第36叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=78 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=273
     def test_赵监务占赴任(self):
         输出 = 运行("大六壬.py", "1129 01 30 07\n1\n1\n")
         self.assertIn("辛巳日，神后子将加辰时", 输出)
@@ -773,7 +805,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上丑，青龙", 输出)
         self.assertIn("四课：丑上酉，玄武", 输出)
 
-    # 《六壬断案》亨集赵知县占前程，《断案新编》PDF276 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=276
+    # 《六壬断案》亨集赵知县占前程，《断案新编》PDF276；旧抄本PDF第79页（右，亨集第37叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=79 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=276
     def test_赵知县占前程(self):
         输出 = 运行("大六壬.py", "1128 12 15 13\n1\n1\n")
         self.assertIn("乙未日，功曹寅将加未时", 输出)
@@ -785,7 +817,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：未上寅，太阴", 输出)
         self.assertIn("四课：寅上酉，六合", 输出)
 
-    # 《六壬断案》亨集韩省干占岁中事, 原载己酉元旦，《断案新编》PDF279 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=279
+    # 《六壬断案》亨集韩省干占岁中事, 原载己酉元旦，《断案新编》PDF279；旧抄本PDF第79页（左，亨集第38叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=79 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=279
     def test_韩省干占岁中事(self):
         输出 = 运行("大六壬.py", "1129 01 29 21\n1\n1\n")
         self.assertIn("庚辰日，神后子将加亥时", 输出)
@@ -797,7 +829,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：辰上巳，朱雀", 输出)
         self.assertIn("四课：巳上午，螣蛇", 输出)
 
-    # 《六壬断案》亨集伊知县占赴任，《断案新编》PDF282 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=282
+    # 《六壬断案》亨集伊知县占赴任，《断案新编》PDF282；旧抄本PDF第80页（左，亨集第39叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=80 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=282
     def test_伊知县占赴任(self):
         输出 = 运行("大六壬.py", "1129 07 11 21\n1\n1\n1\n")
         self.assertIn("癸亥日，小吉未将加亥时", 输出)
@@ -809,33 +841,33 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上未，太常", 输出)
         self.assertIn("四课：未上卯，贵人", 输出)
 
-    # 《六壬断案》亨集童巡检占前程，书影仍题己酉八月丁未午将；八月初一丁未是1129-08-24，定气与纪元历皆巳将 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=285
+    # 《六壬断案》亨集童巡检占前程，书影仍题己酉八月丁未午将；八月初一丁未是1129-08-24，定气与纪元历皆巳将；旧抄本PDF第81页（左，亨集第40叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=81 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=285
 
-    # 《六壬断案》亨集应汝言占前程, 月将按宋纪元历气法取卯，《断案新编》PDF288 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=288
-    def test_应汝言占前程(self):
-        输出 = 运行("大六壬.py", "1129 10 23 03\n2\n1\n1\n")
-        self.assertIn("丁未日，太冲卯将加寅时", 输出)
-        self.assertIn("初传：申 螣蛇 妻财", 输出)
-        self.assertIn("中传：酉 贵人 妻财", 输出)
-        self.assertIn("末传：戌 天后 子孙", 输出)
-        self.assertIn("一课：丁上申，螣蛇", 输出)
-        self.assertIn("二课：申上酉，贵人", 输出)
-        self.assertIn("三课：未上申，螣蛇", 输出)
-        self.assertIn("四课：申上酉，贵人", 输出)
+    # 《六壬断案》亨集应汝言占前程，旧抄本及《断案新编》均只载己酉年丁未日卯将寅时，未载占月；按原年日干支及月将唯一得1129-10-23，日期为反推，月将按宋纪元历气法取卯；《断案新编》PDF288；旧抄本PDF第82页（左，亨集第41叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=82 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=288
+    # def test_应汝言占前程(self):
+    #     输出 = 运行("大六壬.py", "1129 10 23 03\n2\n1\n1\n")
+    #     self.assertIn("丁未日，太冲卯将加寅时", 输出)
+    #     self.assertIn("初传：申 螣蛇 妻财", 输出)
+    #     self.assertIn("中传：酉 贵人 妻财", 输出)
+    #     self.assertIn("末传：戌 天后 子孙", 输出)
+    #     self.assertIn("一课：丁上申，螣蛇", 输出)
+    #     self.assertIn("二课：申上酉，贵人", 输出)
+    #     self.assertIn("三课：未上申，螣蛇", 输出)
+    #     self.assertIn("四课：申上酉，贵人", 输出)
 
-    # 《六壬断案》亨集姜子安占前程，《断案新编》PDF291 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=291
-    def test_姜子安占前程(self):
-        输出 = 运行("大六壬.py", "1129 10 25 00\n1\n1\n")
-        self.assertIn("己酉日，太冲卯将加子时", 输出)
-        self.assertIn("初传：卯 青龙 官鬼", 输出)
-        self.assertIn("中传：午 朱雀 父母", 输出)
-        self.assertIn("末传：酉 天后 子孙", 输出)
-        self.assertIn("一课：己上戌，太阴", 输出)
-        self.assertIn("二课：戌上丑，白虎", 输出)
-        self.assertIn("三课：酉上子，太常", 输出)
-        self.assertIn("四课：子上卯，青龙", 输出)
+    # 《六壬断案》亨集姜子安占前程，旧抄本及《断案新编》均只载己酉年己酉日卯将子时，未载占月；按原年日干支及月将唯一得1129-10-25，日期为反推，定气与古历均为卯将；《断案新编》PDF291；旧抄本PDF第83页（右，亨集第41叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=83 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=291
+    # def test_姜子安占前程(self):
+    #     输出 = 运行("大六壬.py", "1129 10 25 00\n1\n1\n")
+    #     self.assertIn("己酉日，太冲卯将加子时", 输出)
+    #     self.assertIn("初传：卯 青龙 官鬼", 输出)
+    #     self.assertIn("中传：午 朱雀 父母", 输出)
+    #     self.assertIn("末传：酉 天后 子孙", 输出)
+    #     self.assertIn("一课：己上戌，太阴", 输出)
+    #     self.assertIn("二课：戌上丑，白虎", 输出)
+    #     self.assertIn("三课：酉上子，太常", 输出)
+    #     self.assertIn("四课：子上卯，青龙", 输出)
 
-    # 《六壬断案》亨集童知丞占在任，《断案新编》PDF294 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=294
+    # 《六壬断案》亨集童知丞占在任，《断案新编》PDF294；旧抄本PDF第84页（右，亨集第42叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=84 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=294
     def test_童知丞占在任(self):
         输出 = 运行("大六壬.py", "1129 11 24 01\n1\n1\n")
         self.assertIn("己卯日，功曹寅将加丑时", 输出)
@@ -847,23 +879,23 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上辰，勾陈", 输出)
         self.assertIn("四课：辰上巳，六合", 输出)
 
-    # 《六壬断案》亨集赵主簿占前程，《断案新编》PDF297 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=297
-    def test_赵主簿占前程(self):
-        输出 = 运行("大六壬.py", "1129 10 27 09\n1\n1\n")
-        self.assertIn("辛亥日，太冲卯将加巳时", 输出)
-        self.assertIn("初传：午 贵人 官鬼", 输出)
-        self.assertIn("中传：辰 朱雀 父母", 输出)
-        self.assertIn("末传：寅 勾陈 妻财", 输出)
-        self.assertIn("一课：辛上申，太阴", 输出)
-        self.assertIn("二课：申上午，贵人", 输出)
-        self.assertIn("三课：亥上酉，玄武", 输出)
-        self.assertIn("四课：酉上未，天后", 输出)
+    # 《六壬断案》亨集赵主簿占前程，旧抄本及《断案新编》均只载己酉年辛亥日卯将巳时，未载占月；按原年日干支及月将唯一得1129-10-27，日期为反推，定气与古历均为卯将；《断案新编》PDF297；旧抄本PDF第84页（左，亨集第43叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=84 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=297
+    # def test_赵主簿占前程(self):
+    #     输出 = 运行("大六壬.py", "1129 10 27 09\n1\n1\n")
+    #     self.assertIn("辛亥日，太冲卯将加巳时", 输出)
+    #     self.assertIn("初传：午 贵人 官鬼", 输出)
+    #     self.assertIn("中传：辰 朱雀 父母", 输出)
+    #     self.assertIn("末传：寅 勾陈 妻财", 输出)
+    #     self.assertIn("一课：辛上申，太阴", 输出)
+    #     self.assertIn("二课：申上午，贵人", 输出)
+    #     self.assertIn("三课：亥上酉，玄武", 输出)
+    #     self.assertIn("四课：酉上未，天后", 输出)
 
-    # 《六壬断案》亨集陈殿院占谪官，甲申秋壬辰巳将在1104年无匹配，原年日将不合；《断案新编》PDF300 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=300
+    # 《六壬断案》亨集陈殿院占谪官，甲申秋壬辰巳将在1104年无匹配，原年日将不合；《断案新编》PDF300；旧抄本PDF第85页（左，亨集第44叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=85 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=300
 
-    # 《六壬断案》亨集李大夫占银网事，《壬占汇选》卷1甲子日原稿明载大观己丑十二月，1109年甲子日无子将，原年日将不合 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=3
+    # 《六壬断案》亨集李大夫占银网事，《壬占汇选》卷1甲子日原稿明载大观己丑十二月，1109年甲子日无子将，原年日将不合；旧抄本PDF第86页（右，亨集第44叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=86 https://d.zixueguoxue.com/2022/04/1650441050-f06417473b12f17.pdf#page=3
 
-    # 《六壬断案》亨集姜伯达占前程, 宋本更正未将寅时 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=306
+    # 《六壬断案》亨集姜伯达占前程, 宋本更正未将寅时；旧抄本PDF第86页（左，亨集第45叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=86 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=306
     def test_姜伯达占前程(self):
         输出 = 运行("大六壬.py", "1129 07 01 03\n1\n1\n")
         self.assertIn("癸丑日，小吉未将加寅时", 输出)
@@ -875,7 +907,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上午，玄武", 输出)
         self.assertIn("四课：午上亥，勾陈", 输出)
 
-    # 《六壬断案》亨集冯干办占前程, 书影明记己酉正月 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=309
+    # 《六壬断案》亨集冯干办占前程, 书影明记己酉正月；旧抄本PDF第87页（左，亨集第46叶正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=87 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=309
     def test_冯干办占前程(self):
         输出 = 运行("大六壬.py", "1129 02 12 11\n1\n1\n1\n")
         self.assertIn("甲午日，神后子将加午时", 输出)
@@ -887,7 +919,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上子，螣蛇", 输出)
         self.assertIn("四课：子上午，白虎", 输出)
 
-    # 《六壬断案》亨集邓十八官人占漕试，《断案新编》PDF312 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=312
+    # 《六壬断案》亨集邓十八官人占漕试，《断案新编》PDF312；旧抄本PDF第88页（右，亨集第46叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=88 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=312
     def test_邓十八官人占漕试(self):
         输出 = 运行("大六壬.py", "1129 04 27 01\n1\n1\n")
         self.assertIn("戊申日，从魁酉将加丑时", 输出)
@@ -899,7 +931,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上辰，玄武", 输出)
         self.assertIn("四课：辰上子，青龙", 输出)
 
-    # 《六壬断案》亨集刘干运占前程，《断案新编》PDF315 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=315
+    # 《六壬断案》亨集刘干运占前程，《断案新编》PDF315；旧抄本PDF第89页（右，亨集第47叶背） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=89 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=315
     def test_刘干运占前程(self):
         输出 = 运行("大六壬.py", "1129 06 26 03\n1\n1\n")
         self.assertIn("戊申日，小吉未将加寅时", 输出)
@@ -911,7 +943,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上丑，天空", 输出)
         self.assertIn("四课：丑上午，天后", 输出)
 
-    # 《六壬断案》利集何三公占终身，《断案新编》PDF318 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=318
+    # 《六壬断案》利集何三公占终身，《断案新编》PDF318；旧抄本PDF第94页（左，终身叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=94 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=318
     def test_何三公占终身(self):
         输出 = 运行("大六壬.py", "1128 07 19 03\n1\n1\n")
         self.assertIn("丙寅日，小吉未将加寅时", 输出)
@@ -923,9 +955,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上未，太阴", 输出)
         self.assertIn("四课：未上子，六合", 输出)
 
-    # 《六壬断案》利集袁知镇占终身，书影仍题戊申十一月戊戌丑将；该年戊戌日无丑将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=321
+    # 《六壬断案》利集袁知镇占终身，书影仍题戊申十一月戊戌丑将；该年戊戌日无丑将，原年日将不合；旧抄本PDF第95页（右，终身叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=95 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=321
 
-    # 《六壬断案》利集王解元占终身，《断案新编》PDF324 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=324
+    # 《六壬断案》利集王解元占终身，《断案新编》PDF324；旧抄本PDF第95页（左，终身叶2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=95 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=324
     def test_王解元占终身(self):
         输出 = 运行("大六壬.py", "1128 02 11 03\n1\n1\n")
         self.assertIn("丁亥日，神后子将加寅时", 输出)
@@ -937,23 +969,24 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上酉，贵人", 输出)
         self.assertIn("四课：酉上未，太阴", 输出)
 
-    # 《六壬断案》利集邵木匠占本身，书影题戊申十一月一日壬子卯将；生卒范围内1068-11-16、1128-11-02均合日将，却都不合十一月初一，无法唯一反推日期 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=327
+    # 《六壬断案》利集邵木匠占本身，书影题戊申十一月一日壬子卯将；生卒范围内1068-11-16、1128-11-02均合日将，却都不合十一月初一，无法唯一反推日期；旧抄本PDF第96页（左，终身叶3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=96 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=327
 
-    # 《六壬断案》利集傅清卿占平生，《断案新编》PDF330 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=330
-    def test_傅清卿占平生(self):
-        输出 = 运行("大六壬.py", "1129 10 03 01\n1\n1\n")
-        self.assertIn("丁亥日，天罡辰将加丑时", 输出)
-        self.assertIn("初传：午 六合 兄弟", 输出)
-        self.assertIn("中传：戌 天后 子孙", 输出)
-        self.assertIn("末传：寅 白虎 父母", 输出)
-        self.assertIn("一课：丁上戌，天后", 输出)
-        self.assertIn("二课：戌上丑，太常", 输出)
-        self.assertIn("三课：亥上寅，白虎", 输出)
-        self.assertIn("四课：寅上巳，勾陈", 输出)
+    # 《六壬断案》利集傅清卿占平生，《断案新编》PDF330；旧抄本PDF第97页（左，终身叶4） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=97 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=330
+    # 两本均缺占月；按己酉年（1129）、丁亥日、辰将唯一反推1129-10-03（农历1129年闰八月十一），定气与古历中气均匹配；以下保留反推测试。
+    # def test_傅清卿占平生(self):
+    #     输出 = 运行("大六壬.py", "1129 10 03 01\n1\n1\n")
+    #     self.assertIn("丁亥日，天罡辰将加丑时", 输出)
+    #     self.assertIn("初传：午 六合 兄弟", 输出)
+    #     self.assertIn("中传：戌 天后 子孙", 输出)
+    #     self.assertIn("末传：寅 白虎 父母", 输出)
+    #     self.assertIn("一课：丁上戌，天后", 输出)
+    #     self.assertIn("二课：戌上丑，太常", 输出)
+    #     self.assertIn("三课：亥上寅，白虎", 输出)
+    #     self.assertIn("四课：寅上巳，勾陈", 输出)
 
-    # 《六壬断案》利集叶七秀才占平生，戊申十二月辛卯丑将在该年无匹配，原年日将不合；《断案新编》PDF333 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=333
+    # 《六壬断案》利集叶七秀才占平生，戊申十二月辛卯丑将在该年无匹配，原年日将不合；《断案新编》PDF333；旧抄本PDF第97页（左末，终身叶4～5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=97 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=333
 
-    # 《六壬断案》利集傅大禄占平生，《断案新编》PDF336 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=336
+    # 《六壬断案》利集傅大禄占平生，旧抄本只题己酉甲午子将卯时，案尾同日同时何子重；《断案新编》PDF336补明正月十五，何子重旧抄本PDF100也明载正月十五；旧抄本PDF第98页（左，终身叶5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=98 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=336
     def test_傅大禄占平生(self):
         输出 = 运行("大六壬.py", "1129 02 12 05\n1\n1\n")
         self.assertIn("甲午日，神后子将加卯时", 输出)
@@ -965,7 +998,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上卯，朱雀", 输出)
         self.assertIn("四课：卯上子，天后", 输出)
 
-    # 《六壬断案》利集王知县占身位，《断案新编》PDF339 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=339
+    # 《六壬断案》利集王知县占身位，《断案新编》PDF339；旧抄本PDF第99页（右末，终身叶5～6） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=99 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=339
     def test_王知县占身位(self):
         输出 = 运行("大六壬.py", "1128 06 07 01\n1\n1\n")
         self.assertIn("甲申日，传送申将加丑时", 输出)
@@ -977,7 +1010,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上卯，太常", 输出)
         self.assertIn("四课：卯上戌，六合", 输出)
 
-    # 《六壬断案》利集何子重占平生，《断案新编》PDF342 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=342
+    # 《六壬断案》利集何子重占平生，《断案新编》PDF342；旧抄本PDF第100页（右，终身叶6～7） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=100 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=342
     def test_何子重占平生(self):
         输出 = 运行("大六壬.py", "1129 02 12 05\n1\n1\n")
         self.assertIn("甲午日，神后子将加卯时", 输出)
@@ -989,31 +1022,33 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上卯，朱雀", 输出)
         self.assertIn("四课：卯上子，天后", 输出)
 
-    # 《六壬断案》利集姜子占向后，《断案新编》PDF345 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=345
-    def test_姜子占向后(self):
-        输出 = 运行("大六壬.py", "1129 10 25 01\n1\n1\n")
-        self.assertIn("己酉日，太冲卯将加丑时", 输出)
-        self.assertIn("初传：丑 白虎 兄弟", 输出)
-        self.assertIn("中传：卯 青龙 官鬼", 输出)
-        self.assertIn("末传：巳 六合 父母", 输出)
-        self.assertIn("一课：己上酉，天后", 输出)
-        self.assertIn("二课：酉上亥，玄武", 输出)
-        self.assertIn("三课：酉上亥，玄武", 输出)
-        self.assertIn("四课：亥上丑，白虎", 输出)
+    # 《六壬断案》利集姜子占向后，《断案新编》PDF345；旧抄本PDF第101页（右，终身叶7～8） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=101 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=345
+    # 两本均缺占月；按己酉年（1129）、己酉日、卯将唯一反推1129-10-25（农历1129年九月初四），定气与古历中气均匹配；以下保留反推测试。
+    # def test_姜子占向后(self):
+    #     输出 = 运行("大六壬.py", "1129 10 25 01\n1\n1\n")
+    #     self.assertIn("己酉日，太冲卯将加丑时", 输出)
+    #     self.assertIn("初传：丑 白虎 兄弟", 输出)
+    #     self.assertIn("中传：卯 青龙 官鬼", 输出)
+    #     self.assertIn("末传：巳 六合 父母", 输出)
+    #     self.assertIn("一课：己上酉，天后", 输出)
+    #     self.assertIn("二课：酉上亥，玄武", 输出)
+    #     self.assertIn("三课：酉上亥，玄武", 输出)
+    #     self.assertIn("四课：亥上丑，白虎", 输出)
 
-    # 《六壬断案》利集颜孔目占平生，《断案新编》PDF348 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=348
-    def test_颜孔目占平生(self):
-        输出 = 运行("大六壬.py", "1129 11 04 03\n1\n1\n")
-        self.assertIn("己未日，太冲卯将加寅时", 输出)
-        self.assertIn("初传：未 螣蛇 兄弟", 输出)
-        self.assertIn("中传：申 贵人 子孙", 输出)
-        self.assertIn("末传：申 贵人 子孙", 输出)
-        self.assertIn("一课：己上申，贵人", 输出)
-        self.assertIn("二课：申上酉，天后", 输出)
-        self.assertIn("三课：未上申，贵人", 输出)
-        self.assertIn("四课：申上酉，天后", 输出)
+    # 《六壬断案》利集颜孔目占平生，《断案新编》PDF348；旧抄本PDF第101页（左末，终身叶8～9） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=101 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=348
+    # 两本均缺占月；按己酉年（1129）、己未日、卯将唯一反推1129-11-04（农历1129年九月十四），定气与古历中气均匹配；以下保留反推测试。
+    # def test_颜孔目占平生(self):
+    #     输出 = 运行("大六壬.py", "1129 11 04 03\n1\n1\n")
+    #     self.assertIn("己未日，太冲卯将加寅时", 输出)
+    #     self.assertIn("初传：未 螣蛇 兄弟", 输出)
+    #     self.assertIn("中传：申 贵人 子孙", 输出)
+    #     self.assertIn("末传：申 贵人 子孙", 输出)
+    #     self.assertIn("一课：己上申，贵人", 输出)
+    #     self.assertIn("二课：申上酉，天后", 输出)
+    #     self.assertIn("三课：未上申，贵人", 输出)
+    #     self.assertIn("四课：申上酉，天后", 输出)
 
-    # 《六壬断案》利集丁丑人占终身，《断案新编》PDF351 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=351
+    # 《六壬断案》利集丁丑人占终身，《断案新编》PDF351；旧抄本PDF第102页（左，终身叶9） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=102 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=351
     def test_丁丑人占终身(self):
         输出 = 运行("大六壬.py", "1122 02 12 15\n1\n1\n")
         self.assertIn("丁巳日，神后子将加申时", 输出)
@@ -1025,7 +1060,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上酉，朱雀", 输出)
         self.assertIn("四课：酉上丑，太阴", 输出)
 
-    # 《六壬断案》利集乙亥人占终身，《断案新编》PDF354 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=354
+    # 《六壬断案》利集乙亥人占终身，《断案新编》PDF354；旧抄本PDF第103页（左，终身叶10） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=103 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=354
     def test_乙亥人占终身(self):
         输出 = 运行("大六壬.py", "1128 02 10 13\n1\n1\n")
         self.assertIn("丙戌日，神后子将加未时", 输出)
@@ -1037,9 +1072,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：戌上卯，太常", 输出)
         self.assertIn("四课：卯上申，六合", 输出)
 
-    # 《六壬断案》利集壬午日占平生，仅载壬午日、亥将、酉时，未载占年；《断案新编》PDF357 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=357
+    # 《六壬断案》利集壬午日占平生，仅载壬午日、亥将、酉时，未载占年；《断案新编》PDF357；旧抄本PDF第104页（左，终身叶11） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=104 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=357
 
-    # 《六壬断案》利集徐成局占向后，《断案新编》PDF360 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=360
+    # 《六壬断案》利集徐成局占向后，《断案新编》PDF360；旧抄本PDF第105页（右，终身叶11～12） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=105 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=360
     def test_徐成局占向后(self):
         输出 = 运行("大六壬.py", "1129 03 29 03\n1\n1\n1\n")
         self.assertIn("己卯日，河魁戌将加寅时", 输出)
@@ -1051,7 +1086,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上亥，六合", 输出)
         self.assertIn("四课：亥上未，天后", 输出)
 
-    # 《六壬断案》利集行者占平生，徐成局案尾明载同日时有一行者占得此课，书影也载己酉三月初一 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=360
+    # 《六壬断案》利集行者占平生，徐成局案尾明载同日时有一行者占得此课，书影也载己酉三月初一；旧抄本PDF第105页（左，终身叶12） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=105 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=360
     def test_行者占平生(self):
         输出 = 运行("大六壬.py", "1129 03 29 03\n1\n1\n1\n")
         self.assertIn("己卯日，河魁戌将加寅时", 输出)
@@ -1059,7 +1094,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：卯 白虎 官鬼", 输出)
         self.assertIn("末传：亥 六合 妻财", 输出)
 
-    # 《六壬断案》利集韩监仓占平生，书影末传辰乘天后 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=363
+    # 《六壬断案》利集韩监仓占平生，《断案新编》末传辰乘天后；旧抄本PDF106三传子寅辰乘白虎玄武螣蛇，末传天将与前两传不相续；旧抄本PDF第105页（左末，终身叶12～13） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=105 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=363
     def test_韩监仓占平生(self):
         输出 = 运行("大六壬.py", "1129 07 10 09\n1\n1\n")
         self.assertIn("壬戌日，小吉未将加巳时", 输出)
@@ -1067,7 +1102,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：寅 玄武 子孙", 输出)
         self.assertIn("末传：辰 天后 官鬼", 输出)
 
-    # 《六壬断案》利集刘监仓占年内，书影三传午辰寅 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=366
+    # 《六壬断案》利集刘监仓占年内，书影三传午辰寅；旧抄本PDF第107页（左，流年叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=107 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=366
     def test_刘监仓占年内(self):
         输出 = 运行("大六壬.py", "1129 01 29 03\n1\n1\n2\n")
         self.assertIn("庚辰日，神后子将加寅时", 输出)
@@ -1075,9 +1110,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：辰 六合 父母", 输出)
         self.assertIn("末传：寅 青龙 妻财", 输出)
 
-    # 《六壬断案》利集唐丞务占一年，仅题戊申庚辰子将子时，未载占月；农年与节年口径可得不同日期；《断案新编》PDF369 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=369
+    # 《六壬断案》利集唐丞务占一年，仅题戊申庚辰子将子时，未载占月；农年与节年口径可得不同日期；《断案新编》PDF369；旧抄本PDF第108页（右，流年叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=108 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=369
 
-    # 《六壬断案》利集祝省元占婚，《断案新编》PDF372 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=372
+    # 《六壬断案》利集祝省元占婚，《断案新编》PDF372；旧抄本PDF第109页（左，婚姻叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=109 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=372
     def test_祝省元占婚(self):
         输出 = 运行("大六壬.py", "1129 03 29 07\n1\n1\n")
         self.assertIn("己卯日，河魁戌将加辰时", 输出)
@@ -1089,7 +1124,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上酉，六合", 输出)
         self.assertIn("四课：酉上卯，玄武", 输出)
 
-    # 《六壬断案》利集孔七公占婚，《断案新编》PDF375 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=375
+    # 《六壬断案》利集孔七公占婚，《断案新编》PDF375；旧抄本PDF第110页（右，婚姻叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=110 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=375
     def test_孔七公占婚(self):
         输出 = 运行("大六壬.py", "1129 12 08 21\n1\n1\n")
         self.assertIn("癸巳日，功曹寅将加亥时", 输出)
@@ -1101,7 +1136,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上申，青龙", 输出)
         self.assertIn("四课：申上亥，太常", 输出)
 
-    # 《六壬断案》利集李二伯占成亲，《断案新编》PDF378 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=378
+    # 《六壬断案》利集李二伯占成亲，《断案新编》PDF378；旧抄本PDF第111页（右，婚姻叶2～胎产叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=111 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=378
     def test_李二伯占成亲(self):
         输出 = 运行("大六壬.py", "1129 12 15 13\n1\n1\n")
         self.assertIn("庚子日，功曹寅将加未时", 输出)
@@ -1113,7 +1148,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上未，天空", 输出)
         self.assertIn("四课：未上寅，天后", 输出)
 
-    # 《六壬断案》利集白生占产妇，《断案新编》PDF381 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=381
+    # 《六壬断案》利集白生占产妇，《断案新编》PDF381；旧抄本PDF第111页（左，胎产叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=111 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=381
     def test_白生占产妇(self):
         输出 = 运行("大六壬.py", "1129 11 05 03\n1\n1\n")
         self.assertIn("庚申日，太冲卯将加寅时", 输出)
@@ -1125,9 +1160,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上酉，太阴", 输出)
         self.assertIn("四课：酉上戌，玄武", 输出)
 
-    # 《六壬断案》利集翁秀才占子息，仅载丙申日、戌将、亥时，未载占年；《断案新编》PDF384 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=384
+    # 《六壬断案》利集翁秀才占子息，仅载丙申日、戌将、亥时，未载占年；《断案新编》PDF384；旧抄本PDF第112页（右，胎产叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=112 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=384
 
-    # 《六壬断案》利集何解元占子嗣，《断案新编》PDF387 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=387
+    # 《六壬断案》利集何解元占子嗣，《断案新编》PDF387；旧抄本PDF第113页（右，胎产叶2～3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=113 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=387
     def test_何解元占子嗣(self):
         输出 = 运行("大六壬.py", "1128 09 10 05\n1\n1\n")
         self.assertIn("己未日，太乙巳将加卯时", 输出)
@@ -1139,7 +1174,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：未上酉，六合", 输出)
         self.assertIn("四课：酉上亥，螣蛇", 输出)
 
-    # 《六壬断案》利集张姓占远行，何解元案尾仅载同日同课；由原日巳将及独足酉酉酉反推卯时，占时为反推 https://daizhige.org/易藏/术数/六壬断案.html
+    # 《六壬断案》利集张姓占远行，何解元案尾仅载同日同课；由原日巳将及独足酉酉酉反推卯时，占时为反推；旧抄本PDF第113页（右眉批，胎产叶2～3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=113 https://daizhige.org/易藏/术数/六壬断案.html
     # def test_张姓占远行(self):
     #     输出 = 运行("大六壬.py", "1128 09 10 05\n1\n1\n")
     #     self.assertIn("己未日，太乙巳将加卯时", 输出)
@@ -1147,7 +1182,7 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：酉 六合 子孙", 输出)
     #     self.assertIn("末传：酉 六合 子孙", 输出)
 
-    # 《六壬断案》利集季官人占过房子息，《断案新编》PDF390 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=390
+    # 《六壬断案》利集季官人占过房子息，《断案新编》PDF390；旧抄本PDF第113页（左，胎产叶3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=113 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=390
     def test_季官人占过房子息(self):
         输出 = 运行("大六壬.py", "1129 11 06 11\n1\n1\n")
         self.assertIn("辛酉日，太冲卯将加午时", 输出)
@@ -1159,22 +1194,23 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：酉上午，贵人", 输出)
         self.assertIn("四课：午上卯，六合", 输出)
 
-    # 《六壬断案》利集郭彦和占讨子, 书影四课酉乘青龙而三传酉乘贵人，取所载三传 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=393
+    # 《六壬断案》利集郭彦和占讨子，旧抄本四课丁上酉乘贵人、三传酉亥丑乘贵人太阴太常；《断案新编》四课酉乘青龙而三传酉乘贵人，四课天将不一致；旧抄本PDF第114页（右，胎产叶3～4） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=114 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=393
     def test_郭彦和占讨子(self):
         输出 = 运行("大六壬.py", "1129 12 12 00\n1\n1\n")
         self.assertIn("丁酉日，功曹寅将加子时", 输出)
         self.assertIn("初传：酉 贵人 妻财", 输出)
         self.assertIn("中传：亥 太阴 官鬼", 输出)
         self.assertIn("末传：丑 太常 子孙", 输出)
+        self.assertIn("一课：丁上酉，贵人", 输出)
         self.assertIn("二课：酉上亥，太阴", 输出)
         self.assertIn("三课：酉上亥，太阴", 输出)
         self.assertIn("四课：亥上丑，太常", 输出)
 
-    # 《六壬断案》利集丁亥人占产，仅载丙辰日、午将、午时，未载占年；《断案新编》PDF396 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=396
+    # 《六壬断案》利集丁亥人占产，仅载丙辰日、午将、午时，未载占年；《断案新编》PDF396；旧抄本PDF第115页（右，胎产叶4～5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=115 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=396
 
-    # 《六壬断案》利集乙丑日占产，仅载乙丑日、午将、申时，未载占年；《断案新编》PDF399 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=399
+    # 《六壬断案》利集乙丑日占产，仅载乙丑日、午将、申时，未载占年；《断案新编》PDF399；旧抄本PDF第115页（左，胎产叶5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=115 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=399
 
-    # 《六壬断案》利集童监税占财产，书影题戌将丑时 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=402
+    # 《六壬断案》利集童监税占财产，书影题戌将丑时；旧抄本PDF第116页（左，财产叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=116 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=402
     def test_童监税占财产(self):
         输出 = 运行("大六壬.py", "1128 04 19 01\n1\n1\n")
         self.assertIn("乙未日，河魁戌将加丑时", 输出)
@@ -1186,7 +1222,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：未上辰，太常", 输出)
         self.assertIn("四课：辰上丑，青龙", 输出)
 
-    # 《六壬断案》利集邹七丞务占求财，《断案新编》PDF408 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=408
+    # 《六壬断案》利集张克用占买卖，仅载己未日、酉将、亥时，未载占年；《断案新编》PDF405；旧抄本PDF第117页（左，财产叶2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=117 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=405
+
+    # 《六壬断案》利集邹七丞务占求财，《断案新编》PDF408；旧抄本PDF第117页（左末，财产叶2～3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=117 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=408
     def test_邹七丞务占求财(self):
         输出 = 运行("大六壬.py", "1129 12 08 01\n1\n1\n")
         self.assertIn("癸巳日，功曹寅将加丑时", 输出)
@@ -1198,9 +1236,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上午，六合", 输出)
         self.assertIn("四课：午上未，勾陈", 输出)
 
-    # 《六壬断案》利集林子成占养息，仅载乙亥日、戌将、午时，未载占年；《断案新编》PDF411 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=411
+    # 《六壬断案》利集林子成占养息，仅载乙亥日、戌将、午时，未载占年；《断案新编》PDF411；旧抄本PDF第118页（左，财产叶3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=118 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=411
 
-    # 《六壬断案》利集张公占店业，书影中传亥乘勾陈 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=415
+    # 《六壬断案》利集张公占店业，书影中传亥乘勾陈；旧抄本PDF第120页（右，财产叶4～5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=120 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=415
     def test_张公占店业(self):
         输出 = 运行("大六壬.py", "1128 10 11 01\n1\n1\n")
         self.assertIn("庚寅日，天罡辰将加丑时", 输出)
@@ -1208,7 +1246,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 勾陈 子孙", 输出)
         self.assertIn("末传：寅 白虎 妻财", 输出)
 
-    # 《六壬断案》利集曹八秀才占开店，《断案新编》PDF418 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=418
+    # 《六壬断案》利集曹八秀才占开店，《断案新编》PDF418；旧抄本PDF第121页（右，财产叶5～6） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=121 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=418
     def test_曹八秀才占开店(self):
         输出 = 运行("大六壬.py", "1129 12 14 17\n1\n1\n")
         self.assertIn("己亥日，功曹寅将加酉时", 输出)
@@ -1220,9 +1258,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上辰，太常", 输出)
         self.assertIn("四课：辰上酉，螣蛇", 输出)
 
-    # 《六壬断案》利集张克用占买卖，仅载己未日、酉将、亥时，未载占年；《断案新编》PDF405 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=405
-
-    # 《六壬断案》利集曹八秀才占进屋，《断案新编》PDF421 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=421
+    # 《六壬断案》利集曹八秀才占进屋，《断案新编》PDF421；旧抄本PDF第121页（左，财产叶6～7） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=121 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=421
     def test_曹八秀才占进屋(self):
         输出 = 运行("大六壬.py", "1129 12 15 13\n1\n1\n")
         self.assertIn("庚子日，功曹寅将加未时", 输出)
@@ -1234,7 +1270,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上未，天空", 输出)
         self.assertIn("四课：未上寅，天后", 输出)
 
-    # 《六壬断案》利集水四哥占求财，《断案新编》PDF424 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=424
+    # 《六壬断案》利集水四哥占求财，《断案新编》PDF424；旧抄本PDF第123页（右，财产叶6～7） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=123 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=424
     def test_水四哥占求财(self):
         输出 = 运行("大六壬.py", "1129 12 17 15\n1\n1\n")
         self.assertIn("壬寅日，功曹寅将加申时", 输出)
@@ -1246,9 +1282,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上申，六合", 输出)
         self.assertIn("四课：申上寅，玄武", 输出)
 
-    # 《六壬断案》利集刘五官占店，书影明题乙卯十月戊寅寅将；1075年无该日将，1135年该日为农历及节月十一月 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=427
+    # 《六壬断案》利集刘五官占店，书影明题乙卯十月戊寅寅将；1075年无该日将，1135年该日为农历及节月十一月；旧抄本PDF第123页（左，财产叶7～8） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=123 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=427
 
-    # 《六壬断案》利集甲申人占求财，书影明题丙辰五月十八丁酉申将；邵氏生卒范围丙辰为1076，日将唯一得1076-05-23农四月十二，日期为反推 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=430
+    # 《六壬断案》利集甲申人占求财，书影明题丙辰五月十八丁酉申将；邵氏生卒范围丙辰为1076，日将唯一得1076-05-23农四月十二，日期为反推；旧抄本PDF第124页（右，财产叶7～8） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=124 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=430
     # def test_甲申人占求财(self):
     #     输出 = 运行("大六壬.py", "1076 05 23 13\n1\n1\n")
     #     self.assertIn("丁酉日，传送申将加未时", 输出)
@@ -1256,21 +1292,22 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：子 天后 官鬼", 输出)
     #     self.assertIn("末传：丑 太阴 子孙", 输出)
 
-    # 《六壬断案》利集己巳人占求财，书影明题丙辰六月甲寅巳将；1076、1136两丙辰年均无甲寅巳将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=433
+    # 《六壬断案》利集己巳人占求财，书影明题丙辰六月甲寅巳将；1076、1136两丙辰年均无甲寅巳将，原年日将不合；旧抄本PDF第124页（左，财产叶8） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=124 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=433
 
-    # 《六壬断案》利集钱三郎占开店, 寅时课图用昼贵 https://daizhige.org/易藏/术数/六壬断案.html
-    def test_钱三郎占开店(self):
-        输出 = 运行("大六壬.py", "1129 10 02 03\n1\n2\n")
-        self.assertIn("丙戌日，天罡辰将加寅时", 输出)
-        self.assertIn("初传：子 天后 官鬼", 输出)
-        self.assertIn("中传：寅 玄武 父母", 输出)
-        self.assertIn("末传：辰 白虎 子孙", 输出)
-        self.assertIn("一课：丙上未，勾陈", 输出)
-        self.assertIn("二课：未上酉，朱雀", 输出)
-        self.assertIn("三课：戌上子，天后", 输出)
-        self.assertIn("四课：子上寅，玄武", 输出)
+    # 《六壬断案》利集钱三郎占开店，原题己酉年丙戌日辰将寅时，未载占月；寅时课图用昼贵；旧抄本PDF第124页（左末，财产叶8～9） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=124 https://daizhige.org/易藏/术数/六壬断案.html
+    # 按1129年丙戌日辰将唯一反推1129-10-02（农历1129年闰八月初十），定气与古历中气均匹配；以下保留反推测试。
+    # def test_钱三郎占开店(self):
+    #     输出 = 运行("大六壬.py", "1129 10 02 03\n1\n2\n")
+    #     self.assertIn("丙戌日，天罡辰将加寅时", 输出)
+    #     self.assertIn("初传：子 天后 官鬼", 输出)
+    #     self.assertIn("中传：寅 玄武 父母", 输出)
+    #     self.assertIn("末传：辰 白虎 子孙", 输出)
+    #     self.assertIn("一课：丙上未，勾陈", 输出)
+    #     self.assertIn("二课：未上酉，朱雀", 输出)
+    #     self.assertIn("三课：戌上子，天后", 输出)
+    #     self.assertIn("四课：子上寅，玄武", 输出)
 
-    # 《六壬断案》利集王县丞占官职，《断案新编》PDF436 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=436
+    # 《六壬断案》利集王县丞占官职，《断案新编》PDF436；旧抄本PDF第126页（左，一课二事各断式叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=126 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=436
     def test_王县丞占官职(self):
         输出 = 运行("大六壬.py", "1128 06 07 09\n1\n1\n")
         self.assertIn("甲申日，传送申将加巳时", 输出)
@@ -1282,9 +1319,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上亥，朱雀", 输出)
         self.assertIn("四课：亥上寅，天后", 输出)
 
-    # 《六壬断案》利集汪五公占买卖，正文载与王县丞同月将日时，未直载该次占年；《断案新编》PDF436 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=436
+    # 《六壬断案》利集汪五公占买卖，正文载与王县丞同月将日时，未直载该次占年；《断案新编》PDF436；旧抄本PDF第127页（右，一课二事各断式叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=127 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=436
 
-    # 《六壬断案》利集刘判官占前程，《断案新编》PDF439 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=439
+    # 《六壬断案》利集刘判官占前程，《断案新编》PDF439；旧抄本PDF第128页（左，一课二事各断式叶3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=128 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=439
     def test_刘判官占前程(self):
         输出 = 运行("大六壬.py", "1128 08 05 05\n1\n1\n")
         self.assertIn("癸未日，胜光午将加卯时", 输出)
@@ -1296,9 +1333,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：未上戌，青龙", 输出)
         self.assertIn("四课：戌上丑，太常", 输出)
 
-    # 《六壬断案》利集刘一翁代占身位，正文载与刘判官同月将日时，未直载该次占年；《断案新编》PDF443 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=443
+    # 《六壬断案》利集刘一翁代占身位，正文载与刘判官同月将日时，未直载该次占年；《断案新编》PDF443；旧抄本PDF第129页（右，一课二事各断式叶3～4） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=129 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=443
 
-    # 《六壬断案》利集何秀才占前程，《断案新编》PDF446 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=446
+    # 《六壬断案》利集何秀才占前程，《断案新编》PDF446；旧抄本PDF第129页（左，一课二事各断式叶4） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=129 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=446
     def test_何秀才占前程(self):
         输出 = 运行("大六壬.py", "1128 06 20 07\n1\n1\n")
         self.assertIn("丁酉日，传送申将加辰时", 输出)
@@ -1310,23 +1347,24 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：酉上丑，太阴", 输出)
         self.assertIn("四课：丑上巳，天空", 输出)
 
-    # 《六壬断案》利集何学录占身宅，仅称与何秀才同课，未载该次年月日时；《断案新编》PDF449 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=449
+    # 《六壬断案》利集何学录占身宅，仅称与何秀才同课，未载该次年月日时；《断案新编》PDF449；旧抄本PDF第130页（右，一课二事各断式叶4～5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=130 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=449
 
-    # 《六壬断案》利集周氏占交易，书影明题建炎五年；按1131年核，正月乙巳无亥将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=452
+    # 《六壬断案》利集周氏占交易，书影明题建炎五年；按1131年核，正月乙巳无亥将，原年日将不合；旧抄本PDF第131页（左，交易谋为叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=131 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=452
 
-    # 《六壬断案》利集曹将仕占谋干, 课图按《六壬指南》涉害先孟取丑，《断案新编》PDF455 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=455
-    def test_曹将仕占谋干(self):
-        输出 = 运行("大六壬.py", "1129 12 18 07\n1\n1\n1\n2\n")
-        self.assertIn("癸卯日，功曹寅将加辰时", 输出)
-        self.assertIn("初传：丑 勾陈 官鬼", 输出)
-        self.assertIn("中传：亥 天空 兄弟", 输出)
-        self.assertIn("末传：酉 太常 父母", 输出)
-        self.assertIn("一课：癸上亥，天空", 输出)
-        self.assertIn("二课：亥上酉，太常", 输出)
-        self.assertIn("三课：卯上丑，勾陈", 输出)
-        self.assertIn("四课：丑上亥，天空", 输出)
+    # 《六壬断案》利集曹将仕占谋干，两本均只题己酉年癸卯日寅将辰时，未载占月；课图按《六壬指南》涉害先孟取丑，《断案新编》PDF455；旧抄本PDF第132页（右，交易谋为叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=132 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=455
+    # 按1129年癸卯日寅将唯一反推1129-12-18（农历1129年十月二十八），定气与古历中气均匹配；以下保留反推测试。
+    # def test_曹将仕占谋干(self):
+    #     输出 = 运行("大六壬.py", "1129 12 18 07\n1\n1\n1\n2\n")
+    #     self.assertIn("癸卯日，功曹寅将加辰时", 输出)
+    #     self.assertIn("初传：丑 勾陈 官鬼", 输出)
+    #     self.assertIn("中传：亥 天空 兄弟", 输出)
+    #     self.assertIn("末传：酉 太常 父母", 输出)
+    #     self.assertIn("一课：癸上亥，天空", 输出)
+    #     self.assertIn("二课：亥上酉，太常", 输出)
+    #     self.assertIn("三课：卯上丑，勾陈", 输出)
+    #     self.assertIn("四课：丑上亥，天空", 输出)
 
-    # 《六壬断案》利集应秀才占出行，《断案新编》PDF458 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=458
+    # 《六壬断案》利集应秀才占出行，《断案新编》PDF458；旧抄本PDF第132页（左，出行访谒叶1） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=132 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=458
     def test_应秀才占出行(self):
         输出 = 运行("大六壬.py", "1129 11 08 17\n1\n1\n")
         self.assertIn("癸亥日，太冲卯将加酉时", 输出)
@@ -1338,9 +1376,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上巳，太阴", 输出)
         self.assertIn("四课：巳上亥，勾陈", 输出)
 
-    # 《六壬断案》利集李秀才访道士，仅载庚辰日、寅将、午时，未载占年；《断案新编》PDF461 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=461
+    # 《六壬断案》利集李秀才访道士，仅载庚辰日、寅将、午时，未载占年；《断案新编》PDF461；旧抄本PDF第133页（右，出行访谒叶1～2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=133 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=461
 
-    # 《六壬断案》利集管学正谒县尹，《断案新编》PDF464 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=464
+    # 《六壬断案》利集管学正谒县尹，《断案新编》PDF464；旧抄本PDF第133页（左，出行访谒叶2） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=133 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=464
     def test_管学正谒县尹(self):
         输出 = 运行("大六壬.py", "1129 12 09 19\n1\n1\n")
         self.assertIn("甲午日，功曹寅将加戌时", 输出)
@@ -1352,21 +1390,21 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上戌，六合", 输出)
         self.assertIn("四课：戌上寅，白虎", 输出)
 
-    # 《六壬断案》利集史某占访僧，仅载乙酉日、酉将、辰时，未载占年；《断案新编》PDF467 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=467
+    # 《六壬断案》利集史某占访僧，仅载乙酉日、酉将、辰时，未载占年；《断案新编》PDF467；旧抄本PDF第134页（左，出行访谒叶3） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=134 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=467
 
-    # 《六壬断案》利集邵先生自占动静，据弁言治平2年生及案中64岁反推占年1128，原图用昼贵；《断案新编》PDF3、470 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=470
-    # def test_邵先生自占动静(self):
-    #     输出 = 运行("大六壬.py", "1128 11 06 00\n1\n2\n")
-    #     self.assertIn("丙辰日，太冲卯将加子时，昼贵亥", 输出)
-    #     self.assertIn("初传：申 六合 妻财", 输出)
-    #     self.assertIn("中传：亥 贵人 官鬼", 输出)
-    #     self.assertIn("末传：寅 玄武 父母", 输出)
-    #     self.assertIn("一课：丙上申，六合", 输出)
-    #     self.assertIn("二课：申上亥，贵人", 输出)
-    #     self.assertIn("三课：辰上未，勾陈", 输出)
-    #     self.assertIn("四课：未上戌，螣蛇", 输出)
+    # 《六壬断案》利集邵先生自占动静，两本均明载戊申年十月丙辰日卯将子时，原图用昼贵；《断案新编》PDF470；旧抄本PDF第135页（右，出行访谒叶3～4） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=135 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=470
+    def test_邵先生自占动静(self):
+        输出 = 运行("大六壬.py", "1128 11 06 00\n1\n2\n")
+        self.assertIn("丙辰日，太冲卯将加子时，昼贵亥", 输出)
+        self.assertIn("初传：申 六合 妻财", 输出)
+        self.assertIn("中传：亥 贵人 官鬼", 输出)
+        self.assertIn("末传：寅 玄武 父母", 输出)
+        self.assertIn("一课：丙上申，六合", 输出)
+        self.assertIn("二课：申上亥，贵人", 输出)
+        self.assertIn("三课：辰上未，勾陈", 输出)
+        self.assertIn("四课：未上戌，螣蛇", 输出)
 
-    # 《六壬断案》利集丁巳人占出行，《断案新编》PDF473 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=473
+    # 《六壬断案》利集丁巳人占出行，《断案新编》PDF473；旧抄本PDF第136页（右，出行访谒叶4） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=136 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=473
     def test_丁巳人占出行(self):
         输出 = 运行("大六壬.py", "1129 02 12 11\n1\n1\n1\n")
         self.assertIn("甲午日，神后子将加午时", 输出)
@@ -1378,9 +1416,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上子，螣蛇", 输出)
         self.assertIn("四课：子上午，白虎", 输出)
 
-    # 《六壬断案》利集邵先生占相访，仅载戊辰日、子将、酉时，未载占年；《断案新编》PDF476 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=476
+    # 《六壬断案》利集邵先生占相访，仅载戊辰日、子将、酉时，未载占年；《断案新编》PDF476；旧抄本PDF第136页（右末，出行访谒叶4～5） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=136 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=476
 
-    # 《六壬断案》贞集黄秀才占行人，书影日干丁 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=479
+    # 《六壬断案》贞集黄秀才占行人，书影日干丁；旧抄本PDF第141页（贞集叶1正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=141 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=479
     def test_黄秀才占行人(self):
         输出 = 运行("大六壬.py", "1128 03 12 13\n1\n1\n")
         self.assertIn("丁巳日，登明亥将加未时", 输出)
@@ -1392,9 +1430,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("四课：酉上丑，太阴", 输出)
         self.assertIn("一课：丁上亥，贵人", 输出)
 
-    # 《六壬断案》贞集王知县占新宰，书影仍题己丑十一月甲申子将；1109年甲申日无子将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=482
+    # 《六壬断案》贞集王知县占新宰，书影仍题己丑十一月甲申子将；1109年甲申日无子将，原年日将不合；旧抄本PDF第142页（贞集叶1背～2正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=142 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=482
 
-    # 《六壬断案》贞集戴仪占朝廷文字，《断案新编》PDF485 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=485
+    # 《六壬断案》贞集戴仪占朝廷文字，《断案新编》PDF485；旧抄本PDF第142页（贞集叶1背～2正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=142 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=485
     def test_戴仪占朝廷文字(self):
         输出 = 运行("大六壬.py", "1118 07 21 09\n1\n1\n")
         self.assertIn("乙亥日，小吉未将加巳时", 输出)
@@ -1406,13 +1444,13 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上丑，天后", 输出)
         self.assertIn("四课：丑上卯，玄武", 输出)
 
-    # 《六壬断案》贞集某秀才望省试信，仅载甲戌日、酉将、卯时，未载占年；《断案新编》PDF488 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=488
+    # 《六壬断案》贞集某秀才望省试信，仅载甲戌日、酉将、卯时，未载占年；《断案新编》PDF488；旧抄本PDF第143页（贞集叶2背～3正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=143 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=488
 
-    # 《六壬断案》贞集寺僧望州中文字，仅载辛亥日、申将、巳时，未载占年；《断案新编》PDF491 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=491
+    # 《六壬断案》贞集寺僧望州中文字，仅载辛亥日、申将、巳时，未载占年；《断案新编》PDF491；旧抄本PDF第143页（贞集叶2背～3正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=143 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=491
 
-    # 《六壬断案》贞集张一公占州中文字，仅载辛卯日、亥将、寅时，未载占年；《断案新编》PDF494 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=494
+    # 《六壬断案》贞集张一公占州中文字，仅载辛卯日、亥将、寅时，未载占年；《断案新编》PDF494；旧抄本PDF第144页（贞集叶3背～4正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=144 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=494
 
-    # 《六壬断案》贞集孟承务占幼童，《断案新编》PDF497 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=497
+    # 《六壬断案》贞集孟承务占幼童，《断案新编》PDF497；旧抄本PDF第144页（贞集叶3背～4正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=144 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=497
     def test_孟承务占幼童(self):
         输出 = 运行("大六壬.py", "1129 04 01 01\n1\n1\n")
         self.assertIn("壬午日，河魁戌将加丑时", 输出)
@@ -1424,7 +1462,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上卯，贵人", 输出)
         self.assertIn("四课：卯上子，六合", 输出)
 
-    # 《六壬断案》贞集王县丞占病，《断案新编》PDF500 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=500
+    # 《六壬断案》贞集王县丞占病，《断案新编》PDF500；旧抄本PDF第145页（贞集叶4背～5正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=145 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=500
     def test_王县丞占病(self):
         输出 = 运行("大六壬.py", "1128 07 07 05\n1\n1\n")
         self.assertIn("甲寅日，小吉未将加卯时", 输出)
@@ -1436,7 +1474,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上午，白虎", 输出)
         self.assertIn("四课：午上戌，六合", 输出)
 
-    # 《六壬断案》贞集徐孺人占病，《断案新编》PDF503 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=503
+    # 《六壬断案》贞集徐孺人占病，《断案新编》PDF503；旧抄本PDF第146页（贞集叶5背～6正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=146 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=503
     def test_徐孺人占病(self):
         输出 = 运行("大六壬.py", "1128 06 16 05\n1\n1\n")
         self.assertIn("癸巳日，传送申将加卯时", 输出)
@@ -1448,7 +1486,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：巳上戌，青龙", 输出)
         self.assertIn("四课：戌上卯，太阴", 输出)
 
-    # 《六壬断案》贞集伊秀才占父病，《断案新编》PDF506 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=506
+    # 《六壬断案》贞集伊秀才占父病，《断案新编》PDF506；旧抄本PDF第147页（贞集叶6背～7正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=147 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=506
     def test_伊秀才占父病(self):
         输出 = 运行("大六壬.py", "1129 12 11 03\n1\n1\n")
         self.assertIn("丙申日，功曹寅将加寅时", 输出)
@@ -1460,7 +1498,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上申，螣蛇", 输出)
         self.assertIn("四课：申上申，螣蛇", 输出)
 
-    # 《六壬断案》贞集张逸士占病，《断案新编》PDF509 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=509
+    # 《六壬断案》贞集张逸士占病，《断案新编》PDF509；旧抄本PDF第148页（贞集叶7背～8正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=148 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=509
     def test_张逸士占病(self):
         输出 = 运行("大六壬.py", "1128 10 11 01\n1\n1\n")
         self.assertIn("庚寅日，天罡辰将加丑时", 输出)
@@ -1472,9 +1510,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：寅上巳，太阴", 输出)
         self.assertIn("四课：巳上申，螣蛇", 输出)
 
-    # 《六壬断案》贞集叶八郎占医业，书影仍题戊申十二月辛卯丑将；该年辛卯日无丑将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=512
+    # 《六壬断案》贞集叶八郎占医业，书影仍题戊申十二月辛卯丑将；该年辛卯日无丑将，原年日将不合；旧抄本PDF第148页（贞集叶7背～8正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=148 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=512
 
-    # 《六壬断案》贞集樊郎中占项秀才病，《断案新编》PDF515 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=515
+    # 《六壬断案》贞集樊郎中占项秀才病，《断案新编》PDF515；旧抄本PDF第149～150页（贞集叶8背～10正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=149 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=515
     def test_樊郎中占项秀才病(self):
         输出 = 运行("大六壬.py", "1129 11 09 15\n1\n1\n")
         self.assertIn("甲子日，太冲卯将加申时", 输出)
@@ -1486,7 +1524,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：子上未，天空", 输出)
         self.assertIn("四课：未上寅，天后", 输出)
 
-    # 《六壬断案》贞集戊午日占病，《断案新编》PDF518 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=518
+    # 《六壬断案》贞集戊午日占病，《断案新编》PDF518；旧抄本PDF第151页（贞集叶10背～11正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=151 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=518
     def test_戊午日占病(self):
         输出 = 运行("大六壬.py", "1128 03 13 19\n1\n1\n")
         self.assertIn("戊午日，登明亥将加戌时", 输出)
@@ -1498,19 +1536,19 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：午上未，贵人", 输出)
         self.assertIn("四课：未上申，天后", 输出)
 
-    # 《六壬断案》贞集尹邦达占妻病，《断案新编》PDF521 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=521
-    def test_尹邦达占妻病(self):
-        输出 = 运行("大六壬.py", "1129 10 03 21\n1\n1\n")
-        self.assertIn("丁亥日，天罡辰将加亥时", 输出)
-        self.assertIn("初传：巳 太常 兄弟", 输出)
-        self.assertIn("中传：戌 螣蛇 子孙", 输出)
-        self.assertIn("末传：卯 天空 父母", 输出)
-        self.assertIn("一课：丁上子，六合", 输出)
-        self.assertIn("二课：子上巳，太常", 输出)
-        self.assertIn("三课：亥上辰，白虎", 输出)
-        self.assertIn("四课：辰上酉，贵人", 输出)
+    # 《六壬断案》贞集尹邦达占妻病，旧抄本与《断案新编》均只载己酉丁亥辰将亥时，未载占月；按年日将唯一得1129-10-03，日期为反推；旧抄本PDF第151页（贞集叶10背～11正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=151 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=521
+    # def test_尹邦达占妻病(self):
+    #     输出 = 运行("大六壬.py", "1129 10 03 21\n1\n1\n")
+    #     self.assertIn("丁亥日，天罡辰将加亥时", 输出)
+    #     self.assertIn("初传：巳 太常 兄弟", 输出)
+    #     self.assertIn("中传：戌 螣蛇 子孙", 输出)
+    #     self.assertIn("末传：卯 天空 父母", 输出)
+    #     self.assertIn("一课：丁上子，六合", 输出)
+    #     self.assertIn("二课：子上巳，太常", 输出)
+    #     self.assertIn("三课：亥上辰，白虎", 输出)
+    #     self.assertIn("四课：辰上酉，贵人", 输出)
 
-    # 《六壬断案》贞集叶解元占病，《断案新编》PDF524 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=524
+    # 《六壬断案》贞集叶解元占病，《断案新编》PDF524；旧抄本PDF第152页（贞集叶11背～12正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=152 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=524
     def test_叶解元占病(self):
         输出 = 运行("大六壬.py", "1130 08 04 09\n1\n1\n")
         self.assertIn("壬辰日，胜光午将加巳时", 输出)
@@ -1522,7 +1560,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：辰上巳，贵人", 输出)
         self.assertIn("四课：巳上午，螣蛇", 输出)
 
-    # 《六壬断案》贞集韩省干占子病，《断案新编》PDF527 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=527
+    # 《六壬断案》贞集韩省干占子病，《断案新编》PDF527；旧抄本PDF第152页（贞集叶11背～12正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=152 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=527
     def test_韩省干占子病(self):
         输出 = 运行("大六壬.py", "1130 08 11 13\n1\n1\n")
         self.assertIn("己亥日，胜光午将加未时", 输出)
@@ -1534,39 +1572,39 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上戌，太阴", 输出)
         self.assertIn("四课：戌上酉，玄武", 输出)
 
-    # 《六壬断案》贞集蒋六公占自身，《断案新编》PDF530 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=530
-    def test_蒋六公占自身(self):
-        输出 = 运行("大六壬.py", "1129 09 07 03\n1\n1\n")
-        self.assertIn("辛酉日，太乙巳将加寅时", 输出)
-        self.assertIn("初传：卯 螣蛇 妻财", 输出)
-        self.assertIn("中传：午 勾陈 官鬼", 输出)
-        self.assertIn("末传：酉 白虎 兄弟", 输出)
-        self.assertIn("一课：辛上丑，天后", 输出)
-        self.assertIn("二课：丑上辰，朱雀", 输出)
-        self.assertIn("三课：酉上子，太阴", 输出)
-        self.assertIn("四课：子上卯，螣蛇", 输出)
+    # 《六壬断案》贞集蒋六公占自身，旧抄本与《断案新编》均只载己酉辛酉巳将寅时，未载占月；按年日将唯一得1129-09-07，日期为反推；旧抄本PDF第153页（贞集叶12背～13正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=153 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=530
+    # def test_蒋六公占自身(self):
+    #     输出 = 运行("大六壬.py", "1129 09 07 03\n1\n1\n")
+    #     self.assertIn("辛酉日，太乙巳将加寅时", 输出)
+    #     self.assertIn("初传：卯 螣蛇 妻财", 输出)
+    #     self.assertIn("中传：午 勾陈 官鬼", 输出)
+    #     self.assertIn("末传：酉 白虎 兄弟", 输出)
+    #     self.assertIn("一课：辛上丑，天后", 输出)
+    #     self.assertIn("二课：丑上辰，朱雀", 输出)
+    #     self.assertIn("三课：酉上子，太阴", 输出)
+    #     self.assertIn("四课：子上卯，螣蛇", 输出)
 
-    # 《六壬断案》贞集蒋七婆占子病，《断案新编》PDF533 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=533
-    def test_蒋七婆占子病(self):
-        输出 = 运行("大六壬.py", "1129 09 07 15\n1\n1\n")
-        self.assertIn("辛酉日，太乙巳将加申时", 输出)
-        self.assertIn("初传：午 贵人 官鬼", 输出)
-        self.assertIn("中传：卯 六合 妻财", 输出)
-        self.assertIn("末传：子 天空 子孙", 输出)
-        self.assertIn("一课：辛上未，天后", 输出)
-        self.assertIn("二课：未上辰，朱雀", 输出)
-        self.assertIn("三课：酉上午，贵人", 输出)
-        self.assertIn("四课：午上卯，六合", 输出)
+    # 《六壬断案》贞集蒋七婆占子病，旧抄本与《断案新编》均只载己酉辛酉巳将申时，未载占月；按年日将唯一得1129-09-07，日期为反推；旧抄本PDF第154页（贞集叶13背～14正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=154 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=533
+    # def test_蒋七婆占子病(self):
+    #     输出 = 运行("大六壬.py", "1129 09 07 15\n1\n1\n")
+    #     self.assertIn("辛酉日，太乙巳将加申时", 输出)
+    #     self.assertIn("初传：午 贵人 官鬼", 输出)
+    #     self.assertIn("中传：卯 六合 妻财", 输出)
+    #     self.assertIn("末传：子 天空 子孙", 输出)
+    #     self.assertIn("一课：辛上未，天后", 输出)
+    #     self.assertIn("二课：未上辰，朱雀", 输出)
+    #     self.assertIn("三课：酉上午，贵人", 输出)
+    #     self.assertIn("四课：午上卯，六合", 输出)
 
-    # 《六壬断案》贞集庚辰日占病，仅载庚辰日、亥将、辰时，未载占年；《断案新编》PDF536 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=536
+    # 《六壬断案》贞集庚辰日占病，仅载庚辰日、亥将、辰时，未载占年；《断案新编》PDF536；旧抄本PDF第155页（贞集叶14背～15正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=155 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=536
 
-    # 《六壬断案》贞集丁巳日占病，仅载丁巳日、未将、寅时，未载占年；《断案新编》PDF539 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=539
+    # 《六壬断案》贞集丁巳日占病，仅载丁巳日、未将、寅时，未载占年；《断案新编》PDF539；旧抄本PDF第156页（贞集叶15背～16正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=156 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=539
 
-    # 《六壬断案》贞集丙午日占病，仅载丙午日、子将、亥时，未载占年；《断案新编》PDF542 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=542
+    # 《六壬断案》贞集丙午日占病，仅载丙午日、子将、亥时，未载占年；《断案新编》PDF542；旧抄本PDF第156页（贞集叶15背～16正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=156 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=542
 
-    # 《六壬断案》贞集己丑日占儿病，仅载己丑日、丑将、辰时，未载占年；《断案新编》PDF545 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=545
+    # 《六壬断案》贞集己丑日占儿病，仅载己丑日、丑将、辰时，未载占年；《断案新编》PDF545；旧抄本PDF第157页（贞集叶16背～17正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=157 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=545
 
-    # 《六壬断案》贞集吴四公占进畜，《断案新编》PDF548 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=548
+    # 《六壬断案》贞集吴四公占进畜，《断案新编》PDF548；旧抄本PDF第157页（贞集叶16背～17正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=157 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=548
     def test_吴四公占进畜(self):
         输出 = 运行("大六壬.py", "1129 11 08 07\n1\n1\n")
         self.assertIn("癸亥日，太冲卯将加辰时", 输出)
@@ -1578,23 +1616,23 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：亥上戌，白虎", 输出)
         self.assertIn("四课：戌上酉，太常", 输出)
 
-    # 《六壬断案》贞集王寺丞占取马，仅载丁亥日、戌将、卯时，未载占年；《断案新编》PDF551 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=551
+    # 《六壬断案》贞集王寺丞占取马，仅载丁亥日、戌将、卯时，未载占年；《断案新编》PDF551；旧抄本PDF第158页（贞集叶17背～18正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=158 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=551
 
-    # 《六壬断案》贞集遂安官人占失马，仅载壬午日、丑将、卯时，未载占年；《断案新编》PDF554 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=554
+    # 《六壬断案》贞集遂安官人占失马，仅载壬午日、丑将、卯时，未载占年；《断案新编》PDF554；旧抄本PDF第158页（贞集叶17背～18正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=158 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=554
 
-    # 《六壬断案》贞集丁丑日占失马，仅载丁丑日、亥将、申时，未载占年；《断案新编》PDF557 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=557
+    # 《六壬断案》贞集丁丑日占失马，仅载丁丑日、亥将、申时，未载占年；《断案新编》PDF557；旧抄本PDF第159页（贞集叶18背～19正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=159 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=557
 
-    # 《六壬断案》贞集戊子日占失羊，仅载戊子日、酉将、寅时，未载占年；《断案新编》PDF560 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=560
+    # 《六壬断案》贞集戊子日占失羊，仅载戊子日、酉将、寅时，未载占年；《断案新编》PDF560；旧抄本PDF第159页（贞集叶18背～19正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=159 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=560
 
-    # 《六壬断案》贞集丁未日占失羊，仅载丁未日、未将、未时，未载占年；《断案新编》PDF563 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=563
+    # 《六壬断案》贞集丁未日占失羊，仅载丁未日、未将、未时，未载占年；《断案新编》PDF563；旧抄本PDF第160页（贞集叶19背～20正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=160 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=563
 
-    # 《六壬断案》贞集己卯日占失羊，仅载己卯日、亥将、未时，未载占年；《断案新编》PDF566 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=566
+    # 《六壬断案》贞集己卯日占失羊，仅载己卯日、亥将、未时，未载占年；《断案新编》PDF566；旧抄本PDF第160页（贞集叶19背～20正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=160 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=566
 
-    # 《六壬断案》贞集甲辰日占失狗，仅载甲辰日、戌将、寅时，未载占年；《断案新编》PDF569 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=569
+    # 《六壬断案》贞集甲辰日占失狗，仅载甲辰日、戌将、寅时，未载占年；《断案新编》PDF569；旧抄本PDF第160页（贞集叶19背～20正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=160 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=569
 
-    # 《六壬断案》贞集辛亥日占失鸡，仅载辛亥日、子将、丑时，未载占年；《断案新编》PDF572 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=572
+    # 《六壬断案》贞集辛亥日占失鸡，仅载辛亥日、子将、丑时，未载占年；《断案新编》PDF572；旧抄本PDF第161页（贞集叶20背～21正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=161 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=572
 
-    # 《六壬断案》贞集某占捕逃犯, 课图按《六壬指南》涉害先孟取丑，《断案新编》PDF575 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=575
+    # 《六壬断案》贞集某占捕逃犯, 课图按《六壬指南》涉害先孟取丑，《断案新编》PDF575；旧抄本PDF第162页（贞集叶21背～22正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=162 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=575
     def test_某占捕逃犯(self):
         输出 = 运行("大六壬.py", "1129 12 18 07\n1\n1\n1\n2\n")
         self.assertIn("癸卯日，功曹寅将加辰时", 输出)
@@ -1606,47 +1644,47 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：卯上丑，勾陈", 输出)
         self.assertIn("四课：丑上亥，天空", 输出)
 
-    # 《六壬断案》贞集李四官占失盗，仅载辛卯日、寅将、巳时，未载占年；《断案新编》PDF578 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=578
+    # 《六壬断案》贞集李四官占失盗，仅载辛卯日、寅将、巳时，未载占年；《断案新编》PDF578；旧抄本PDF第163页（贞集叶22背～23正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=163 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=578
 
-    # 《六壬断案》贞集官人占失婢，仅载甲寅日、卯将、丑时，未载占年；《断案新编》PDF581 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=581
+    # 《六壬断案》贞集官人占失婢，仅载甲寅日、卯将、丑时，未载占年；《断案新编》PDF581；旧抄本PDF第163页（贞集叶22背～23正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=163 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=581
 
-    # 《六壬断案》贞集己酉日占失婢，仅载己酉日、酉将、未时，未载占年；《断案新编》PDF584 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=584
+    # 《六壬断案》贞集己酉日占失婢，仅载己酉日、酉将、未时，未载占年；《断案新编》PDF584；旧抄本PDF第164页（贞集叶23背～24正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=164 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=584
 
-    # 《六壬断案》贞集己未日占失婢，仅载己未日、子将、戌时，未载占年；《断案新编》PDF587 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=587
+    # 《六壬断案》贞集己未日占失婢，仅载己未日、子将、戌时，未载占年；《断案新编》PDF587；旧抄本PDF第164页（贞集叶23背～24正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=164 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=587
 
-    # 《六壬断案》贞集筵会占失银，仅载庚辰日、酉将、辰时，未载占年；《断案新编》PDF590 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=590
+    # 《六壬断案》贞集筵会占失银，仅载庚辰日、酉将、辰时，未载占年；《断案新编》PDF590；旧抄本PDF第165页（贞集叶24背～25正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=165 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=590
 
-    # 《六壬断案》贞集其子再占失银，只载与前案同日酉将午时，前案也未载占年；《断案新编》PDF593 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=593
+    # 《六壬断案》贞集其子再占失银，只载与前案同日酉将午时，前案也未载占年；《断案新编》PDF593；旧抄本PDF第165页（贞集叶24背～25正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=165 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=593
 
-    # 《六壬断案》贞集某妇占失金环，仅载己丑日、寅将、戌时，未载占年；《断案新编》PDF596 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=596
+    # 《六壬断案》贞集某妇占失金环，仅载己丑日、寅将、戌时，未载占年；《断案新编》PDF596；旧抄本PDF第166页（贞集叶25背～26正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=166 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=596
 
-    # 《六壬断案》贞集僧占失度牒，仅载辛卯日、酉将、辰时，未载占年；《断案新编》PDF599 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=599
+    # 《六壬断案》贞集僧占失度牒，仅载辛卯日、酉将、辰时，未载占年；《断案新编》PDF599；旧抄本PDF第166页（贞集叶25背～26正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=166 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=599
 
-    # 《六壬断案》贞集知县占失银物，仅载癸丑日、卯将、卯时，未载占年；《断案新编》PDF602 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=602
+    # 《六壬断案》贞集知县占失银物，仅载癸丑日、卯将、卯时，未载占年；《断案新编》PDF602；旧抄本PDF第167页（贞集叶26背～27正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=167 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=602
 
-    # 《六壬断案》贞集庚午日占失银，仅载庚午日、子将、丑时，未载占年；《断案新编》PDF605 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=605
+    # 《六壬断案》贞集庚午日占失银，仅载庚午日、子将、丑时，未载占年；《断案新编》PDF605；旧抄本PDF第167页（贞集叶26背～27正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=167 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=605
 
-    # 《六壬断案》贞集庚午酉时再占，仅载庚午日、子将、酉时，未载占年；《断案新编》PDF608 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=608
+    # 《六壬断案》贞集庚午酉时再占，仅载庚午日、子将、酉时，未载占年；《断案新编》PDF608；旧抄本PDF第167页（贞集叶26背～27正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=167 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=608
 
-    # 《六壬断案》贞集某占失船，仅载壬午日、丑将、卯时，未载占年；《断案新编》PDF611 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=611
+    # 《六壬断案》贞集某占失船，仅载壬午日、丑将、卯时，未载占年；《断案新编》PDF611；旧抄本PDF第168页（贞集叶27背～28正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=168 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=611
 
-    # 《六壬断案》贞集某占失麦面，仅载丁卯日、卯将、戌时，未载占年；《断案新编》PDF614 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=614
+    # 《六壬断案》贞集某占失麦面，仅载丁卯日、卯将、戌时，未载占年；《断案新编》PDF614；旧抄本PDF第168页（贞集叶27背～28正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=168 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=614
 
-    # 《六壬断案》贞集童秀才占讼，《断案新编》PDF617 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=617
-    def test_童秀才占讼(self):
-        输出 = 运行("大六壬.py", "1128 08 19 07\n1\n1\n")
-        self.assertIn("丁酉日，胜光午将加辰时", 输出)
-        self.assertIn("初传：酉 朱雀 妻财", 输出)
-        self.assertIn("中传：亥 贵人 官鬼", 输出)
-        self.assertIn("末传：丑 太阴 子孙", 输出)
-        self.assertIn("一课：丁上酉，朱雀", 输出)
-        self.assertIn("二课：酉上亥，贵人", 输出)
-        self.assertIn("三课：酉上亥，贵人", 输出)
-        self.assertIn("四课：亥上丑，太阴", 输出)
+    # 《六壬断案》贞集童秀才占讼，旧抄本与《断案新编》均只载戊申丁酉午将辰时，未载占月；按年日将唯一得1128-08-19，日期为反推；旧抄本PDF第169页（贞集叶28背～29正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=169 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=617
+    # def test_童秀才占讼(self):
+    #     输出 = 运行("大六壬.py", "1128 08 19 07\n1\n1\n")
+    #     self.assertIn("丁酉日，胜光午将加辰时", 输出)
+    #     self.assertIn("初传：酉 朱雀 妻财", 输出)
+    #     self.assertIn("中传：亥 贵人 官鬼", 输出)
+    #     self.assertIn("末传：丑 太阴 子孙", 输出)
+    #     self.assertIn("一课：丁上酉，朱雀", 输出)
+    #     self.assertIn("二课：酉上亥，贵人", 输出)
+    #     self.assertIn("三课：酉上亥，贵人", 输出)
+    #     self.assertIn("四课：亥上丑，太阴", 输出)
 
-    # 《六壬断案》贞集汪淑仪占讼，书影明题戊申辛丑戌将；该年辛丑日无戌将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=620
+    # 《六壬断案》贞集汪淑仪占讼，书影明题戊申辛丑戌将；该年辛丑日无戌将，原年日将不合；旧抄本PDF第170页（贞集叶29背～30正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=170 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=620
 
-    # 《六壬断案》贞集陆孔目占讼，《断案新编》PDF623 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=623
+    # 《六壬断案》贞集陆孔目占讼，《断案新编》PDF623；旧抄本PDF第171页（贞集叶30背～31正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=171 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=623
     def test_陆孔目占讼(self):
         输出 = 运行("大六壬.py", "1129 11 05 09\n1\n1\n")
         self.assertIn("庚申日，太冲卯将加巳时", 输出)
@@ -1658,41 +1696,41 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：申上午，青龙", 输出)
         self.assertIn("四课：午上辰，六合", 输出)
 
-    # 《六壬断案》贞集林文占讼，书影三传未卯亥与戌将加午天盘未亥卯不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=626
+    # 《六壬断案》贞集林文占讼，原题戊申辛卯戌将午时，课图辛上午、午上寅、卯上亥、亥上未及三传未卯亥递转相差－4，与戌将加午应为＋4不合；旧抄本PDF第171～172页（贞集叶30背～32正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=171 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=626
 
-    # 《六壬断案》贞集祝秀才占讼，《断案新编》PDF629 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=629
-    def test_祝秀才占讼(self):
-        输出 = 运行("大六壬.py", "1129 10 01 05\n1\n1\n")
-        self.assertIn("乙酉日，天罡辰将加卯时", 输出)
-        self.assertIn("初传：亥 天后 父母", 输出)
-        self.assertIn("中传：子 贵人 父母", 输出)
-        self.assertIn("末传：丑 螣蛇 妻财", 输出)
-        self.assertIn("一课：乙上巳，青龙", 输出)
-        self.assertIn("二课：巳上午，天空", 输出)
-        self.assertIn("三课：酉上戌，太阴", 输出)
-        self.assertIn("四课：戌上亥，天后", 输出)
+    # 《六壬断案》贞集祝秀才占讼，旧抄本与《断案新编》均只载己酉乙酉辰将午时，未载占月；按年日将唯一得1129-10-01，日期为反推；旧抄本PDF第172页（贞集叶31背～32正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=172 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=629
+    # def test_祝秀才占讼(self):
+    #     输出 = 运行("大六壬.py", "1129 10 01 05\n1\n1\n")
+    #     self.assertIn("乙酉日，天罡辰将加卯时", 输出)
+    #     self.assertIn("初传：亥 天后 父母", 输出)
+    #     self.assertIn("中传：子 贵人 父母", 输出)
+    #     self.assertIn("末传：丑 螣蛇 妻财", 输出)
+    #     self.assertIn("一课：乙上巳，青龙", 输出)
+    #     self.assertIn("二课：巳上午，天空", 输出)
+    #     self.assertIn("三课：酉上戌，太阴", 输出)
+    #     self.assertIn("四课：戌上亥，天后", 输出)
 
-    # 《六壬断案》贞集陆孔目占官事，《断案新编》PDF632 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=632
-    def test_陆孔目占官事(self):
-        输出 = 运行("大六壬.py", "1129 11 04 01\n1\n1\n")
-        self.assertIn("己未日，太冲卯将加丑时", 输出)
-        self.assertIn("初传：酉 天后 子孙", 输出)
-        self.assertIn("中传：酉 天后 子孙", 输出)
-        self.assertIn("末传：酉 天后 子孙", 输出)
-        self.assertIn("一课：己上酉，天后", 输出)
-        self.assertIn("二课：酉上亥，玄武", 输出)
-        self.assertIn("三课：未上酉，天后", 输出)
-        self.assertIn("四课：酉上亥，玄武", 输出)
+    # 《六壬断案》贞集陆孔目占官事，旧抄本与《断案新编》均只载己酉己未卯将辰时，未载占月；按年日将唯一得1129-11-04，日期为反推；旧抄本PDF第173页（贞集叶32背～33正），断语贴条续第174页（无叶码） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=173 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=632
+    # def test_陆孔目占官事(self):
+    #     输出 = 运行("大六壬.py", "1129 11 04 01\n1\n1\n")
+    #     self.assertIn("己未日，太冲卯将加丑时", 输出)
+    #     self.assertIn("初传：酉 天后 子孙", 输出)
+    #     self.assertIn("中传：酉 天后 子孙", 输出)
+    #     self.assertIn("末传：酉 天后 子孙", 输出)
+    #     self.assertIn("一课：己上酉，天后", 输出)
+    #     self.assertIn("二课：酉上亥，玄武", 输出)
+    #     self.assertIn("三课：未上酉，天后", 输出)
+    #     self.assertIn("四课：酉上亥，玄武", 输出)
 
-    # 《六壬断案》贞集庚午日占讼，仅载庚午日、午将、未时，未载占年；《断案新编》PDF635 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=635
+    # 《六壬断案》贞集庚午日占讼，载七月庚午日、午将、未时，未载占年；《断案新编》PDF635；旧抄本PDF第175页（贞集叶34背～35正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=175 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=635
 
-    # 《六壬断案》贞集乙未日占讼，仅载乙未日、未将、卯时，未载占年；《断案新编》PDF638 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=638
+    # 《六壬断案》贞集乙未日占讼，载五月乙未日、未将、卯时，未载占年；《断案新编》PDF638；旧抄本PDF第175页（贞集叶34背～35正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=175 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=638
 
-    # 《六壬断案》贞集打死人占解官，仅载辛丑日、子将、未时，未载占年；《断案新编》PDF641 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=641
+    # 《六壬断案》贞集打死人占解官，仅载辛丑日、子将、未时，未载占年；《断案新编》PDF641；旧抄本PDF第175页（贞集叶34背～35正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=175 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=641
 
-    # 《六壬断案》贞集杀二人占决断，仅载壬辰日、酉将、寅时，未载占年；《断案新编》PDF644 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=644
+    # 《六壬断案》贞集杀二人占决断，仅载壬辰日、酉将、寅时，未载占年；《断案新编》PDF644；旧抄本PDF第176页（贞集叶35背～36正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=176 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=644
 
-    # 《六壬断案》贞集张大郎占官事，《断案新编》PDF647 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=647
+    # 《六壬断案》贞集张大郎占官事，《断案新编》PDF647；旧抄本PDF第177页（贞集叶36背～37正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=177 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=647
     def test_张大郎占官事(self):
         输出 = 运行("大六壬.py", "1107 01 06 01\n1\n1\n")
         self.assertIn("辛酉日，大吉丑将加丑时", 输出)
@@ -1704,7 +1742,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：酉上酉，白虎", 输出)
         self.assertIn("四课：酉上酉，白虎", 输出)
 
-    # 《六壬断案》贞集沈保正占役事，《断案新编》PDF650 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=650
+    # 《六壬断案》贞集沈保正占役事，《断案新编》PDF650；旧抄本PDF第177页（贞集叶36背～37正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=177 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=650
     def test_沈保正占役事(self):
         输出 = 运行("大六壬.py", "1129 11 10 19\n1\n1\n")
         self.assertIn("乙丑日，太冲卯将加戌时", 输出)
@@ -1716,15 +1754,15 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("三课：丑上午，太阴", 输出)
         self.assertIn("四课：午上亥，六合", 输出)
 
-    # 《六壬断案》贞集沈四公争保正，书影明题戊申七月二十三乙巳午将；该日1128-08-27定气与纪元历皆巳将 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=653
+    # 《六壬断案》贞集沈四公争保正，书影明题戊申七月二十三乙巳午将；该日1128-08-27定气与纪元历皆巳将；旧抄本PDF第178页（贞集叶37背～38正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=178 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=653
 
-    # 《六壬断案》贞集潘道士占住持，仅载戊戌日、戌将、寅时，未载占年；《断案新编》PDF656 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=656
+    # 《六壬断案》贞集潘道士占住持，仅载戊戌日、戌将、寅时，未载占年；《断案新编》PDF656；旧抄本PDF第178页（贞集叶37背～38正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=178 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=656
 
-    # 《六壬断案》贞集长老常占，书影仍题己丑二月癸丑酉将；1109年癸丑日无酉将，原年日将不合 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=659
+    # 《六壬断案》贞集长老常占，书影仍题己丑二月癸丑酉将；1109年癸丑日无酉将，原年日将不合；旧抄本PDF第179页（贞集叶38背～39正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=179 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=659
 
-    # 《六壬断案》贞集壬子日占求酒，仅载壬子日、申将、亥时，未载占年；《断案新编》PDF662 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=662
+    # 《六壬断案》贞集壬子日占求酒，仅载壬子日、申将、亥时，未载占年；《断案新编》PDF662；旧抄本PDF第180页（贞集叶39背～40正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=180 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=662
 
-    # 《六壬断案》贞集蔡京占长星，原案未载占年，原注崇宁五年丙戌的彗星史事推1106年，四月辛未酉将唯一得1106-05-21，日期为反推 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=665
+    # 《六壬断案》贞集蔡京占长星，原案未载占年，原注崇宁五年丙戌的彗星史事推1106年，四月辛未酉将唯一得1106-05-21，日期为反推；旧抄本PDF第180～181页（贞集叶39背～41正） https://drive.google.com/file/d/1qw-z9cETaYjPdwIaw5NKItLY3D4wdwaf/view?usp=sharing#page=180 https://vr-d.com/pdf-file/%E5%8D%A0%E5%8D%9C%2F%E5%A4%A7%E5%85%AD%E5%A3%AC%E6%96%AD%E6%A1%88%E6%96%B0%E7%BC%96_%E9%82%B5%E5%BD%A6%E5%92%8C.pdf#page=665
     # def test_蔡京占长星(self):
     #     输出 = 运行("大六壬.py", "1106 05 21 03\n1\n1\n1\n")
     #     self.assertIn("辛未日，从魁酉将加寅时", 输出)
@@ -2022,6 +2060,60 @@ class 古籍占例(unittest.TestCase):
 
     # 《御定六壬直指》辛卯第一课明确卯子午，并注毕法用卯子卯；这是伏吟互刑异法，具年傅姓案另见指南 https://upload.wikimedia.org/wikipedia/commons/d/dd/GGZBCK417_%E5%BE%A1%E5%AE%9A%E5%85%AD%E5%A3%AC%E7%9B%B4%E6%8C%87.pdf#page=227
 
+    # 《六壬粹言》抄本《释误》顺茹壬午日干上子假设例，国图书影PDF第45页（原叶2左）载三传丑寅卯，月将与占时均未载；盘偏移仍有12组将时配对，不能唯一还原输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=45
+
+    # 《六壬粹言》抄本《释误》阳进间格丙寅日干上未假设例，国图书影PDF第48页（原叶5右）载三传辰午申，月将与占时均未载；盘偏移仍有12组将时配对，不能唯一还原输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=48
+
+    # 《六壬粹言》抄本《释误》阳间退格壬子日干上酉假设例，国图书影PDF第49页（原叶6左）载三传戌申午，月将与占时均未载；盘偏移仍有12组将时配对，不能唯一还原输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=49
+
+    # 《六壬粹言》抄本《释误》火局顺合辛酉日假设例，国图书影PDF第51页（原叶8右）载三传寅午戌，月将与占时均未载；盘偏移仍有12组将时配对，不能唯一还原输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=51
+
+    # 《六壬粹言》抄本《要将》壬戌日申时巳将假设例，国图书影PDF第57页（原叶一左）；2031-09-19仅为原日将时的等价公历输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=57
+    def test_粹言月将贵人壬戌例(self):
+        输出 = 运行("大六壬.py", "2031 09 19 15\n1\n1\n")
+        self.assertIn("壬戌日，太乙巳将加申时", 输出)
+        self.assertIn("初传：巳 贵人 妻财", 输出)
+        self.assertRegex(输出, r"(?m)^中传：寅 ")
+        self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》抄本《要将》丙寅日巳时子将假设例，国图书影PDF第57页（原叶一左）；2027-02-16仅为原日将时的等价公历输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=57
+    def test_粹言月将螣蛇丙寅例(self):
+        输出 = 运行("大六壬.py", "2027 02 16 09\n1\n1\n")
+        self.assertIn("丙寅日，神后子将加巳时", 输出)
+        self.assertIn("初传：子 螣蛇 官鬼", 输出)
+        self.assertRegex(输出, r"(?m)^中传：未 ")
+        self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》抄本《要将》壬午日亥时戌将，太阳戌加干假设例，国图书影PDF第58页（原叶二右）；2030-04-17仅为原日将时的等价公历输入，只核原载干支上神 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=58
+    def test_粹言太阳戌加干(self):
+        输出 = 运行("大六壬.py", "2030 04 17 21\n1\n1\n")
+        self.assertIn("壬午日，河魁戌将加亥时", 输出)
+        self.assertIn("一课：壬上戌，", 输出)
+
+    # 《六壬粹言》抄本《要将》乙卯日卯时子将，太阳子加支假设例，国图书影PDF第58页（原叶二右）；2027-02-05仅为原日将时的等价公历输入，只核原载干支上神 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=58
+    def test_粹言太阳子加支(self):
+        输出 = 运行("大六壬.py", "2027 02 05 05\n1\n1\n")
+        self.assertIn("乙卯日，神后子将加卯时", 输出)
+        self.assertIn("三课：卯上子，", 输出)
+
+    # 《六壬粹言》抄本《要将》戊辰日辰时寅将，太阳寅加支假设例，国图书影PDF第58页（原叶二右）；2027-12-15仅为原日将时的等价公历输入，只核原载干支上神 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=58
+    def test_粹言太阳寅加支(self):
+        输出 = 运行("大六壬.py", "2027 12 15 07\n1\n1\n")
+        self.assertIn("戊辰日，功曹寅将加辰时", 输出)
+        self.assertIn("三课：辰上寅，", 输出)
+
+    # 《六壬粹言》抄本《要将》时否课七月甲午日申时巳将假设例，国图书影PDF第60页（原叶四左）载三传申巳寅、申乘白虎克日干；2030-08-27农历七月廿九仅为原月日将时的等价公历输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=60
+    def test_粹言七月甲午时否课(self):
+        输出 = 运行("大六壬.py", "2030 08 27 15\n1\n1\n")
+        self.assertIn("甲午日，太乙巳将加申时", 输出)
+        self.assertIn("初传：申 白虎 官鬼", 输出)
+        self.assertRegex(输出, r"(?m)^中传：巳 ")
+        self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》抄本卷2三月己卯日教例，国图书影PDF第115页（章内原叶10右）子时后另有一处时支写法、月将未明，三传中传字形难辨，不能可靠绑定占时与盘偏移 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=115
+
+    # 《六壬粹言》抄本卷5山阳令朱西宪占入觐考迁何官，国图书影PDF第242页（仕宦叶2左）只题庚午十一月己丑未时寅将、三传卯戌巳，未载纪元年号，未能唯一确定公历占年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=242
+
     # 《六壬指南》迟父师祈雨，1925年国图扫描第127页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=127
     def test_迟父师祈雨(self):
         输出 = 运行("大六壬.py", "1638 04 19 01\n1\n1\n")
@@ -2194,7 +2286,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》汪仙民邵无奇占马康庄入相，1925年国图扫描第147页；原刻戊辰十二月庚寅辰时、图反推寅将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=147
 
-    # 《六壬指南》杨方壶占仕途，1925年国图扫描第148页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=148
+    # 《六壬指南》杨方壶占仕途，1925国图PDF第148页（卷4原页22）与《六壬粹言》抄本PDF第242页（卷5仕宦叶2右）同人同题丁卯十一月甲子巳时，后者明载寅将及午卯子；指南图龙午/朱卯/后子 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=242 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=148
     def test_杨方壶占仕途(self):
         输出 = 运行("大六壬.py", "1627 12 08 09\n1\n1\n")
         self.assertIn("甲子日，功曹寅将加巳时", 输出)
@@ -2232,7 +2324,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》陈龙正占钱士升入相，1925年国图扫描第153页；原刻癸酉七月甲寅申时、图反推午将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=153
 
-    # 《六壬指南》贺中怜代占周首揆，1925年国图扫描第153页；原图返吟涉害取地盘孟位 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=153
+    # 《六壬指南》贺中怜代占周首揆，1925国图PDF第153～154页（卷4原页27～28）与《六壬粹言》抄本PDF第245页（卷5仕宦叶5左）同丹阳贺中怜、癸酉二月甲子巳时，后者明载亥将；四课甲申/申寅/子午/午子及寅申寅相同，指南图后寅/龙申/后寅，返吟涉害取地盘孟位 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=245 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=153
     def test_贺中怜代占周首揆(self):
         输出 = 运行("大六壬.py", "1633 03 11 09\n1\n1\n2\n")
         self.assertIn("甲子日，登明亥将加巳时", 输出)
@@ -2304,7 +2396,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》司化南占何官，1925年国图扫描第162页；原刻戊子六月乙未未时、图反推亥将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=162
 
-    # 《六壬指南》涂松亭占彭南溟升迁，1925年国图扫描第162页；原刻丁卯正月；依年日时及课图子将反推1628-01-30丁卯十二月廿四 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=162
+    # 《六壬指南》涂松亭占彭南溟升迁，1925国图PDF第162～163页（卷4原页36～37）与《六壬粹言》抄本PDF第241页（卷5仕宦叶1左）同题丁卯正月丁巳卯时，后者明载子将；四课丁辰/辰丑/巳寅/寅亥、三传亥申巳相同。1628-01-30丁卯十二月廿四为按年日将时反推，原题正月与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=241 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=162
     # def test_涂松亭占彭南溟升迁(self):
     #     输出 = 运行("大六壬.py", "1628 01 30 05\n1\n1\n")
     #     self.assertIn("丁巳日，神后子将加卯时", 输出)
@@ -2322,7 +2414,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 勾陈 兄弟", 输出)
         self.assertIn("末传：酉 天空 父母", 输出)
 
-    # 《六壬指南》宋太斗在仇宅占功名，1925年国图扫描第165页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=165
+    # 《六壬指南》宋太斗在仇宅占功名，1925国图PDF第165页（卷4原页39）与《六壬粹言》抄本PDF第245页（卷5仕宦叶5右）同宋太斗在仇兵科宅、辛未四月己未辰时，后者明载酉将及巳戌卯；指南图虎巳/朱戌/玄卯 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=245 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=165
     def test_宋太斗在仇宅占功名(self):
         输出 = 运行("大六壬.py", "1631 05 16 07\n1\n1\n")
         self.assertIn("己未日，从魁酉将加辰时", 输出)
@@ -2514,7 +2606,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》盛顺被逮进京，1925年国图扫描第189页；原刻癸未七月丁未未时、图反推辰将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=189
 
-    # 《六壬指南》顾友吴子达代占公讼，1925年国图扫描第190页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=190
+    # 《六壬指南》顾友吴子达代占公讼，1925国图PDF第190页（卷4原页64）与《六壬粹言》抄本PDF第275页（卷5公讼叶7左）同题丁丑五月甲子巳时申将、三传申亥寅；指南图龙申/贵亥/阴寅 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=275 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=190
     def test_顾友吴子达代占公讼(self):
         输出 = 运行("大六壬.py", "1637 06 18 09\n1\n1\n")
         self.assertIn("甲子日，传送申将加巳时", 输出)
@@ -2530,7 +2622,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：酉 朱雀 妻财", 输出)
         self.assertIn("末传：戌 螣蛇 子孙", 输出)
 
-    # 《六壬指南》谭懋芳李父母被逮，1925年国图扫描第191页；原题丁丑十一月丁亥日戊申时，四课却为癸未辰时；依原年及课图日将时反推1638-01-03十一月十九 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=191
+    # 《六壬指南》谭懋芳李父母被逮，1925国图PDF第191页（卷4原页65）记谭懋芳暨兴化李父母，《六壬粹言》抄本PDF第275页（卷5公讼叶7右）仅题谭懋芳被刘泽清参劾逮问；后者题丁丑七月癸未卯时子将，指南题丁丑十一月丁亥戊申时而图为癸未辰时。两图四课癸戌/戌未/未辰/辰丑、三传戌未辰相同；1638-01-03为按原年及课图日将时反推，两书题文的月份日时均有异 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=275 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=191
     # def test_谭懋芳李父母被逮(self):
     #     输出 = 运行("大六壬.py", "1638 01 03 07\n1\n1\n")
     #     self.assertIn("癸未日，大吉丑将加辰时", 输出)
