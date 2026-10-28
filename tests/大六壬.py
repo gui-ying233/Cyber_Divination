@@ -2112,9 +2112,809 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬粹言》抄本卷2三月己卯日教例，国图书影PDF第115页（章内原叶10右）子时后另有一处时支写法、月将未明，三传中传字形难辨，不能可靠绑定占时与盘偏移 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=115
 
-    # 《六壬粹言》抄本卷5山阳令朱西宪占入觐考迁何官，国图书影PDF第242页（仕宦叶2左）只题庚午十一月己丑未时寅将、三传卯戌巳，未载纪元年号，未能唯一确定公历占年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=242
+    # 《六壬粹言》抄本卷3《婚姻》PDF第135～141页诸如辛未日三传卯亥未等局部演例未载月将和占时，不能唯一还原排课输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=135
 
-    # 《六壬指南》迟父师祈雨，1925年国图扫描第127页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=127
+    # 《六壬粹言》抄本卷3《孕产》PDF第142～149页所举二月辛卯日伏吟等例未载具体月将和占时，伏吟只能确定将时同支 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=142
+
+    # 《六壬粹言》抄本卷3《考试》PDF第150～153页幕贵、闭格等局部演例未同时给出完整日干支、月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=150
+
+    # 《六壬粹言》抄本卷3《考试》驿马假设例，PDF第153页左载壬子年戊申月庚辰日申时巳将、三传巳寅亥；1912-09-01仅为原年月日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=153
+    def test_粹言考试驿马三传(self):
+        输出 = 运行("大六壬.py", "1912 09 01 15\n1\n1\n")
+        self.assertIn("庚辰日，太乙巳将加申时", 输出)
+        self.assertRegex(输出, r"(?m)^初传：巳 ")
+        self.assertRegex(输出, r"(?m)^中传：寅 ")
+        self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》抄本卷3《考试》天心课假设例，国图书影PDF第154页（左）载辛巳年戊戌月己卯日戌时卯将、三传巳戌卯；2061-10-28仅为原年月日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=154
+    def test_粹言天心课三传(self):
+        输出 = 运行("大六壬.py", "2061 10 28 19\n1\n1\n")
+        self.assertIn("己卯日，太冲卯将加戌时", 输出)
+        self.assertRegex(输出, r"(?m)^初传：巳 ")
+        self.assertRegex(输出, r"(?m)^中传：戌 ")
+        self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》抄本卷3《考试》天心课假设例，国图书影PDF第154页（左）载甲子年壬申月乙巳日酉时巳将、四课乙子/子申/巳丑/丑酉；2044-08-24仅为原年月日将时的等价公历输入，非实占纪年，只核原载四课 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=154
+    def test_粹言天心课四课(self):
+        输出 = 运行("大六壬.py", "2044 08 24 17\n1\n1\n")
+        self.assertIn("乙巳日，太乙巳将加酉时", 输出)
+        self.assertIn("一课：乙上子，", 输出)
+        self.assertIn("二课：子上申，", 输出)
+        self.assertIn("三课：巳上丑，", 输出)
+        self.assertIn("四课：丑上酉，", 输出)
+
+    # 《六壬粹言》抄本卷3《考试》PDF第155页甲午日四课亥甲/申亥/卯午/子卯例只给盘偏移，未载月将和占时，仍有多组将时配对 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=155
+
+    # 《六壬粹言》抄本卷3《仕官》PDF第156～164页所举干上神、三传及年命局部演例未配完整月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=156
+
+    # 《六壬粹言》抄本卷3《经营》PDF第165～168页所举长生、旬空、财鬼局部课式未配完整月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=165
+
+    # 《六壬粹言》抄本卷3《经营》岁月破假设例，PDF第169页左载巳年寅月己未日申时亥将、亥加申发用；2013-02-22仅为原年支月日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=169
+    def test_粹言经营岁月破(self):
+        输出 = 运行("大六壬.py", "2013 02 22 15\n1\n1\n")
+        self.assertIn("己未日，登明亥将加申时", 输出)
+        self.assertRegex(输出, r"(?m)^初传：亥 ")
+
+    # 《六壬粹言》抄本卷3《求财》PDF第172～177页诸例只给部分日、干支上神、三传或财鬼条件，未载相应完整月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=172
+
+    # 《六壬粹言》抄本卷3《出行》PDF第178～181页合局、驿马、斗罡等局部演例未给完整独立日将时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=178
+
+    # 《六壬粹言》抄本卷3《出行》假设例，PDF第182页右载癸巳日戌时未将、三传戌未辰；2026-07-18仅为原日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=182
+    def test_粹言出行癸巳三传(self):
+        输出 = 运行("大六壬.py", "2026 07 18 19\n1\n1\n")
+        self.assertIn("癸巳日，小吉未将加戌时", 输出)
+        self.assertRegex(输出, r"(?m)^初传：戌 ")
+        self.assertRegex(输出, r"(?m)^中传：未 ")
+        self.assertRegex(输出, r"(?m)^末传：辰 ")
+
+    # 《六壬粹言》抄本卷3《行人》附音信PDF第183～192页诸例未给完整将时，单记昼夜、干支上神或三传不足以唯一还原输入 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=183
+
+    # 《六壬粹言》抄本卷4《交涉》PDF第193～195页生合、三六合及闭口等演例未载完整月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=193
+
+    # 《六壬粹言》抄本卷4《捕亡》附失伴PDF第196～199页德刑、玄武与三明等演例未载完整独立日将时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=196
+
+    # 《六壬粹言》抄本卷4《疾病》PDF第200～205页所举鬼病、死气及三传局部演例未配完整月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=200
+
+    # 《六壬粹言》抄本卷4《疾病》龙常乘二马假设例，PDF第206页左载八月乙未日卯时辰将、干上巳乘青龙及支上申乘太常；2034-10-06农历八月廿四仅为等价输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=206
+    def test_粹言疾病龙常乘二马(self):
+        输出 = 运行("大六壬.py", "2034 10 06 05\n1\n1\n")
+        self.assertIn("乙未日，天罡辰将加卯时", 输出)
+        self.assertIn("一课：乙上巳，青龙", 输出)
+        self.assertIn("三课：未上申，太常", 输出)
+
+    # 《六壬粹言》抄本卷4《公讼》PDF第207～214页八月壬子日三传戌申午等例只记昼占及局部课神，未载具体月将和时支 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=207
+
+    # 《六壬粹言》抄本卷4《盗贼》PDF第214～219页其余玄武方位、阴神及破碎等局部课式未载完整独立日将时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=214
+
+    # 《六壬粹言》抄本卷4《盗贼》假设例，PDF第216页右载壬申日申时寅将、寅为玄武独作太阳；2027-12-19仅为原日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=216
+    def test_粹言盗贼太阳玄武(self):
+        输出 = 运行("大六壬.py", "2027 12 19 15\n1\n1\n")
+        self.assertIn("壬申日，功曹寅将加申时", 输出)
+        self.assertIn("三课：申上寅，玄武", 输出)
+
+    # 《六壬粹言》抄本卷4《阳宅》PDF第220～224页其余宅神、生合、门灶等局部演例未配完整月将和占时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=220
+
+    # 《六壬粹言》抄本卷4《阳宅》火灾假设例，PDF第223页左载庚辰日卯时寅将、三传卯寅丑、卯乘朱雀；2029-12-16仅为原日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=223
+    def test_粹言阳宅火灾三传(self):
+        输出 = 运行("大六壬.py", "2029 12 16 05\n1\n1\n")
+        self.assertIn("庚辰日，功曹寅将加卯时", 输出)
+        self.assertIn("初传：卯 朱雀", 输出)
+        self.assertRegex(输出, r"(?m)^中传：寅 ")
+        self.assertRegex(输出, r"(?m)^末传：丑 ")
+
+    # 《六壬粹言》抄本卷4《阴宅》PDF第225～228页穴神、水口、山向及财官等演例未载完整独立日将时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=225
+
+    # 《六壬粹言》抄本卷4《晴雨》PDF第229～234页其余龙后、斗罡、宿神及雨雪局部演例未给完整独立日将时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=229
+
+    # 《六壬粹言》抄本卷4《晴雨》假设例，PDF第232页左载丁巳日卯时丑将、三传丑亥酉、丑作太阳乘朱雀；2031-01-17仅为原日将时的等价公历输入，非实占纪年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=232
+    def test_粹言晴雨太阳朱雀(self):
+        输出 = 运行("大六壬.py", "2031 01 17 05\n1\n1\n")
+        self.assertIn("丁巳日，大吉丑将加卯时", 输出)
+        self.assertIn("初传：丑 朱雀", 输出)
+        self.assertRegex(输出, r"(?m)^中传：亥 ")
+        self.assertRegex(输出, r"(?m)^末传：酉 ")
+
+    # 《六壬粹言》抄本卷4《田蚕》附畜牧PDF第234～238页诸例只列部分日、月、课神及生克条件，未给完整独立日将时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=234
+
+    # 《六壬粹言》卷5山阳令朱西宪占入觐考迁何官，PDF第242页左题庚午十一月己丑未时寅将、三传卯戌巳；据陈公献占验上下文定位纪年，1630-12-17为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=242
+    # def test_朱西宪占入觐考迁(self):
+    #     输出 = 运行("大六壬.py", "1630 12 17 13\n1\n1\n")
+    #     self.assertIn("己丑日，功曹寅将加未时", 输出)
+    #     self.assertIn("一课：己上寅，", 输出)
+    #     self.assertIn("二课：寅上酉，", 输出)
+    #     self.assertIn("三课：丑上申，", 输出)
+    #     self.assertIn("四课：申上卯，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷5孙盟鹿携妻子远行，PDF第267页左题庚寅五月庚申日丑时申将，原图三传戌巳子；据卷5陈公献占验上下文定位纪年，1650-06-06为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=267
+    # def test_孙盟鹿携妻子远行(self):
+    #     输出 = 运行("大六壬.py", "1650 06 06 01\n1\n1\n")
+    #     self.assertIn("庚申日，传送申将加丑时", 输出)
+    #     self.assertIn("一课：庚上卯，", 输出)
+    #     self.assertIn("二课：卯上戌，", 输出)
+    #     self.assertIn("三课：申上卯，", 输出)
+    #     self.assertIn("四课：卯上戌，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^中传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^末传：子 ")
+
+    # 《六壬粹言》卷5王双蛟占孟津散，PDF第291～292页题庚辰十一月壬辰日酉时寅将、三传寅未子；按陈公献占验上下文定位1640年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=291
+
+    # 《六壬粹言》卷5许州占可居否，PDF第292～293页题辛巳十二月壬寅日酉时丑将，原图三传未亥卯；据卷5陈公献占验上下文定位纪年，1642-01-01为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=292
+    # def test_许州占可居否(self):
+    #     输出 = 运行("大六壬.py", "1642 01 01 17\n1\n1\n")
+    #     self.assertIn("壬寅日，大吉丑将加酉时", 输出)
+    #     self.assertIn("一课：壬上卯，", 输出)
+    #     self.assertIn("二课：卯上未，", 输出)
+    #     self.assertIn("三课：寅上午，", 输出)
+    #     self.assertIn("四课：午上戌，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：未 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷5陈自采占兵变，PDF第293页右题辛巳十二月己未日辰时子将、三传卯亥未；按陈公献占验上下文定位1641年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=293
+
+    # 《六壬粹言》卷5汴东占省城安危，PDF第293～294页题辛巳十二月甲寅日午时丑将，原图三传酉辰亥；据卷5陈公献占验上下文定位纪年，1642-01-13为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=293
+    # def test_汴东占省城安危(self):
+    #     输出 = 运行("大六壬.py", "1642 01 13 11\n1\n1\n")
+    #     self.assertIn("甲寅日，大吉丑将加午时", 输出)
+    #     self.assertIn("一课：甲上酉，", 输出)
+    #     self.assertIn("二课：酉上辰，", 输出)
+    #     self.assertIn("三课：寅上酉，", 输出)
+    #     self.assertIn("四课：酉上辰，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^中传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》卷5丁圣沐雪后复占省城，PDF第294页右题辛巳十二月乙卯日巳时丑将，原图三传未卯亥；据卷5陈公献占验上下文定位纪年，1642-01-14为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=294
+    # def test_丁圣沐雪后复占省城(self):
+    #     输出 = 运行("大六壬.py", "1642 01 14 09\n1\n1\n")
+    #     self.assertIn("乙卯日，大吉丑将加巳时", 输出)
+    #     self.assertIn("一课：乙上子，", 输出)
+    #     self.assertIn("二课：子上申，", 输出)
+    #     self.assertIn("三课：卯上亥，", 输出)
+    #     self.assertIn("四课：亥上未，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：未 ")
+    #     self.assertRegex(输出, r"(?m)^中传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》卷5丁圣沐问援兵退期，PDF第294～295页题壬午四月戊寅日辰时子将、三传戌午寅；原题四月与子将不合；壬午年戊寅子将分别对应1642-02-06、1643-02-01，不能唯一反推日期 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=294
+
+    # 《六壬粹言》卷6慕农朝考留馆，PDF第299页左题庚辰三月庚辰日子时戌将、三传午辰寅；按卷6张筠圃升调案与道光6年原序定位1820年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=299
+
+    # 《六壬粹言》卷6慕农太守调首府，PDF第300页右题庚辰十二月丁未日寅时子将，原图三传丑巳巳；据同卷张筠圃任免及道光6年原序定位纪年，1821-01-28为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=300
+    # def test_慕农太守调首府(self):
+    #     输出 = 运行("大六壬.py", "1821 01 28 03\n1\n1\n")
+    #     self.assertIn("丁未日，神后子将加寅时", 输出)
+    #     self.assertIn("一课：丁上巳，", 输出)
+    #     self.assertIn("二课：巳上卯，", 输出)
+    #     self.assertIn("三课：未上巳，", 输出)
+    #     self.assertIn("四课：巳上卯，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^中传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农张筠圃升调，PDF第300页左题辛巳正月丙辰日午时子将，原图三传巳亥巳；据同卷张筠圃任免及道光6年原序定位纪年，1821-02-06为反推（《东华续录》道光卷3记1821年由湖广总督入刑部，卷6记1822年调仓场；《武定府志》卷23载张映汉号筠圃） https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=300 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=2 https://commons.wikimedia.org/wiki/File:SSID-11565249_東華續錄_道光_1-4.pdf?page=69 https://commons.wikimedia.org/wiki/File:SSID-11565250_東華續錄_道光_5-7.pdf?page=28 https://commons.wikimedia.org/wiki/File:NLC403-312001069999-68424_武定府志_清咸豐9年(1859)_卷二十四.pdf?page=38
+    # def test_慕农张筠圃升调(self):
+    #     输出 = 运行("大六壬.py", "1821 02 06 11\n1\n1\n")
+    #     self.assertIn("丙辰日，神后子将加午时", 输出)
+    #     self.assertIn("一课：丙上亥，", 输出)
+    #     self.assertIn("二课：亥上巳，", 输出)
+    #     self.assertIn("三课：辰上戌，", 输出)
+    #     self.assertIn("四课：戌上辰，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农三大台更调，PDF第301页右题辛巳正月丁卯日卯时亥将、三传未卯亥；按卷6张筠圃升调案与道光6年原序定位1821年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=301
+
+    # 《六壬粹言》卷6慕农刺史升迁，PDF第301页左题辛巳六月丙子日申时亥将，原图三传申亥寅；据同卷张筠圃任免及道光6年原序定位纪年，1821-02-26为反推，原题月份与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=301
+    # def test_慕农刺史升迁(self):
+    #     输出 = 运行("大六壬.py", "1821 02 26 15\n1\n1\n")
+    #     self.assertIn("丙子日，登明亥将加申时", 输出)
+    #     self.assertIn("一课：丙上申，", 输出)
+    #     self.assertIn("二课：申上亥，", 输出)
+    #     self.assertIn("三课：子上卯，", 输出)
+    #     self.assertIn("四课：卯上午，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：申 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农太守铨选，PDF第302页右题辛巳二月丁亥日午时亥将，原图三传巳戌卯；据同卷张筠圃任免及道光6年原序定位纪年，1821-03-09为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=302
+    # def test_慕农太守铨选(self):
+    #     输出 = 运行("大六壬.py", "1821 03 09 11\n1\n1\n")
+    #     self.assertIn("丁亥日，登明亥将加午时", 输出)
+    #     self.assertIn("一课：丁上子，", 输出)
+    #     self.assertIn("二课：子上巳，", 输出)
+    #     self.assertIn("三课：亥上辰，", 输出)
+    #     self.assertIn("四课：辰上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷6慕农宁波知府入觐，PDF第302页左题辛巳九月己卯日戌时卯将，原图三传巳戌卯；据同卷张筠圃任免及道光6年原序定位纪年，1821-10-27为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=302
+    # def test_慕农宁波知府入觐(self):
+    #     输出 = 运行("大六壬.py", "1821 10 27 19\n1\n1\n")
+    #     self.assertIn("己卯日，太冲卯将加戌时", 输出)
+    #     self.assertIn("一课：己上子，", 输出)
+    #     self.assertIn("二课：子上巳，", 输出)
+    #     self.assertIn("三课：卯上申，", 输出)
+    #     self.assertIn("四课：申上丑，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷6慕农知府复原缺，PDF第303页右题壬午一月甲辰日丑时戌将，原图三传申巳寅；据同卷张筠圃任免及道光6年原序定位纪年，1822-03-21为反推，原题月份与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=303
+    # def test_慕农知府复原缺(self):
+    #     输出 = 运行("大六壬.py", "1822 03 21 01\n2\n1\n1\n")
+    #     self.assertIn("甲辰日，河魁戌将加丑时", 输出)
+    #     self.assertIn("一课：甲上亥，", 输出)
+    #     self.assertIn("二课：亥上申，", 输出)
+    #     self.assertIn("三课：辰上丑，", 输出)
+    #     self.assertIn("四课：丑上戌，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：申 ")
+    #     self.assertRegex(输出, r"(?m)^中传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农被参求占，PDF第303页左题癸未六月乙巳日亥时未将，原图三传酉巳丑；据同卷张筠圃任免及道光6年原序定位纪年，1823-07-15为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=303
+    # def test_慕农被参求占(self):
+    #     输出 = 运行("大六壬.py", "1823 07 15 21\n1\n1\n")
+    #     self.assertIn("乙巳日，小吉未将加亥时", 输出)
+    #     self.assertIn("一课：乙上子，", 输出)
+    #     self.assertIn("二课：子上申，", 输出)
+    #     self.assertIn("三课：巳上丑，", 输出)
+    #     self.assertIn("四课：丑上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^中传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^末传：丑 ")
+
+    # 《六壬粹言》卷6慕农太守求占，PDF第304页右题癸未二月己亥日午时亥将，原图三传巳戌卯；据同卷张筠圃任免及道光6年原序定位纪年，1823-03-11为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=304
+    # def test_慕农太守求占(self):
+    #     输出 = 运行("大六壬.py", "1823 03 11 11\n1\n1\n")
+    #     self.assertIn("己亥日，登明亥将加午时", 输出)
+    #     self.assertIn("一课：己上子，", 输出)
+    #     self.assertIn("二课：子上巳，", 输出)
+    #     self.assertIn("三课：亥上辰，", 输出)
+    #     self.assertIn("四课：辰上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷6慕农桂林府缺，PDF第304页左题乙酉四月丁巳日巳时酉将，原图三传酉丑巳；据同卷张筠圃任免及道光6年原序定位纪年，1825-05-17为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=304
+    # def test_慕农桂林府缺(self):
+    #     输出 = 运行("大六壬.py", "1825 05 17 09\n1\n1\n")
+    #     self.assertIn("丁巳日，从魁酉将加巳时", 输出)
+    #     self.assertIn("一课：丁上亥，", 输出)
+    #     self.assertIn("二课：亥上卯，", 输出)
+    #     self.assertIn("三课：巳上酉，", 输出)
+    #     self.assertIn("四课：酉上丑，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^中传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农新方伯仪呈，PDF第305页右题丙戌正月癸未日申时子将，原图三传酉丑巳；据同卷张筠圃任免及道光6年原序定位纪年，1826-02-07为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=305
+    # def test_慕农新方伯仪呈(self):
+    #     输出 = 运行("大六壬.py", "1826 02 07 15\n1\n1\n1\n")
+    #     self.assertIn("癸未日，神后子将加申时", 输出)
+    #     self.assertIn("一课：癸上巳，", 输出)
+    #     self.assertIn("二课：巳上酉，", 输出)
+    #     self.assertIn("三课：未上亥，", 输出)
+    #     self.assertIn("四课：亥上卯，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^中传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农状元酉时，PDF第305页左题庚辰四月庚子日酉时申将，原图三传戌酉申；据同卷张筠圃任免及道光6年原序定位纪年，1820-05-26为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=305
+    # def test_慕农状元酉时(self):
+    #     输出 = 运行("大六壬.py", "1820 05 26 17\n1\n1\n")
+    #     self.assertIn("庚子日，传送申将加酉时", 输出)
+    #     self.assertIn("一课：庚上未，", 输出)
+    #     self.assertIn("二课：未上午，", 输出)
+    #     self.assertIn("三课：子上亥，", 输出)
+    #     self.assertIn("四课：亥上戌，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^中传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^末传：申 ")
+
+    # 《六壬粹言》卷6慕农状元亥时，PDF第306页右题庚辰四月庚子日亥时申将，原图三传午卯子；据同卷张筠圃任免及道光6年原序定位纪年，1820-05-26为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=306
+    # def test_慕农状元亥时(self):
+    #     输出 = 运行("大六壬.py", "1820 05 26 21\n1\n1\n")
+    #     self.assertIn("庚子日，传送申将加亥时", 输出)
+    #     self.assertIn("一课：庚上巳，", 输出)
+    #     self.assertIn("二课：巳上寅，", 输出)
+    #     self.assertIn("三课：子上酉，", 输出)
+    #     self.assertIn("四课：酉上午，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：午 ")
+    #     self.assertRegex(输出, r"(?m)^中传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^末传：子 ")
+
+    # 《六壬粹言》卷6慕农知府弟院试，PDF第306页左题庚辰十月辛亥日巳时寅将，原图三传巳寅亥；据同卷张筠圃任免及道光6年原序定位纪年，1820-12-03为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=306
+    # def test_慕农知府弟院试(self):
+    #     输出 = 运行("大六壬.py", "1820 12 03 09\n1\n1\n")
+    #     self.assertIn("辛亥日，功曹寅将加巳时", 输出)
+    #     self.assertIn("一课：辛上未，", 输出)
+    #     self.assertIn("二课：未上辰，", 输出)
+    #     self.assertIn("三课：亥上申，", 输出)
+    #     self.assertIn("四课：申上巳，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》卷6慕农陶友占婚，PDF第307页右题辛巳五月甲寅日子时申将，原图三传戌午寅；据同卷张筠圃任免及道光6年原序定位纪年，1821-06-04为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=307
+    # def test_慕农陶友占婚(self):
+    #     输出 = 运行("大六壬.py", "1821 06 04 00\n1\n1\n")
+    #     self.assertIn("甲寅日，传送申将加子时", 输出)
+    #     self.assertIn("一课：甲上戌，", 输出)
+    #     self.assertIn("二课：戌上午，", 输出)
+    #     self.assertIn("三课：寅上戌，", 输出)
+    #     self.assertIn("四课：戌上午，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^中传：午 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农吴友六甲，PDF第307页左题庚辰九月甲子日寅时辰将，原图三传辰午申；据同卷张筠圃任免及道光6年原序定位纪年，1820-10-17为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=307
+    # def test_慕农吴友六甲(self):
+    #     输出 = 运行("大六壬.py", "1820 10 17 03\n1\n1\n")
+    #     self.assertIn("甲子日，天罡辰将加寅时", 输出)
+    #     self.assertIn("一课：甲上辰，", 输出)
+    #     self.assertIn("二课：辰上午，", 输出)
+    #     self.assertIn("三课：子上寅，", 输出)
+    #     self.assertIn("四课：寅上辰，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^中传：午 ")
+    #     self.assertRegex(输出, r"(?m)^末传：申 ")
+
+    # 《六壬粹言》卷6慕农崔友六甲，PDF第308页右题辛巳十月壬辰日巳时卯将，原图三传寅子戌；据同卷张筠圃任免及道光6年原序定位纪年，1821-11-09为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=308
+    # def test_慕农崔友六甲(self):
+    #     输出 = 运行("大六壬.py", "1821 11 09 09\n1\n1\n")
+    #     self.assertIn("壬辰日，太冲卯将加巳时", 输出)
+    #     self.assertIn("一课：壬上酉，", 输出)
+    #     self.assertIn("二课：酉上未，", 输出)
+    #     self.assertIn("三课：辰上寅，", 输出)
+    #     self.assertIn("四课：寅上子，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：子 ")
+    #     self.assertRegex(输出, r"(?m)^末传：戌 ")
+
+    # 《六壬粹言》卷6慕农谢姓六甲，PDF第308页左题壬午三月乙酉日辰时亥将，原图三传未子巳；原题辰时亥将与图偏移不合；据原四课及亥将唯一反推午时；据同卷张筠圃任免及道光6年原序定位纪年，1822-03-02为反推，原题月份与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=308
+    # def test_慕农谢姓六甲(self):
+    #     输出 = 运行("大六壬.py", "1822 03 02 11\n1\n1\n1\n")
+    #     self.assertIn("乙酉日，登明亥将加午时", 输出)
+    #     self.assertIn("一课：乙上酉，", 输出)
+    #     self.assertIn("二课：酉上寅，", 输出)
+    #     self.assertIn("三课：酉上寅，", 输出)
+    #     self.assertIn("四课：寅上未，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：未 ")
+    #     self.assertRegex(输出, r"(?m)^中传：子 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农己卯借银，PDF第309页右题己卯正月辛酉日辰时亥将，原图三传亥午丑；据同卷张筠圃任免及道光6年原序定位纪年，1819-02-22为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=309
+    # def test_慕农己卯借银(self):
+    #     输出 = 运行("大六壬.py", "1819 02 22 07\n1\n1\n")
+    #     self.assertIn("辛酉日，登明亥将加辰时", 输出)
+    #     self.assertIn("一课：辛上巳，", 输出)
+    #     self.assertIn("二课：巳上子，", 输出)
+    #     self.assertIn("三课：酉上辰，", 输出)
+    #     self.assertIn("四课：辰上亥，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^中传：午 ")
+    #     self.assertRegex(输出, r"(?m)^末传：丑 ")
+
+    # 《六壬粹言》卷6慕农己卯求财，PDF第309页左题己卯五月丙辰日丑时申将，原图三传午丑申；据同卷张筠圃任免及道光6年原序定位纪年，1819-06-17为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=309
+    # def test_慕农己卯求财(self):
+    #     输出 = 运行("大六壬.py", "1819 06 17 01\n1\n1\n")
+    #     self.assertIn("丙辰日，传送申将加丑时", 输出)
+    #     self.assertIn("一课：丙上子，", 输出)
+    #     self.assertIn("二课：子上未，", 输出)
+    #     self.assertIn("三课：辰上亥，", 输出)
+    #     self.assertIn("四课：亥上午，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：午 ")
+    #     self.assertRegex(输出, r"(?m)^中传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^末传：申 ")
+
+    # 《六壬粹言》卷6慕农柳友借财，PDF第310页右题庚辰午月己未日酉时申将，原图三传卯午午；据同卷张筠圃任免及道光6年原序定位纪年，1820-06-14为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=310
+    # def test_慕农柳友借财(self):
+    #     输出 = 运行("大六壬.py", "1820 06 14 17\n1\n1\n")
+    #     self.assertIn("己未日，传送申将加酉时", 输出)
+    #     self.assertIn("一课：己上午，", 输出)
+    #     self.assertIn("二课：午上巳，", 输出)
+    #     self.assertIn("三课：未上午，", 输出)
+    #     self.assertIn("四课：午上巳，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^中传：午 ")
+    #     self.assertRegex(输出, r"(?m)^末传：午 ")
+
+    # 《六壬粹言》卷6慕农柳友遣仆借银，PDF第310页左题庚辰九月丁巳日酉时辰将，原图三传酉辰亥；据同卷张筠圃任免及道光6年原序定位纪年，1820-10-10为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=310
+    # def test_慕农柳友遣仆借银(self):
+    #     输出 = 运行("大六壬.py", "1820 10 10 17\n1\n1\n1\n")
+    #     self.assertIn("丁巳日，天罡辰将加酉时", 输出)
+    #     self.assertIn("一课：丁上寅，", 输出)
+    #     self.assertIn("二课：寅上酉，", 输出)
+    #     self.assertIn("三课：巳上子，", 输出)
+    #     self.assertIn("四课：子上未，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^中传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》卷6慕农余九如求财，PDF第311页右题庚辰九月癸亥日未时辰将，原图三传巳寅亥；据同卷张筠圃任免及道光6年原序定位纪年，1820-10-16为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=311
+    # def test_慕农余九如求财(self):
+    #     输出 = 运行("大六壬.py", "1820 10 16 13\n1\n1\n")
+    #     self.assertIn("癸亥日，天罡辰将加未时", 输出)
+    #     self.assertIn("一课：癸上戌，", 输出)
+    #     self.assertIn("二课：戌上未，", 输出)
+    #     self.assertIn("三课：亥上申，", 输出)
+    #     self.assertIn("四课：申上巳，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》卷6慕农遣人讨银，PDF第311页左题辛巳四月己酉日戌时申将，原图三传卯丑亥；据同卷张筠圃任免及道光6年原序定位纪年，1821-05-30为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=311
+    # def test_慕农遣人讨银(self):
+    #     输出 = 运行("大六壬.py", "1821 05 30 19\n1\n1\n")
+    #     self.assertIn("己酉日，传送申将加戌时", 输出)
+    #     self.assertIn("一课：己上巳，", 输出)
+    #     self.assertIn("二课：巳上卯，", 输出)
+    #     self.assertIn("三课：酉上未，", 输出)
+    #     self.assertIn("四课：未上巳，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^中传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^末传：亥 ")
+
+    # 《六壬粹言》卷6慕农赴省马毙，PDF第312页右题辛巳正月己未日申时亥将、三传亥戌戌；按卷6张筠圃升调案与道光6年原序定位1821年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=312
+
+    # 《六壬粹言》卷6慕农癸未十月出行，PDF第312页左题癸未十月戊戌日酉时巳将，原图三传寅戌午；据同卷张筠圃任免及道光6年原序定位纪年，1823-09-06为反推，原题月份与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=312
+    # def test_慕农癸未十月出行(self):
+    #     输出 = 运行("大六壬.py", "1823 09 06 17\n1\n1\n")
+    #     self.assertIn("戊戌日，太乙巳将加酉时", 输出)
+    #     self.assertIn("一课：戊上丑，", 输出)
+    #     self.assertIn("二课：丑上酉，", 输出)
+    #     self.assertIn("三课：戌上午，", 输出)
+    #     self.assertIn("四课：午上寅，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：午 ")
+
+    # 《六壬粹言》卷6慕农行程何日到，PDF第313页右题庚辰十一月戊辰日酉时寅将，原图三传寅未子；据同卷张筠圃任免及道光6年原序定位纪年，1820-12-20为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=313
+    # def test_慕农行程何日到(self):
+    #     输出 = 运行("大六壬.py", "1820 12 20 17\n1\n1\n")
+    #     self.assertIn("戊辰日，功曹寅将加酉时", 输出)
+    #     self.assertIn("一课：戊上戌，", 输出)
+    #     self.assertIn("二课：戌上卯，", 输出)
+    #     self.assertIn("三课：辰上酉，", 输出)
+    #     self.assertIn("四课：酉上寅，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：未 ")
+    #     self.assertRegex(输出, r"(?m)^末传：子 ")
+
+    # 《六壬粹言》卷6慕农赴宁波新任音信，PDF第313页左题辛巳十月戊戌日申时卯将，原图三传子未寅；据同卷张筠圃任免及道光6年原序定位纪年，1821-11-15为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=313
+    # def test_慕农赴宁波新任音信(self):
+    #     输出 = 运行("大六壬.py", "1821 11 15 15\n1\n1\n")
+    #     self.assertIn("戊戌日，太冲卯将加申时", 输出)
+    #     self.assertIn("一课：戊上子，", 输出)
+    #     self.assertIn("二课：子上未，", 输出)
+    #     self.assertIn("三课：戌上巳，", 输出)
+    #     self.assertIn("四课：巳上子，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：子 ")
+    #     self.assertRegex(输出, r"(?m)^中传：未 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农荆门知州到任，PDF第314页右题壬午二月甲辰日申时戌将，原图三传辰午申；据同卷张筠圃任免及道光6年原序定位纪年，1822-03-21为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=314
+    # def test_慕农荆门知州到任(self):
+    #     输出 = 运行("大六壬.py", "1822 03 21 15\n1\n1\n1\n")
+    #     self.assertIn("甲辰日，河魁戌将加申时", 输出)
+    #     self.assertIn("一课：甲上辰，", 输出)
+    #     self.assertIn("二课：辰上午，", 输出)
+    #     self.assertIn("三课：辰上午，", 输出)
+    #     self.assertIn("四课：午上申，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^中传：午 ")
+    #     self.assertRegex(输出, r"(?m)^末传：申 ")
+
+    # 《六壬粹言》卷6慕农柳友子来，PDF第314页左题壬午三月戊寅日子时酉将，原图三传寅亥申；据同卷张筠圃任免及道光6年原序定位纪年，1822-04-24为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=314
+    # def test_慕农柳友子来(self):
+    #     输出 = 运行("大六壬.py", "1822 04 24 00\n1\n1\n")
+    #     self.assertIn("戊寅日，从魁酉将加子时", 输出)
+    #     self.assertIn("一课：戊上寅，", 输出)
+    #     self.assertIn("二课：寅上亥，", 输出)
+    #     self.assertIn("三课：寅上亥，", 输出)
+    #     self.assertIn("四课：亥上申，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：申 ")
+
+    # 《六壬粹言》卷6慕农迎接行客，PDF第315页右题辛巳六月乙巳日未时午将，原图三传卯寅丑；据同卷张筠圃任免及道光6年原序定位纪年，1821-07-25为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=315
+    # def test_慕农迎接行客(self):
+    #     输出 = 运行("大六壬.py", "1821 07 25 13\n1\n1\n1\n")
+    #     self.assertIn("乙巳日，胜光午将加未时", 输出)
+    #     self.assertIn("一课：乙上卯，", 输出)
+    #     self.assertIn("二课：卯上寅，", 输出)
+    #     self.assertIn("三课：巳上辰，", 输出)
+    #     self.assertIn("四课：辰上卯，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^中传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^末传：丑 ")
+
+    # 《六壬粹言》卷6慕农探差何日到，PDF第315页左题辛巳十月戊午日辰时寅将，原图三传丑亥酉；据同卷张筠圃任免及道光6年原序定位纪年，1821-12-05为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=315
+    # def test_慕农探差何日到(self):
+    #     输出 = 运行("大六壬.py", "1821 12 05 07\n1\n1\n")
+    #     self.assertIn("戊午日，功曹寅将加辰时", 输出)
+    #     self.assertIn("一课：戊上卯，", 输出)
+    #     self.assertIn("二课：卯上丑，", 输出)
+    #     self.assertIn("三课：午上辰，", 输出)
+    #     self.assertIn("四课：辰上寅，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：酉 ")
+
+    # 《六壬粹言》卷6慕农戚友问银信，PDF第316页右题辛巳十月壬寅日卯时寅将、三传子亥戌；按卷6张筠圃升调案与道光6年原序定位1821年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=316
+
+    # 《六壬粹言》卷6慕农戚友米载未归，PDF第316页左题癸未六月戊辰日丑时午将，原图三传寅未子；据同卷张筠圃任免及道光6年原序定位纪年，1823-08-07为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=316
+    # def test_慕农戚友米载未归(self):
+    #     输出 = 运行("大六壬.py", "1823 08 07 01\n1\n1\n")
+    #     self.assertIn("戊辰日，胜光午将加丑时", 输出)
+    #     self.assertIn("一课：戊上戌，", 输出)
+    #     self.assertIn("二课：戌上卯，", 输出)
+    #     self.assertIn("三课：辰上酉，", 输出)
+    #     self.assertIn("四课：酉上寅，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：未 ")
+    #     self.assertRegex(输出, r"(?m)^末传：子 ")
+
+    # 《六壬粹言》卷6慕农柳友访友，PDF第317页右题辛巳正月乙卯日卯时子将，原图三传丑戌未；据同卷张筠圃任免及道光6年原序定位纪年，1821-02-05为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=317
+    # def test_慕农柳友访友(self):
+    #     输出 = 运行("大六壬.py", "1821 02 05 05\n1\n1\n")
+    #     self.assertIn("乙卯日，神后子将加卯时", 输出)
+    #     self.assertIn("一课：乙上丑，", 输出)
+    #     self.assertIn("二课：丑上戌，", 输出)
+    #     self.assertIn("三课：卯上子，", 输出)
+    #     self.assertIn("四课：子上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：未 ")
+
+    # 《六壬粹言》卷6慕农戚友访友求文稿，PDF第317页左题癸未十月戊戌日辰时巳将，原图三传亥子丑；据同卷张筠圃任免及道光6年原序定位纪年，1823-09-06为反推，原题月份与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=317
+    # def test_慕农戚友访友求文稿(self):
+    #     输出 = 运行("大六壬.py", "1823 09 06 07\n1\n1\n")
+    #     self.assertIn("戊戌日，太乙巳将加辰时", 输出)
+    #     self.assertIn("一课：戊上午，", 输出)
+    #     self.assertIn("二课：午上未，", 输出)
+    #     self.assertIn("三课：戌上亥，", 输出)
+    #     self.assertIn("四课：亥上子，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^中传：子 ")
+    #     self.assertRegex(输出, r"(?m)^末传：丑 ")
+
+    # 《六壬粹言》卷6慕农幕友仆逃，PDF第318页右题己卯五月乙亥日丑时未将，原图三传巳亥巳；据同卷张筠圃任免及道光6年原序定位纪年，1819-07-06为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=318
+    # def test_慕农幕友仆逃(self):
+    #     输出 = 运行("大六壬.py", "1819 07 06 01\n1\n1\n")
+    #     self.assertIn("乙亥日，小吉未将加丑时", 输出)
+    #     self.assertIn("一课：乙上戌，", 输出)
+    #     self.assertIn("二课：戌上辰，", 输出)
+    #     self.assertIn("三课：亥上巳，", 输出)
+    #     self.assertIn("四课：巳上亥，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农民妇携子逃，PDF第318页左题壬午四月癸卯日午时酉将，原图三传酉子卯；据同卷张筠圃任免及道光6年原序定位纪年，1822-05-19为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=318
+    # def test_慕农民妇携子逃(self):
+    #     输出 = 运行("大六壬.py", "1822 05 19 11\n1\n1\n")
+    #     self.assertIn("癸卯日，从魁酉将加午时", 输出)
+    #     self.assertIn("一课：癸上辰，", 输出)
+    #     self.assertIn("二课：辰上未，", 输出)
+    #     self.assertIn("三课：卯上午，", 输出)
+    #     self.assertIn("四课：午上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^中传：子 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷6慕农相氏妇病，PDF第319页右题庚辰十二月辛亥日寅时子将，原图三传午辰寅；据同卷张筠圃任免及道光6年原序定位纪年，1821-02-01为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=319
+    # def test_慕农相氏妇病(self):
+    #     输出 = 运行("大六壬.py", "1821 02 01 03\n1\n1\n")
+    #     self.assertIn("辛亥日，神后子将加寅时", 输出)
+    #     self.assertIn("一课：辛上申，", 输出)
+    #     self.assertIn("二课：申上午，", 输出)
+    #     self.assertIn("三课：亥上酉，", 输出)
+    #     self.assertIn("四课：酉上未，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：午 ")
+    #     self.assertRegex(输出, r"(?m)^中传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农乡人求占病，PDF第319页左，原题辛巳八月庚寅日亥时巳将与四课为返吟，四课上神只有寅、申，而三传原写戌午寅，初传戌不在所载贼克课内，图传不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=319
+
+    # 《六壬粹言》卷6慕农妻病腹动，PDF第320页右题辛巳十一月辛未日酉时寅将，原图三传巳戌卯；据同卷张筠圃任免及道光6年原序定位纪年，1821-12-18为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=320
+    # def test_慕农妻病腹动(self):
+    #     输出 = 运行("大六壬.py", "1821 12 18 17\n1\n1\n1\n")
+    #     self.assertIn("辛未日，功曹寅将加酉时", 输出)
+    #     self.assertIn("一课：辛上卯，", 输出)
+    #     self.assertIn("二课：卯上申，", 输出)
+    #     self.assertIn("三课：未上子，", 输出)
+    #     self.assertIn("四课：子上巳，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷6慕农沈友占病，PDF第320页左题壬午二月辛卯日寅时亥将，原图三传子未子；据同卷张筠圃任免及道光6年原序定位纪年，1822-03-08为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=320
+    # def test_慕农沈友占病(self):
+    #     输出 = 运行("大六壬.py", "1822 03 08 03\n1\n1\n")
+    #     self.assertIn("辛卯日，登明亥将加寅时", 输出)
+    #     self.assertIn("一课：辛上未，", 输出)
+    #     self.assertIn("二课：未上辰，", 输出)
+    #     self.assertIn("三课：卯上子，", 输出)
+    #     self.assertIn("四课：子上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：子 ")
+    #     self.assertRegex(输出, r"(?m)^中传：未 ")
+    #     self.assertRegex(输出, r"(?m)^末传：子 ")
+
+    # 《六壬粹言》卷6慕农幼子病痘，PDF第321页右题癸未七月癸未日子时午将，原图三传未丑未；据同卷张筠圃任免及道光6年原序定位纪年，1823-08-22为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=321
+    # def test_慕农幼子病痘(self):
+    #     输出 = 运行("大六壬.py", "1823 08 22 00\n1\n1\n")
+    #     self.assertIn("癸未日，胜光午将加子时", 输出)
+    #     self.assertIn("一课：癸上未，", 输出)
+    #     self.assertIn("二课：未上丑，", 输出)
+    #     self.assertIn("三课：未上丑，", 输出)
+    #     self.assertIn("四课：丑上未，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：未 ")
+    #     self.assertRegex(输出, r"(?m)^中传：丑 ")
+    #     self.assertRegex(输出, r"(?m)^末传：未 ")
+
+    # 《六壬粹言》卷6慕农妻病信息，PDF第321页左题癸未九月庚辰日未时卯将、三传子申辰；按卷6张筠圃升调案与道光6年原序定位1823年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=321
+
+    # 《六壬粹言》卷6慕农村中病吉凶，PDF第322页右题辛巳二月己酉日巳时戌将，原图三传未子巳；据同卷张筠圃任免及道光6年原序定位纪年，1821-03-31为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=322
+    # def test_慕农村中病吉凶(self):
+    #     输出 = 运行("大六壬.py", "1821 03 31 09\n1\n1\n1\n")
+    #     self.assertIn("己酉日，河魁戌将加巳时", 输出)
+    #     self.assertIn("一课：己上子，", 输出)
+    #     self.assertIn("二课：子上巳，", 输出)
+    #     self.assertIn("三课：酉上寅，", 输出)
+    #     self.assertIn("四课：寅上未，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：未 ")
+    #     self.assertRegex(输出, r"(?m)^中传：子 ")
+    #     self.assertRegex(输出, r"(?m)^末传：巳 ")
+
+    # 《六壬粹言》卷6慕农知府被羁，PDF第322页左题壬午三月戊寅日卯时酉将，原图三传寅申寅；据同卷张筠圃任免及道光6年原序定位纪年，1822-04-24为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=322
+    # def test_慕农知府被羁(self):
+    #     输出 = 运行("大六壬.py", "1822 04 24 05\n1\n1\n")
+    #     self.assertIn("戊寅日，从魁酉将加卯时", 输出)
+    #     self.assertIn("一课：戊上亥，", 输出)
+    #     self.assertIn("二课：亥上巳，", 输出)
+    #     self.assertIn("三课：寅上申，", 输出)
+    #     self.assertIn("四课：申上寅，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：申 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农知府家人求占，PDF第323页右题壬午四月丙午日巳时酉将、三传酉丑巳；按卷6张筠圃升调案与道光6年原序定位1822年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=323
+
+    # 《六壬粹言》卷6慕农乡友捕盗，PDF第323页左题癸未三月丙申日丑时酉将，原图三传子申辰；据同卷张筠圃任免及道光6年原序定位纪年，1823-05-07为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=323
+    # def test_慕农乡友捕盗(self):
+    #     输出 = 运行("大六壬.py", "1823 05 07 01\n1\n1\n")
+    #     self.assertIn("丙申日，从魁酉将加丑时", 输出)
+    #     self.assertIn("一课：丙上丑，", 输出)
+    #     self.assertIn("二课：丑上酉，", 输出)
+    #     self.assertIn("三课：申上辰，", 输出)
+    #     self.assertIn("四课：辰上子，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：子 ")
+    #     self.assertRegex(输出, r"(?m)^中传：申 ")
+    #     self.assertRegex(输出, r"(?m)^末传：辰 ")
+
+    # 《六壬粹言》卷6慕农邱少府捕盗，PDF第324页右题癸未七月壬申日午时未将、三传丑寅卯；按卷6张筠圃升调案与道光6年原序定位1823年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=324
+
+    # 《六壬粹言》卷6慕农三子失盗，PDF第324页左题甲申正月己亥日午时亥将，原图三传巳戌卯；据同卷张筠圃任免及道光6年原序定位纪年，1824-03-05为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=324
+    # def test_慕农三子失盗(self):
+    #     输出 = 运行("大六壬.py", "1824 03 05 11\n1\n1\n")
+    #     self.assertIn("己亥日，登明亥将加午时", 输出)
+    #     self.assertIn("一课：己上子，", 输出)
+    #     self.assertIn("二课：子上巳，", 输出)
+    #     self.assertIn("三课：亥上辰，", 输出)
+    #     self.assertIn("四课：辰上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^中传：戌 ")
+    #     self.assertRegex(输出, r"(?m)^末传：卯 ")
+
+    # 《六壬粹言》卷6慕农陆友占墓，PDF第325页右题辛巳正月甲戌日戌时亥将，原图三传辰巳午；据同卷张筠圃任免及道光6年原序定位纪年，1821-02-24为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=325
+    # def test_慕农陆友占墓(self):
+    #     输出 = 运行("大六壬.py", "1821 02 24 19\n1\n1\n")
+    #     self.assertIn("甲戌日，登明亥将加戌时", 输出)
+    #     self.assertIn("一课：甲上卯，", 输出)
+    #     self.assertIn("二课：卯上辰，", 输出)
+    #     self.assertIn("三课：戌上亥，", 输出)
+    #     self.assertIn("四课：亥上子，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^中传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^末传：午 ")
+
+    # 《六壬粹言》卷6慕农院生墓地，PDF第325页左题辛巳十一月辛未日辰时寅将，原图三传午辰寅；据同卷张筠圃任免及道光6年原序定位纪年，1821-12-18为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=325
+    # def test_慕农院生墓地(self):
+    #     输出 = 运行("大六壬.py", "1821 12 18 07\n1\n1\n")
+    #     self.assertIn("辛未日，功曹寅将加辰时", 输出)
+    #     self.assertIn("一课：辛上申，", 输出)
+    #     self.assertIn("二课：申上午，", 输出)
+    #     self.assertIn("三课：未上巳，", 输出)
+    #     self.assertIn("四课：巳上卯，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：午 ")
+    #     self.assertRegex(输出, r"(?m)^中传：辰 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农施南问晴，PDF第326页左，原题己卯七月戊辰日亥时巳将，四课戊亥/亥巳/辰戌/戌辰、三传巳亥巳，正文亦称太阳发用；所载初传巳与计克、地盘孟仲季及上神孟仲季各取法的亥不同，原案未解释另取巳的规则 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=326
+
+    # 《六壬粹言》卷6慕农向晚极热问雨，PDF第327页右题辛巳四月乙酉日寅时酉将，原图三传亥午丑；据同卷张筠圃任免及道光6年原序定位纪年，1821-05-06为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=327
+    # def test_慕农向晚极热问雨(self):
+    #     输出 = 运行("大六壬.py", "1821 05 06 03\n1\n1\n1\n")
+    #     self.assertIn("乙酉日，从魁酉将加寅时", 输出)
+    #     self.assertIn("一课：乙上亥，", 输出)
+    #     self.assertIn("二课：亥上午，", 输出)
+    #     self.assertIn("三课：酉上辰，", 输出)
+    #     self.assertIn("四课：辰上亥，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^中传：午 ")
+    #     self.assertRegex(输出, r"(?m)^末传：丑 ")
+
+    # 《六壬粹言》卷6慕农雪后问雪，PDF第327页左题辛巳十二月壬子日寅时丑将、三传戌酉申；按卷6张筠圃升调案与道光6年原序定位1821年，原年日将不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=327
+
+    # 《六壬粹言》卷6慕农设坛求雨，PDF第328页右题乙酉五月庚戌日申时未将，原图三传午巳辰；据同卷张筠圃任免及道光6年原序定位纪年，1825-07-09为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=328
+    # def test_慕农设坛求雨(self):
+    #     输出 = 运行("大六壬.py", "1825 07 09 15\n1\n1\n")
+    #     self.assertIn("庚戌日，小吉未将加申时", 输出)
+    #     self.assertIn("一课：庚上未，", 输出)
+    #     self.assertIn("二课：未上午，", 输出)
+    #     self.assertIn("三课：戌上酉，", 输出)
+    #     self.assertIn("四课：酉上申，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：午 ")
+    #     self.assertRegex(输出, r"(?m)^中传：巳 ")
+    #     self.assertRegex(输出, r"(?m)^末传：辰 ")
+
+    # 《六壬粹言》卷6慕农王家营开沙，PDF第328页左题乙酉四月丁巳日午时酉将，原图三传申亥寅；据同卷张筠圃任免及道光6年原序定位纪年，1825-05-17为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=328
+    # def test_慕农王家营开沙(self):
+    #     输出 = 运行("大六壬.py", "1825 05 17 11\n1\n1\n")
+    #     self.assertIn("丁巳日，从魁酉将加午时", 输出)
+    #     self.assertIn("一课：丁上戌，", 输出)
+    #     self.assertIn("二课：戌上丑，", 输出)
+    #     self.assertIn("三课：巳上申，", 输出)
+    #     self.assertIn("四课：申上亥，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：申 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：寅 ")
+
+    # 《六壬粹言》卷6慕农王家营筑圩，PDF第329页右题乙酉十月丁卯日巳时寅将，原图三传子酉午；据同卷张筠圃任免及道光6年原序定位纪年，1825-11-23为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=329
+    # def test_慕农王家营筑圩(self):
+    #     输出 = 运行("大六壬.py", "1825 11 23 09\n1\n1\n")
+    #     self.assertIn("丁卯日，功曹寅将加巳时", 输出)
+    #     self.assertIn("一课：丁上辰，", 输出)
+    #     self.assertIn("二课：辰上丑，", 输出)
+    #     self.assertIn("三课：卯上子，", 输出)
+    #     self.assertIn("四课：子上酉，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：子 ")
+    #     self.assertRegex(输出, r"(?m)^中传：酉 ")
+    #     self.assertRegex(输出, r"(?m)^末传：午 ")
+
+    # 《六壬粹言》卷6慕农赵廉坪射覆，PDF第329页左题己卯正月丙子日巳时亥将，原图三传午子午；据同卷张筠圃任免及道光6年原序定位纪年，1819-03-09为反推，原题月份与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=329
+    # def test_慕农赵廉坪射覆(self):
+    #     输出 = 运行("大六壬.py", "1819 03 09 09\n1\n1\n")
+    #     self.assertIn("丙子日，登明亥将加巳时", 输出)
+    #     self.assertIn("一课：丙上亥，", 输出)
+    #     self.assertIn("二课：亥上巳，", 输出)
+    #     self.assertIn("三课：子上午，", 输出)
+    #     self.assertIn("四课：午上子，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：午 ")
+    #     self.assertRegex(输出, r"(?m)^中传：子 ")
+    #     self.assertRegex(输出, r"(?m)^末传：午 ")
+
+    # 《六壬粹言》卷6慕农崔仲和射覆，PDF第330页右题癸未九月戊戌日午时卯将，原图三传寅亥申；据同卷张筠圃任免及道光6年原序定位纪年，1823-11-05为反推 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=330
+    # def test_慕农崔仲和射覆(self):
+    #     输出 = 运行("大六壬.py", "1823 11 05 11\n1\n1\n")
+    #     self.assertIn("戊戌日，太冲卯将加午时", 输出)
+    #     self.assertIn("一课：戊上寅，", 输出)
+    #     self.assertIn("二课：寅上亥，", 输出)
+    #     self.assertIn("三课：戌上未，", 输出)
+    #     self.assertIn("四课：未上辰，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：寅 ")
+    #     self.assertRegex(输出, r"(?m)^中传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^末传：申 ")
+
+    # 《六壬指南》迟父师祈雨，1925年国图扫描第127页；《六壬粹言》抄本卷5PDF第285页题戊寅三月己巳丑时戌将、三传寅亥申；粹言题叶阳运 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=127 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=285
     def test_迟父师祈雨(self):
         输出 = 运行("大六壬.py", "1638 04 19 01\n1\n1\n")
         self.assertIn("己巳日，河魁戌将加丑时", 输出)
@@ -2122,7 +2922,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 六合 妻财", 输出)
         self.assertIn("末传：申 贵人 子孙", 输出)
 
-    # 《六壬指南》曾刑长垣雪后问雪，1925年国图扫描第128页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=128
+    # 《六壬指南》曾刑长垣雪后问雪，1925年国图扫描第128页；《六壬粹言》抄本卷5PDF第284、285页题丁丑十二月丁酉卯时丑将、三传丑巳巳；粹言题曾懋游 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=128 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=284
     def test_曾刑长垣雪后问雪(self):
         输出 = 运行("大六壬.py", "1638 01 17 05\n1\n1\n")
         self.assertIn("丁酉日，大吉丑将加卯时", 输出)
@@ -2138,7 +2938,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 勾陈 父母", 输出)
         self.assertIn("末传：寅 白虎 兄弟", 输出)
 
-    # 《六壬指南》庚寅五月问雨，1925年国图扫描第129页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=129
+    # 《六壬指南》庚寅五月问雨，1925年国图扫描第129页；《六壬粹言》抄本卷5PDF第286、287页题庚寅五月甲戌未时申将、三传辰巳午 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=129 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=286
     def test_庚寅五月问雨(self):
         输出 = 运行("大六壬.py", "1650 06 20 13\n1\n1\n")
         self.assertIn("甲戌日，传送申将加未时", 输出)
@@ -2146,7 +2946,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 勾陈 子孙", 输出)
         self.assertIn("末传：午 青龙 子孙", 输出)
 
-    # 《六壬指南》庚寅闻鸠鸣，1925年国图扫描第130页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=130
+    # 《六壬指南》庚寅闻鸠鸣，1925年国图扫描第130页；《六壬粹言》抄本卷5PDF第285、286页题庚寅四月甲寅卯时申将、三传子巳戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=130 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=285
     def test_庚寅闻鸠鸣(self):
         输出 = 运行("大六壬.py", "1650 05 31 05\n1\n1\n")
         self.assertIn("甲寅日，传送申将加卯时", 输出)
@@ -2154,7 +2954,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 太常 子孙", 输出)
         self.assertIn("末传：戌 六合 妻财", 输出)
 
-    # 《六壬指南》甲申日晕，1925年国图扫描第130页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=130
+    # 《六壬指南》甲申日晕，1925年国图扫描第130页；《六壬粹言》抄本卷5PDF第278页题甲午五月己丑午时申将、三传卯巳未；粹言题甲午年，指南题甲申年 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=130 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=278
     def test_甲申日晕(self):
         输出 = 运行("大六壬.py", "1644 06 06 11\n1\n1\n")
         self.assertIn("己丑日，传送申将加午时", 输出)
@@ -2170,11 +2970,11 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：子 贵人 父母", 输出)
         self.assertIn("末传：巳 白虎 子孙", 输出)
 
-    # 《六壬指南》李庚续弦，1925年国图扫描第133页；原刻己丑五月癸酉酉时、课图申将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=133
+    # 《六壬指南》李庚续弦，1925年国图扫描第133页；原刻己丑五月癸酉酉时、课图申将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第263页题己丑五月癸酉酉时申将、三传未午巳 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=133 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=263
 
-    # 《六壬指南》东宫田妃六甲，1925年国图扫描第133页；原刻丁丑十月癸丑酉时，图作返吟卯将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=133
+    # 《六壬指南》东宫田妃六甲，1925年国图扫描第133页；原刻丁丑十月癸丑酉时，图作返吟卯将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第264页题丁丑十月癸丑酉时卯将、三传未丑未 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=133 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=264
 
-    # 《六壬指南》江右傅姓六甲，1925年国图扫描第134页；原刻庚辰三月辛卯戌时、伏吟戌将；原题日将与课图不合（定气、旧历气法）；图卯子卯明确采用循环刑法 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=134
+    # 《六壬指南》江右傅姓六甲，1925年国图扫描第134页；原刻庚辰三月辛卯戌时、伏吟戌将；原题日将与课图不合（定气、旧历气法）；图卯子卯明确采用循环刑法；《六壬粹言》抄本卷5PDF第264、265页题庚辰二月辛卯戌时戌将、三传卯子午；粹言末传午与指南循环刑末传卯不同 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=134 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=264
 
     # 《六壬指南》冯尔忠占六甲，1925年国图扫描第135页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=135
     def test_冯尔忠占六甲(self):
@@ -2184,7 +2984,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：酉 天后 官鬼", 输出)
         self.assertIn("末传：卯 青龙 兄弟", 输出)
 
-    # 《六壬指南》孙石渠代占生育，1925年国图扫描第135页；课图在第136页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=135
+    # 《六壬指南》孙石渠代占生育，1925年国图扫描第135页；课图在第136页；《六壬粹言》抄本卷5PDF第265页题己丑二月辛丑亥时戌将、三传子亥戌；粹言仅题园子占生产，与指南孙石渠代占同盘，人物同一性无据 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=135 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=265
     def test_孙石渠代占生育(self):
         输出 = 运行("大六壬.py", "1649 03 24 22\n1\n1\n")
         self.assertIn("辛丑日，河魁戌将加亥时", 输出)
@@ -2192,7 +2992,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 玄武 子孙", 输出)
         self.assertIn("末传：戌 太常 父母", 输出)
 
-    # 《六壬指南》戴羲宇占来意，1925年国图扫描第136页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=136
+    # 《六壬指南》戴羲宇占来意，1925年国图扫描第136页；《六壬粹言》抄本卷5PDF第263、264页题甲子四月癸卯午时申将、三传未酉亥；粹言匿名题六甲，与指南戴羲宇问来意同盘异题，不能认定同一事件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=136 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=263
     def test_戴羲宇占来意(self):
         输出 = 运行("大六壬.py", "1624 06 05 11\n1\n1\n")
         self.assertIn("癸卯日，传送申将加午时", 输出)
@@ -2200,7 +3000,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：酉 勾陈 父母", 输出)
         self.assertIn("末传：亥 天空 兄弟", 输出)
 
-    # 《六壬指南》但陵景占府院试，1925年国图扫描第137页；原刻寅时用昼贵；该年甲申巳将唯一，属立秋至白露的七月节月 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=137
+    # 《六壬指南》但陵景占府院试，1925年国图扫描第137页；原刻寅时用昼贵；该年甲申巳将唯一，属立秋至白露的七月节月；《六壬粹言》抄本卷5PDF第262、263页题庚寅七月甲申寅时巳将、三传申亥寅 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=137 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=262
     def test_但陵景占府院试(self):
         输出 = 运行("大六壬.py", "1650 08 29 03\n1\n2\n")
         self.assertIn("甲申日，太乙巳将加寅时", 输出)
@@ -2208,7 +3008,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 朱雀 父母", 输出)
         self.assertIn("末传：寅 天后 兄弟", 输出)
 
-    # 《六壬指南》陆夺翼占考试，1925年国图扫描第138页；原图丑时用昼贵 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=138
+    # 《六壬指南》陆夺翼占考试，1925年国图扫描第138页；原图丑时用昼贵；《六壬粹言》抄本卷5PDF第283页题壬午七月丙戌丑时申将、三传子未寅；粹言七月与现按指南所定1642-06-14不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=138 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=283
     def test_陆夺翼占考试(self):
         输出 = 运行("大六壬.py", "1642 06 14 02\n1\n2\n")
         self.assertIn("丙戌日，传送申将加丑时", 输出)
@@ -2216,7 +3016,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：未 太常 子孙", 输出)
         self.assertIn("末传：寅 六合 父母", 输出)
 
-    # 《六壬指南》宗开先占乡试，1925年国图扫描第139页；原刻寅时用昼贵、涉害先取孟位 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=139
+    # 《六壬指南》宗开先占乡试，1925年国图扫描第139页；原刻寅时用昼贵、涉害先取孟位；《六壬粹言》抄本卷5PDF第258、259页题癸酉七月辛卯寅时午将、三传未亥卯；图旁淡笔天将另属批注 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=139 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=258
     def test_宗开先占乡试(self):
         输出 = 运行("大六壬.py", "1633 08 05 03\n1\n2\n2\n")
         self.assertIn("辛卯日，胜光午将加寅时", 输出)
@@ -2224,9 +3024,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 青龙 子孙", 输出)
         self.assertIn("末传：卯 玄武 妻财", 输出)
 
-    # 《六壬指南》孙兴功占乡试，1925年国图扫描第139、140页；原题记本日辰、酉两课，第140页只列辰时伏吟图，断语先时发用未与图巳不合，酉课未列完整图 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=139
-
-    # 《六壬指南》孙兴功辰时占乡试，1925年国图扫描第140页；原刻辰时图用夜贵 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=140
+    # 《六壬指南》孙兴功辰时占乡试，1925年国图扫描第140页；原刻辰时图用夜贵；《六壬粹言》抄本卷5PDF第261、262页题戊子八月丙辰辰时辰将、三传巳申寅；断语另载酉时课午丑申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=140 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=261
     def test_孙兴功辰时占乡试(self):
         输出 = 运行("大六壬.py", "1648 10 10 08\n1\n3\n")
         self.assertIn("丙辰日，天罡辰将加辰时", 输出)
@@ -2234,13 +3032,21 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 螣蛇 妻财", 输出)
         self.assertIn("末传：寅 白虎 父母", 输出)
 
+    # 《六壬粹言》卷5孙兴功乡试，PDF第261页左题戊子八月丙辰日辰、酉两时辰将，第262页右断酉时三传午丑申；与《六壬指南》PDF第139～140页辰时同日，1648-10-10为八月廿四 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=261 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=139
+    def test_孙兴功酉时占乡试(self):
+        输出 = 运行("大六壬.py", "1648 10 10 17\n1\n1\n")
+        self.assertIn("丙辰日，天罡辰将加酉时", 输出)
+        self.assertRegex(输出, r"(?m)^初传：午 ")
+        self.assertRegex(输出, r"(?m)^中传：丑 ")
+        self.assertRegex(输出, r"(?m)^末传：申 ")
+
     # 《六壬指南》何伴鹤代占兄弟乡试，1925年国图扫描第140页；原刻丁卯八月乙巳申时，课图反推辰将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=140
 
-    # 《六壬指南》张盛美门生会试，1925年国图扫描第141页；原刻丁丑正月己巳巳时并明写子将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=141
+    # 《六壬指南》张盛美门生会试，1925年国图扫描第141页；原刻丁丑正月己巳巳时并明写子将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第259页题丁丑正月己巳巳时子将、三传酉辰亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=141 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=259
 
     # 《六壬指南》王继廉代占会试，1925年国图扫描第142页；原刻甲戌二月戊辰辰时、返吟戌将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=142
 
-    # 《六壬指南》宫子玄占会试，1925年国图扫描第142页；课图在第143页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=142
+    # 《六壬指南》宫子玄占会试，1925年国图扫描第142页；课图在第143页；《六壬粹言》抄本卷5PDF第261页题癸未二月乙丑卯时亥将、三传巳丑酉 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=142 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=261
     def test_宫子玄占会试(self):
         输出 = 运行("大六壬.py", "1643 03 20 06\n1\n1\n")
         self.assertIn("乙丑日，登明亥将加卯时", 输出)
@@ -2248,11 +3054,11 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：丑 螣蛇 妻财", 输出)
         self.assertIn("末传：酉 玄武 官鬼", 输出)
 
-    # 《六壬指南》孙大宜占会试，1925年国图扫描第143页；原刻丁丑二月癸未午时，课图反推戌将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=143
+    # 《六壬指南》孙大宜占会试，1925年国图扫描第143页；原刻丁丑二月癸未午时，课图反推戌将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第260页题丁丑三月癸未午时戌将、三传酉丑巳 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=143 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=260
 
     # 《六壬指南》陈公明占会试，1925年国图扫描第144页；原刻戊辰八月甲戌亥时，课图反推未将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=144
 
-    # 《六壬指南》刘若宜占会试，1925年国图扫描第144页；原刻丁丑二月乙未日戌时，按大统历平气日春分前取亥将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=144
+    # 《六壬指南》刘若宜占会试，1925年国图扫描第144页；原刻丁丑二月乙未日戌时，按大统历平气日春分前取亥将；《六壬粹言》抄本卷5PDF第259、260页题丁丑二月乙未戌时亥将、三传酉戌亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=144 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=259
     def test_刘若宜占会试(self):
         输出 = 运行("大六壬.py", "1637 03 21 19\n2\n1\n1\n")
         self.assertIn("乙未日，登明亥将加戌时", 输出)
@@ -2260,7 +3066,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 太阴 妻财", 输出)
         self.assertIn("末传：亥 玄武 父母", 输出)
 
-    # 《六壬指南》吴克孝占会试，1925年国图扫描第145页；原刻丁丑二月乙未日巳时，按大统历平气日春分前取亥将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=145
+    # 《六壬指南》吴克孝占会试，1925年国图扫描第145页；原刻丁丑二月乙未日巳时，按大统历平气日春分前取亥将；《六壬粹言》抄本卷5PDF第260页题丁丑二月乙未巳时亥将、三传戌辰戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=145 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=260
     def test_吴克孝占会试(self):
         输出 = 运行("大六壬.py", "1637 03 21 09\n2\n1\n1\n")
         self.assertIn("乙未日，登明亥将加巳时", 输出)
@@ -2268,7 +3074,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：辰 太常 妻财", 输出)
         self.assertIn("末传：戌 朱雀 妻财", 输出)
 
-    # 《六壬指南》王旋官代占升迁，1925年国图扫描第146页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=146
+    # 《六壬指南》王旋官代占升迁，1925年国图扫描第146页；《六壬粹言》卷5PDF第243页，粹言题叶父师代占升迁，辛未三月甲申未时戌将、三传申亥寅；与指南同盘异题 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=146 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=243
     def test_王旋官代占升迁(self):
         输出 = 运行("大六壬.py", "1631 04 11 14\n1\n1\n")
         self.assertIn("甲申日，河魁戌将加未时", 输出)
@@ -2276,7 +3082,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 朱雀 父母", 输出)
         self.assertIn("末传：寅 天后 兄弟", 输出)
 
-    # 《六壬指南》蔡熙阳占杨司马罢官，1925年国图扫描第147页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=147
+    # 《六壬指南》蔡熙阳占杨司马罢官，1925年国图扫描第147页；《六壬粹言》抄本卷5PDF第249页题丁丑七月戊辰巳时午将、三传寅午午 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=147 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=249
     def test_蔡熙阳占杨司马罢官(self):
         输出 = 运行("大六壬.py", "1637 08 21 09\n1\n1\n1\n")
         self.assertIn("戊辰日，胜光午将加巳时", 输出)
@@ -2302,7 +3108,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 天后 子孙", 输出)
         self.assertIn("末传：戌 天后 子孙", 输出)
 
-    # 《六壬指南》阮实夫代占温首揆，1925年国图扫描第150页；原刻丁丑四月丙申日酉时，按大统历平气日小满前取酉将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=150
+    # 《六壬指南》阮实夫代占温首揆，1925年国图扫描第150页；原刻丁丑四月丙申日酉时，按大统历平气日小满前取酉将；《六壬粹言》抄本卷5PDF第248页题丁丑四月丙申酉时酉将、三传巳申寅 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=150 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=248
     def test_阮实夫代占温首揆(self):
         输出 = 运行("大六壬.py", "1637 05 21 17\n2\n1\n1\n")
         self.assertIn("丙申日，从魁酉将加酉时", 输出)
@@ -2310,7 +3116,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 螣蛇 妻财", 输出)
         self.assertIn("末传：寅 白虎 父母", 输出)
 
-    # 《六壬指南》陆金吾占陈东明出师，1925年国图扫描第150页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=150
+    # 《六壬指南》陆金吾占陈东明出师，1925年国图扫描第150页；《六壬粹言》抄本卷5PDF第247、248页题丙子二月辛巳卯时亥将、三传午寅戌；题中人物名字与指南有异 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=150 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=247
     def test_陆金吾占陈东明出师(self):
         输出 = 运行("大六壬.py", "1636 03 12 05\n1\n1\n")
         self.assertIn("辛巳日，登明亥将加卯时", 输出)
@@ -2318,11 +3124,21 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：寅 勾陈 妻财", 输出)
         self.assertIn("末传：戌 太常 父母", 输出)
 
-    # 《六壬指南》阮胤平占入相，1925年国图扫描第151页；原刻丁丑八月己未辰时、图反推巳将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=151
+    # 《六壬指南》阮胤平占入相，1925年国图扫描第151页；原刻丁丑八月己未辰时、图反推巳将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第249、250页题丁丑八月己未辰时巳将、三传未申申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=151 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=249
 
-    # 《六壬指南》仇庸足占功名，1925年国图扫描第152页；原刻辛未四月己未辰时、图反推申将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=152
+    # 《六壬粹言》卷5仇庸德占功名，PDF第244页左题辛未四月己未日酉将，题时草字未能独立辨定，四课己亥/亥卯/未亥/亥卯唯一反推巳时，三传亥卯未；1631-05-16为四月十六；《六壬指南》PDF第152页同课题仇庸足、辰时 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=244 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=152
+    # def test_仇庸德占功名(self):
+    #     输出 = 运行("大六壬.py", "1631 05 16 09\n1\n1\n")
+    #     self.assertIn("己未日，从魁酉将加巳时", 输出)
+    #     self.assertIn("一课：己上亥，", 输出)
+    #     self.assertIn("二课：亥上卯，", 输出)
+    #     self.assertIn("三课：未上亥，", 输出)
+    #     self.assertIn("四课：亥上卯，", 输出)
+    #     self.assertRegex(输出, r"(?m)^初传：亥 ")
+    #     self.assertRegex(输出, r"(?m)^中传：卯 ")
+    #     self.assertRegex(输出, r"(?m)^末传：未 ")
 
-    # 《六壬指南》陈龙正占钱士升入相，1925年国图扫描第153页；原刻癸酉七月甲寅申时、图反推午将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=153
+    # 《六壬指南》陈龙正占钱士升入相，1925年国图扫描第153页；原刻癸酉七月甲寅申时、图反推午将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》卷5PDF第246页，粹言亦题癸酉七月甲寅申时午将、三传戌申午，1633年甲寅日无午将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=153 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=246
 
     # 《六壬指南》贺中怜代占周首揆，1925国图PDF第153～154页（卷4原页27～28）与《六壬粹言》抄本PDF第245页（卷5仕宦叶5左）同丹阳贺中怜、癸酉二月甲子巳时，后者明载亥将；四课甲申/申寅/子午/午子及寅申寅相同，指南图后寅/龙申/后寅，返吟涉害取地盘孟位 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=245 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=153
     def test_贺中怜代占周首揆(self):
@@ -2332,7 +3148,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 青龙 官鬼", 输出)
         self.assertIn("末传：寅 天后 兄弟", 输出)
 
-    # 《六壬指南》孙兴功占赵福星升迁，1925年国图扫描第154页；原刻戊子四月丙子辰时、返吟戌将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=154
+    # 《六壬指南》孙兴功占赵福星升迁，1925年国图扫描第154页；原刻戊子四月丙子辰时、返吟戌将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第252、253页题戊子三月丙子辰时戌将、三传午子午 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=154 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=252
 
     # 《六壬指南》阮胤平占李括苍入相，1925年国图扫描第155页；原刻丁丑七月甲戌巳时、图反推午将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=155
 
@@ -2352,7 +3168,7 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：亥 六合 子孙", 输出)
     #     self.assertIn("末传：卯 天后 妻财", 输出)
 
-    # 《六壬指南》刘一纯占梁司马冢宰，1925年国图扫描第157页；原刻辛未四月丁酉卯时、图反推戌将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=157
+    # 《六壬指南》刘一纯占梁司马冢宰，1925年国图扫描第157页；原刻辛未四月丁酉卯时、图反推戌将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》卷5PDF第243页，粹言题辛未三月丁酉卯时戌将，与指南四月异文；1631年丁酉日仍无戌将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=157 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=243
 
     # 《六壬指南》王昌时占仕途，1925年国图扫描第158页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=158
     def test_王昌时占仕途(self):
@@ -2362,7 +3178,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：未 太常 子孙", 输出)
         self.assertIn("末传：寅 六合 父母", 输出)
 
-    # 《六壬指南》丙午命人随僧索占，1925年国图扫描第159页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=159
+    # 《六壬指南》丙午命人随僧索占，1925年国图扫描第159页；《六壬粹言》抄本卷5PDF第250、251页题壬午九月丁亥未时辰将、三传巳寅亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=159 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=250
     def test_丙午命人随僧索占(self):
         输出 = 运行("大六壬.py", "1642 10 13 13\n1\n1\n")
         self.assertIn("丁亥日，天罡辰将加未时", 输出)
@@ -2378,7 +3194,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：巳 太常 子孙", 输出)
         self.assertIn("末传：戌 六合 妻财", 输出)
 
-    # 《六壬指南》刘正宗座间索占，1925年国图扫描第160页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=160
+    # 《六壬指南》刘正宗座间索占，1925年国图扫描第160页；《六壬粹言》抄本卷5PDF第250页题戊寅二月辛丑巳时戌将、三传卯申丑 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=160 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=250
     def test_刘正宗座间索占(self):
         输出 = 运行("大六壬.py", "1638 03 22 09\n1\n1\n1\n")
         self.assertIn("辛丑日，河魁戌将加巳时", 输出)
@@ -2386,7 +3202,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 朱雀 兄弟", 输出)
         self.assertIn("末传：丑 白虎 父母", 输出)
 
-    # 《六壬指南》贺中怜占升迁，1925年国图扫描第161页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=161
+    # 《六壬指南》贺中怜占升迁，1925年国图扫描第161页；《六壬粹言》抄本卷5PDF第247页题癸酉八月壬戌申时巳将、三传巳寅亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=161 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=247
     def test_贺中怜占升迁(self):
         输出 = 运行("大六壬.py", "1633 09 05 15\n1\n1\n")
         self.assertIn("壬戌日，太乙巳将加申时", 输出)
@@ -2394,7 +3210,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：寅 六合 子孙", 输出)
         self.assertIn("末传：亥 天空 兄弟", 输出)
 
-    # 《六壬指南》司化南占何官，1925年国图扫描第162页；原刻戊子六月乙未未时、图反推亥将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=162
+    # 《六壬指南》司化南占何官，1925年国图扫描第162页；原刻戊子六月乙未未时、图反推亥将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第252页题戊子正月乙未未时亥将、三传亥卯未 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=162 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=252
 
     # 《六壬指南》涂松亭占彭南溟升迁，1925国图PDF第162～163页（卷4原页36～37）与《六壬粹言》抄本PDF第241页（卷5仕宦叶1左）同题丁卯正月丁巳卯时，后者明载子将；四课丁辰/辰丑/巳寅/寅亥、三传亥申巳相同。1628-01-30丁卯十二月廿四为按年日将时反推，原题正月与该日期不合 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=241 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=162
     # def test_涂松亭占彭南溟升迁(self):
@@ -2406,7 +3222,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》潘云从占郑潜奄升迁，1925年国图扫描第163页；原刻庚辰正月丁丑卯时，四课反推亥将而三传写寅卯辰；按四课下贼应巳丑酉，与原题从革相合，原图四课与三传栏不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=163
 
-    # 《六壬指南》程孝延程翔云占引部来否，1925年国图扫描第164页；原图涉害先取地盘孟位 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=164
+    # 《六壬指南》程孝延程翔云占引部来否，1925年国图扫描第164页；原图涉害先取地盘孟位；《六壬粹言》抄本卷5PDF第268、269页题庚寅二月癸卯子时戌将、三传丑亥酉 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=164 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=268
     def test_程孝延程翔云占引部来否(self):
         输出 = 运行("大六壬.py", "1650 03 21 00\n1\n1\n2\n")
         self.assertIn("癸卯日，河魁戌将加子时", 输出)
@@ -2450,7 +3266,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 白虎 官鬼", 输出)
         self.assertIn("末传：巳 贵人 妻财", 输出)
 
-    # 《六壬指南》卞圣瑞书房两客索占，1925年国图扫描第169页；原图涉害先取地盘孟位 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=169
+    # 《六壬指南》卞圣瑞书房两客索占，1925年国图扫描第169页；原图涉害先取地盘孟位；《六壬粹言》抄本卷5PDF第251页题癸未正月己亥未时亥将、三传未亥卯；粹言未载卞圣瑞姓名，只确认同日将时、同盘，不能据此认定同一事件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=169 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=251
     def test_卞圣瑞书房两客索占(self):
         输出 = 运行("大六壬.py", "1643 02 22 13\n1\n1\n2\n")
         self.assertIn("己亥日，登明亥将加未时", 输出)
@@ -2468,7 +3284,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 朱雀 兄弟", 输出)
         self.assertIn("末传：巳 白虎 父母", 输出)
 
-    # 《六壬指南》程孝延王米山索占，1925年国图扫描第172页；原图涉害先取地盘孟位 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=172
+    # 《六壬指南》程孝延王米山索占，1925年国图扫描第172页；原图涉害先取地盘孟位；《六壬粹言》抄本卷5PDF第284页题壬午十月己亥未时卯将、三传未卯亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=172 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=284
     def test_程孝延王米山索占(self):
         输出 = 运行("大六壬.py", "1642 10 25 13\n1\n1\n2\n")
         self.assertIn("己亥日，太冲卯将加未时", 输出)
@@ -2476,7 +3292,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：卯 六合 官鬼", 输出)
         self.assertIn("末传：亥 天后 妻财", 输出)
 
-    # 《六壬指南》季大生持进京课，1925年国图扫描第173页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=173
+    # 《六壬指南》季大生持进京课，1925年国图扫描第173页；《六壬粹言》抄本卷5PDF第267页题甲申二月乙丑申时亥将、三传未戌丑 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=173 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=267
     def test_季大生持进京课(self):
         输出 = 运行("大六壬.py", "1644 03 14 15\n1\n1\n")
         self.assertIn("乙丑日，登明亥将加申时", 输出)
@@ -2484,11 +3300,11 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 朱雀 妻财", 输出)
         self.assertIn("末传：丑 天后 妻财", 输出)
 
-    # 《六壬指南》寇道台占仕途，1925年国图扫描第173页；原刻癸酉六月戊寅未时伏吟；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=173
+    # 《六壬指南》寇道台占仕途，1925年国图扫描第173页；原刻癸酉六月戊寅未时伏吟；原题日将与课图不合（定气、旧历气法）；《六壬粹言》卷5PDF第246页，粹言题癸酉六月戊寅未时未将、三传巳申寅；1633年戊寅日无未将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=173 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=246
 
-    # 《六壬指南》江半石占钦差，1925年国图扫描第174页；原刻己巳二月乙巳巳时，课图反推戌将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=174
+    # 《六壬指南》江半石占钦差，1925年国图扫描第174页；原刻己巳二月乙巳巳时，课图反推戌将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第257页题己巳二月乙巳巳时戌将、三传寅未子 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=174 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=257
 
-    # 《六壬指南》胡尹占巡按差，1925年国图扫描第175页；原刻辛卯二月戊子日午时，1651-03-01为二月初十，按原纪年、日、将、时核盘 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=175
+    # 《六壬指南》胡尹占巡按差，1925年国图扫描第175页；原刻辛卯二月戊子日午时，1651-03-01为二月初十，按原纪年、日、将、时核盘；《六壬粹言》抄本卷5PDF第257、258页题辛卯二月戊子午时亥将、三传巳戌卯 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=175 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=257
     def test_胡尹占巡按差(self):
         输出 = 运行("大六壬.py", "1651 03 01 11\n1\n1\n")
         self.assertIn("戊子日，登明亥将加午时", 输出)
@@ -2498,7 +3314,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》张维枢占章奏，1925年国图扫描第176页；原刻己巳正月己未午时、四课反推丑将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=176
 
-    # 《六壬指南》董兑之代董玄宰辞大宗伯，1925年国图扫描第177页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=177
+    # 《六壬指南》董兑之代董玄宰辞大宗伯，1925年国图扫描第177页；《六壬粹言》抄本卷5PDF第254页题癸酉七月庚子戌时午将、三传子申辰 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=177 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=254
     def test_董兑之代董玄宰辞大宗伯(self):
         输出 = 运行("大六壬.py", "1633 08 14 19\n1\n1\n")
         self.assertIn("庚子日，胜光午将加戌时", 输出)
@@ -2506,9 +3322,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 螣蛇 兄弟", 输出)
         self.assertIn("末传：辰 玄武 父母", 输出)
 
-    # 《六壬指南》刘退斋占何如人，1925年国图扫描第177页；原刻丁丑八月壬寅卯时、四课反推巳将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=177
+    # 《六壬指南》刘退斋占何如人，1925年国图扫描第177页；原刻丁丑八月壬寅卯时、四课反推巳将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第256、257页题丁丑八月壬寅卯时巳将、三传辰午申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=177 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=256
 
-    # 《六壬指南》孙鲁山占请告，1925年国图扫描第178页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=178
+    # 《六壬指南》孙鲁山占请告，1925年国图扫描第178页；《六壬粹言》抄本卷5PDF第256页题戊寅三月丙寅申时戌将、三传辰午申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=178 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=256
     def test_孙鲁山占请告(self):
         输出 = 运行("大六壬.py", "1638 04 16 15\n1\n1\n")
         self.assertIn("丙寅日，河魁戌将加申时", 输出)
@@ -2524,7 +3340,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：卯 六合 兄弟", 输出)
         self.assertIn("末传：午 天空 子孙", 输出)
 
-    # 《六壬指南》王旋官占上疏，1925年国图扫描第179页；原刻辛未六月癸卯日卯时，1631-06-29为六月初一；原课涉害按地盘孟仲季取用 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=179
+    # 《六壬指南》王旋官占上疏，1925年国图扫描第179页；原刻辛未六月癸卯日卯时，1631-06-29为六月初一；原课涉害按地盘孟仲季取用；《六壬粹言》抄本卷5PDF第253页题辛未六月癸卯卯时未将、三传酉丑巳 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=179 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=253
     def test_王旋官占上疏(self):
         输出 = 运行("大六壬.py", "1631 06 29 05\n1\n1\n2\n")
         self.assertIn("癸卯日，小吉未将加卯时", 输出)
@@ -2532,7 +3348,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：丑 太常 官鬼", 输出)
         self.assertIn("末传：巳 贵人 妻财", 输出)
 
-    # 《六壬指南》刘退斋请假省亲，1925年国图扫描第180页；丁丑四月丁酉巳时，《明史》大统原式小满在当日13:47，巳时仍为酉将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=180
+    # 《六壬指南》刘退斋请假省亲，1925年国图扫描第180页；丁丑四月丁酉巳时，《明史》大统原式小满在当日13:47，巳时仍为酉将；《六壬粹言》抄本卷5PDF第255页题丁丑四月丁酉巳时酉将、三传亥卯未 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=180 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=255
     def test_刘退斋请假省亲(self):
         输出 = 运行("大六壬.py", "1637 05 22 09\n2\n1\n1\n")
         self.assertIn("丁酉日，从魁酉将加巳时", 输出)
@@ -2540,9 +3356,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：卯 太常 父母", 输出)
         self.assertIn("末传：未 勾陈 子孙", 输出)
 
-    # 《六壬指南》沈云生占回奏，1925年国图扫描第181页；原刻癸酉二月丁丑午时、四课反推亥将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=181
+    # 《六壬指南》沈云生占回奏，1925年国图扫描第181页；原刻癸酉二月丁丑午时、四课反推亥将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第253、254页题癸酉二月丁丑午时亥将、三传巳戌卯 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=181 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=253
 
-    # 《六壬指南》孙三杰代丁科长守科失红本，1925年国图扫描第182页；原刻丁丑十一月丁亥申时、返吟寅将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=182
+    # 《六壬指南》孙三杰代丁科长守科失红本，1925年国图扫描第182页；原刻丁丑十一月丁亥申时、返吟寅将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第255、256页题丁丑十一月丁亥申时寅将、三传巳亥巳 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=182 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=255
 
     # 《六壬指南》李载溪座间索占，1925年国图扫描第182页；原纪戊辰十二月，公历已为1629年 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=182
     def test_李载溪座间索占(self):
@@ -2552,7 +3368,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 青龙 子孙", 输出)
         self.assertIn("末传：丑 贵人 兄弟", 输出)
 
-    # 《六壬指南》迟运芝在京偶占，1925年国图扫描第183页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=183
+    # 《六壬指南》迟运芝在京偶占，1925年国图扫描第183页；《六壬粹言》抄本卷5PDF第272页题辛未四月丙辰午时酉将、三传申亥寅 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=183 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=272
     def test_迟运芝在京偶占(self):
         输出 = 运行("大六壬.py", "1631 05 13 11\n1\n1\n")
         self.assertIn("丙辰日，从魁酉将加午时", 输出)
@@ -2560,7 +3376,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 贵人 官鬼", 输出)
         self.assertIn("末传：寅 玄武 父母", 输出)
 
-    # 《六壬指南》冯允升被逮求占，1925年国图扫描第184页；原刻丙子三月；依年日时及课图戌将反推1636-03-26二月二十 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=184
+    # 《六壬指南》冯允升被逮求占，1925年国图扫描第184页；原刻丙子三月；依年日时及课图戌将反推1636-03-26二月二十；《六壬粹言》抄本卷5PDF第273、274页题丙子三月乙未卯时戌将、三传午丑申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=184 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=273
     # def test_冯允升被逮求占(self):
     #     输出 = 运行("大六壬.py", "1636 03 26 05\n1\n1\n")
     #     self.assertIn("乙未日，河魁戌将加卯时", 输出)
@@ -2568,7 +3384,7 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：丑 天后 妻财", 输出)
     #     self.assertIn("末传：申 勾陈 官鬼", 输出)
 
-    # 《六壬指南》陈秋桃占出狱，1925年国图扫描第185页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=185
+    # 《六壬指南》陈秋桃占出狱，1925年国图扫描第185页；《六壬粹言》抄本卷5PDF第274页题丙子三月己酉卯时戌将、三传亥午丑 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=185 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=274
     def test_陈秋桃占出狱(self):
         输出 = 运行("大六壬.py", "1636 04 09 05\n1\n1\n")
         self.assertIn("己酉日，河魁戌将加卯时", 输出)
@@ -2576,7 +3392,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：午 天空 父母", 输出)
         self.assertIn("末传：丑 天后 兄弟", 输出)
 
-    # 《六壬指南》埂子街甲午客袖占，1925年国图扫描第185页；原刻壬午七月甲午午时、图反推巳将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=185
+    # 《六壬指南》埂子街甲午客袖占，1925年国图扫描第185页；原刻壬午七月甲午午时、图反推巳将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第277页题壬午七月甲午午时巳将、三传子亥戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=185 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=277
 
     # 《六壬指南》周诚生代周首辅占弹劾，1925年国图扫描第186页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=186
     def test_周诚生代周首辅占弹劾(self):
@@ -2602,9 +3418,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：申 天后 子孙", 输出)
         self.assertIn("末传：寅 青龙 官鬼", 输出)
 
-    # 《六壬指南》吴振缨被逮索占，1925年国图扫描第188页；原刻丙子二月乙酉巳时、图反推戌将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=188
+    # 《六壬指南》吴振缨被逮索占，1925年国图扫描第188页；原刻丙子二月乙酉巳时、图反推戌将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第273页题丙子二月乙酉巳时戌将、三传未子巳 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=188 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=273
 
-    # 《六壬指南》盛顺被逮进京，1925年国图扫描第189页；原刻癸未七月丁未未时、图反推辰将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=189
+    # 《六壬指南》盛顺被逮进京，1925年国图扫描第189页；原刻癸未七月丁未未时、图反推辰将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第277、278页题癸未九月丁未未时辰将、三传亥辰辰 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=189 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=277
 
     # 《六壬指南》顾友吴子达代占公讼，1925国图PDF第190页（卷4原页64）与《六壬粹言》抄本PDF第275页（卷5公讼叶7左）同题丁丑五月甲子巳时申将、三传申亥寅；指南图龙申/贵亥/阴寅 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=275 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=190
     def test_顾友吴子达代占公讼(self):
@@ -2614,7 +3430,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 朱雀 父母", 输出)
         self.assertIn("末传：寅 天后 兄弟", 输出)
 
-    # 《六壬指南》钱是奄占陈南洲逮问，1925年国图扫描第191页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=191
+    # 《六壬指南》钱是奄占陈南洲逮问，1925年国图扫描第191页；《六壬粹言》抄本卷5PDF第276页题丁丑未题月丁亥辰时巳将、三传申酉戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=191 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=276
     def test_钱是奄占陈南洲逮问(self):
         输出 = 运行("大六壬.py", "1637 09 09 07\n1\n1\n")
         self.assertIn("丁亥日，太乙巳将加辰时", 输出)
@@ -2630,7 +3446,7 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：未 太阴 官鬼", 输出)
     #     self.assertIn("末传：辰 螣蛇 官鬼", 输出)
 
-    # 《六壬指南》熊奋渭代戊寅命人占讼，1925年国图扫描第192页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=192
+    # 《六壬指南》熊奋渭代戊寅命人占讼，1925年国图扫描第192页；《六壬粹言》抄本卷5PDF第272、273页题辛未未题月癸亥午时酉将、三传辰未戌；粹言未题月份 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=192 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=272
     def test_熊奋渭代戊寅命人占讼(self):
         输出 = 运行("大六壬.py", "1631 05 20 11\n1\n1\n")
         self.assertIn("癸亥日，从魁酉将加午时", 输出)
@@ -2638,7 +3454,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：未 朱雀 官鬼", 输出)
         self.assertIn("末传：戌 青龙 官鬼", 输出)
 
-    # 《六壬指南》王怀荫占失马，1925年国图扫描第193页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=193
+    # 《六壬指南》王怀荫占失马，1925年国图扫描第193页；《六壬粹言》抄本卷5PDF第281页题庚寅七月癸卯申时卯将、三传卯戌巳；粹言七月与现按指南所定1650-11-16不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=193 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=281
     def test_王怀荫占失马(self):
         输出 = 运行("大六壬.py", "1650 11 16 15\n1\n1\n")
         self.assertIn("癸卯日，太冲卯将加申时", 输出)
@@ -2646,9 +3462,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 白虎 官鬼", 输出)
         self.assertIn("末传：巳 贵人 妻财", 输出)
 
-    # 《六壬指南》建龙寺丽天索占，1925年国图扫描第194页；原刻丙寅四月丙寅寅时、图反推酉将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=194
+    # 《六壬指南》建龙寺丽天索占，1925年国图扫描第194页；原刻丙寅四月丙寅寅时、图反推酉将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第280页题丙寅四月丙寅寅时酉将、三传子未寅 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=194 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=280
 
-    # 《六壬指南》张四知占进退行止，1925年国图扫描第194页；课图在第195页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=194
+    # 《六壬指南》张四知占进退行止，1925年国图扫描第194页；课图在第195页；《六壬粹言》抄本卷5PDF第265、266页题甲申五月乙未未时申将、三传酉戌亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=194 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=265
     def test_张四知占进退行止(self):
         输出 = 运行("大六壬.py", "1644 06 12 13\n1\n1\n")
         self.assertIn("乙未日，传送申将加未时", 输出)
@@ -2656,7 +3472,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 太阴 妻财", 输出)
         self.assertIn("末传：亥 天后 父母", 输出)
 
-    # 《六壬指南》田百原为陈公献占搬眷，1925年国图扫描第195页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=195
+    # 《六壬指南》田百原为陈公献占搬眷，1925年国图扫描第195页；《六壬粹言》抄本卷5PDF第266页题乙酉四月癸亥午时酉将、三传辰未戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=195 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=266
     def test_田百原为陈公献占搬眷(self):
         输出 = 运行("大六壬.py", "1645 05 06 11\n1\n1\n")
         self.assertIn("癸亥日，从魁酉将加午时", 输出)
@@ -2664,7 +3480,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：未 朱雀 官鬼", 输出)
         self.assertIn("末传：戌 青龙 官鬼", 输出)
 
-    # 《六壬指南》弯子街二人占子逃，1925年国图扫描第196页；原刻庚寅四月乙酉日巳时，1650-05-02为四月初二，按原纪年、日、将、时核盘 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=196
+    # 《六壬指南》弯子街二人占子逃，1925年国图扫描第196页；原刻庚寅四月乙酉日巳时，1650-05-02为四月初二，按原纪年、日、将、时核盘；《六壬粹言》抄本卷5PDF第280、281页题庚寅四月乙丑巳时酉将、三传申子辰；粹言题一人寻子、乙丑日，指南题二人子逃、乙酉日；两书支课不同 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=196 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=280
     def test_弯子街二人占子逃(self):
         输出 = 运行("大六壬.py", "1650 05 02 09\n1\n1\n")
         self.assertIn("乙酉日，从魁酉将加巳时", 输出)
@@ -2672,7 +3488,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：子 贵人 父母", 输出)
         self.assertIn("末传：辰 太常 妻财", 输出)
 
-    # 《六壬指南》李六生问燕京安危，1925年国图扫描第197页；原课图卯发用，断语作戌发用 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=197
+    # 《六壬指南》李六生问燕京安危，1925年国图扫描第197页；原课图卯发用，断语作戌发用；《六壬粹言》抄本卷5PDF第288页题甲申四月庚申辰时酉将、三传卯丑丑；粹言断语亦作戌发用，与两书图卯发用不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=197 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=288
     def test_李六生问燕京安危(self):
         输出 = 运行("大六壬.py", "1644 05 08 07\n1\n1\n")
         self.assertIn("庚申日，从魁酉将加辰时", 输出)
@@ -2682,7 +3498,7 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》田百原闻睢州兵变，扫描第197、198页原题戊午日丙申时与图干丙不合；图用子将，按图丙午旧历为子将 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=197
 
-    # 《六壬指南》扬州守西门，1925年国图扫描第198页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=198
+    # 《六壬指南》扬州守西门，1925年国图扫描第198页；《六壬粹言》抄本卷5PDF第290页题乙酉四月丁丑辰时酉将、三传巳戌卯 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=198 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=290
     def test_扬州守西门(self):
         输出 = 运行("大六壬.py", "1645 05 20 07\n1\n1\n")
         self.assertIn("丁丑日，从魁酉将加辰时", 输出)
@@ -2690,7 +3506,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：戌 螣蛇 子孙", 输出)
         self.assertIn("末传：卯 太常 父母", 输出)
 
-    # 《六壬指南》李少文问金兵东下，1925年国图扫描第199页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=199
+    # 《六壬指南》李少文问金兵东下，1925年国图扫描第199页；《六壬粹言》抄本卷5PDF第291页题戊子三月乙亥未时亥将、三传未亥卯；粹言题吴化宇，与指南李少文均问金兵东下、同盘，人物同一性无据 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=199 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=291
     def test_李少文问金兵东下(self):
         输出 = 运行("大六壬.py", "1648 03 03 13\n1\n1\n")
         self.assertIn("乙亥日，登明亥将加未时", 输出)
@@ -2708,15 +3524,15 @@ class 古籍占例(unittest.TestCase):
 
     # 《六壬指南》武昌城池安危，1925年国图扫描第201页；己丑三月是诸友出示晋戴洋旧课的时间，原占未记具体年日 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=201
 
-    # 《六壬指南》扬城被围，1925年国图扫描第202页；原题庚申年；原课图日将时可对应甲申1644-06-17五月十三，原年与该反推日期不合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=202
-    # def test_扬城被围(self):
-    #     输出 = 运行("大六壬.py", "1644 06 17 09\n1\n1\n")
-    #     self.assertIn("庚子日，传送申将加巳时", 输出)
-    #     self.assertIn("初传：午 白虎 官鬼", 输出)
-    #     self.assertIn("中传：酉 勾陈 兄弟", 输出)
-    #     self.assertIn("末传：子 螣蛇 子孙", 输出)
+    # 《六壬粹言》卷5扬城被围，PDF第289页题甲申五月庚子日巳时申将，原图午白虎/酉勾陈/子螣蛇；1644-06-17为五月十三；《六壬指南》1925国图PDF第202页同盘而题庚申年 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=289 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=202
+    def test_扬城被围(self):
+        输出 = 运行("大六壬.py", "1644 06 17 09\n1\n1\n")
+        self.assertIn("庚子日，传送申将加巳时", 输出)
+        self.assertIn("初传：午 白虎 官鬼", 输出)
+        self.assertIn("中传：酉 勾陈 兄弟", 输出)
+        self.assertIn("末传：子 螣蛇 子孙", 输出)
 
-    # 《六壬指南》卞孟井问真定安危，1925年国图扫描第202页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=202
+    # 《六壬指南》卞孟井问真定安危，1925年国图扫描第202页；《六壬粹言》抄本卷5PDF第287、288页题甲申三月丙午午时酉将、三传申亥寅；粹言题卞孟公 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=202 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=287
     def test_卞孟井问真定安危(self):
         输出 = 运行("大六壬.py", "1644 04 24 11\n1\n1\n")
         self.assertIn("丙午日，从魁酉将加午时", 输出)
@@ -2724,7 +3540,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 贵人 官鬼", 输出)
         self.assertIn("末传：寅 玄武 父母", 输出)
 
-    # 《六壬指南》田百原勤王，1925年国图扫描第203页；辛金寄戌不应抹掉第四课戌土克亥水 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=203
+    # 《六壬指南》田百原勤王，1925年国图扫描第203页；辛金寄戌不应抹掉第四课戌土克亥水；《六壬粹言》抄本卷5PDF第289、290页题乙酉四月辛丑申时酉将、三传亥子丑；粹言题辛丑而支课画酉戌/戌亥，题日支与图不合；三传旁天将白虎/六合/太常亦与指南不同 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=203 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=289
     def test_田百原勤王(self):
         输出 = 运行("大六壬.py", "1645 05 04 15\n1\n1\n1\n")
         self.assertIn("辛酉日，从魁酉将加申时", 输出)
@@ -2740,7 +3556,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：辰 玄武 兄弟", 输出)
         self.assertIn("末传：申 螣蛇 子孙", 输出)
 
-    # 《六壬指南》杨九苞舟师来函，1925年国图扫描第205页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=205
+    # 《六壬指南》杨九苞舟师来函，1925年国图扫描第205页；《六壬粹言》抄本卷5PDF第290、291页题乙酉四月乙酉辰时申将、三传申子辰 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=205 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=290
     def test_杨九苞舟师来函(self):
         输出 = 运行("大六壬.py", "1645 05 28 07\n1\n1\n")
         self.assertIn("乙酉日，传送申将加辰时", 输出)
@@ -2748,9 +3564,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：子 贵人 父母", 输出)
         self.assertIn("末传：辰 太常 妻财", 输出)
 
-    # 《六壬指南》辛未四月兵警，1925年国图扫描第206页；原图丙子酉将酉时伏吟，1631年丙子均不在酉将期；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=206
+    # 《六壬指南》辛未四月兵警，1925年国图扫描第206页；原图丙子酉将酉时伏吟，1631年丙子均不在酉将期；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第287页题辛未四月丙子酉时酉将、三传巳申寅 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=206 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=287
 
-    # 《六壬指南》程翔云闻兵警，1925年国图扫描第206页；原记正月按立春节月成立，当日农历仍十二月，不按农历月份判错 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=206
+    # 《六壬指南》程翔云闻兵警，1925年国图扫描第206页；原记正月按立春节月成立，当日农历仍十二月，不按农历月份判错；《六壬粹言》抄本卷5PDF第296、297页题甲申正月丁亥酉时子将、三传午戌寅 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=206 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=296
     def test_程翔云闻兵警(self):
         输出 = 运行("大六壬.py", "1644 02 05 17\n1\n1\n")
         self.assertIn("丁亥日，神后子将加酉时", 输出)
@@ -2766,7 +3582,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：辰 六合 父母", 输出)
         self.assertIn("末传：寅 螣蛇 妻财", 输出)
 
-    # 《六壬指南》倪子玄占父到京，1925年国图扫描第209页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=209
+    # 《六壬指南》倪子玄占父到京，1925年国图扫描第209页；《六壬粹言》抄本卷5PDF第268页题戊辰十一月壬戌巳时寅将、三传巳寅亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=209 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=268
     def test_倪子玄占父到京(self):
         输出 = 运行("大六壬.py", "1628 11 30 09\n1\n1\n")
         self.assertIn("壬戌日，功曹寅将加巳时", 输出)
@@ -2774,7 +3590,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：寅 六合 子孙", 输出)
         self.assertIn("末传：亥 天空 兄弟", 输出)
 
-    # 《六壬指南》李梅公占行人，1925年国图扫描第210页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=210
+    # 《六壬指南》李梅公占行人，1925年国图扫描第210页；《六壬粹言》抄本卷5PDF第269页题庚寅七月丁丑巳时午将、三传申酉戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=210 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=269
     def test_李梅公占行人(self):
         输出 = 运行("大六壬.py", "1650 08 22 09\n1\n1\n")
         self.assertIn("丁丑日，胜光午将加巳时", 输出)
@@ -2782,7 +3598,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：酉 朱雀 妻财", 输出)
         self.assertIn("末传：戌 螣蛇 子孙", 输出)
 
-    # 《六壬指南》庄公远占程翔云到省，1925年国图扫描第210页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=210
+    # 《六壬指南》庄公远占程翔云到省，1925年国图扫描第210页；《六壬粹言》抄本卷5PDF第295、296页题辛卯九月辛巳卯时辰将、三传午未申；粹言作作者自占，指南题庄公远 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=210 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=295
     def test_庄公远占程翔云到省(self):
         输出 = 运行("大六壬.py", "1651 10 20 05\n1\n1\n")
         self.assertIn("辛巳日，天罡辰将加卯时", 输出)
@@ -2808,7 +3624,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：午 天空 父母", 输出)
         self.assertIn("末传：酉 六合 子孙", 输出)
 
-    # 《六壬指南》卢承山占病，1925年国图扫描第213页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=213
+    # 《六壬指南》卢承山占病，1925年国图扫描第213页；《六壬粹言》抄本卷5PDF第270页题乙酉正月己亥巳时子将、三传午丑申 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=213 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=270
     def test_卢承山占病(self):
         输出 = 运行("大六壬.py", "1645 02 11 09\n1\n1\n")
         self.assertIn("己亥日，神后子将加巳时", 输出)
@@ -2816,7 +3632,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：丑 天后 兄弟", 输出)
         self.assertIn("末传：申 勾陈 子孙", 输出)
 
-    # 《六壬指南》楠姓为董晋侯占病，1925年国图扫描第213页；辛卯二月丁未卯时按历书中气日为戌将，原题八专，三传与逐课取克相合 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=213
+    # 《六壬指南》楠姓为董晋侯占病，1925年国图扫描第213页；辛卯二月丁未卯时按历书中气日为戌将，原题八专，三传与逐课取克相合；《六壬粹言》抄本卷5PDF第271、272页题辛卯二月丁未卯时戌将、三传酉辰亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=213 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=271
     def test_楠姓为董晋侯占病(self):
         输出 = 运行("大六壬.py", "1651 03 20 05\n2\n1\n1\n1\n")
         self.assertIn("丁未日，河魁戌将加卯时", 输出)
@@ -2824,9 +3640,9 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：辰 青龙 子孙", 输出)
         self.assertIn("末传：亥 贵人 官鬼", 输出)
 
-    # 《六壬指南》王养吾占妻病，1925年国图扫描第214页；原刻乙丑十月辛亥午时、图反推卯将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=214
+    # 《六壬指南》王养吾占妻病，1925年国图扫描第214页；原刻乙丑十月辛亥午时、图反推卯将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第270页题乙丑十月辛亥午时卯将、三传巳寅亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=214 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=270
 
-    # 《六壬指南》刘一纯占病，1925年国图扫描第215页；原刻辛未正月；依年日时及课图亥将反推1631-03-06二月初四 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=215
+    # 《六壬指南》刘一纯占病，1925年国图扫描第215页；原刻辛未正月；依年日时及课图亥将反推1631-03-06二月初四；《六壬粹言》抄本卷5PDF第282、283页题辛未七月戊申未时亥将、三传辰申子；指南题正月，粹言题七月 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=215 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=282
     # def test_刘一纯占病(self):
     #     输出 = 运行("大六壬.py", "1631 03 06 13\n1\n1\n")
     #     self.assertIn("戊申日，登明亥将加未时", 输出)
@@ -2842,9 +3658,9 @@ class 古籍占例(unittest.TestCase):
     #     self.assertIn("中传：寅 螣蛇 妻财", 输出)
     #     self.assertIn("末传：巳 勾陈 官鬼", 输出)
 
-    # 《六壬指南》程孝延代郑姓占病，1925年国图扫描第217页；原刻己丑八月乙未巳时、图反推午将；原题日将与课图不合（定气、旧历气法） https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=217
+    # 《六壬指南》程孝延代郑姓占病，1925年国图扫描第217页；原刻己丑八月乙未巳时、图反推午将；原题日将与课图不合（定气、旧历气法）；《六壬粹言》抄本卷5PDF第271页题己丑八月乙未卯时辰将、三传酉戌亥 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=217 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=271
 
-    # 《六壬指南》程翔云雪寒占岁，1925年国图扫描第218页；未时尚未交雨水 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=218
+    # 《六壬指南》程翔云雪寒占岁，1925年国图扫描第218页；未时尚未交雨水；《六壬粹言》抄本卷5PDF第296页题辛巳正月乙丑未时子将、三传未子巳；粹言题乙丑而支课画酉寅/寅未，题日支与图不合；指南题乙酉 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=218 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=296
     def test_程翔云雪寒占岁(self):
         输出 = 运行("大六壬.py", "1641 02 18 13\n1\n1\n")
         self.assertIn("乙酉日，神后子将加未时", 输出)
@@ -2852,7 +3668,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：子 贵人 父母", 输出)
         self.assertIn("末传：巳 白虎 子孙", 输出)
 
-    # 《六壬指南》己巳十一月扣门声，1925年国图扫描第219页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=219
+    # 《六壬指南》己巳十一月扣门声，1925年国图扫描第219页；《六壬粹言》抄本卷5PDF第281、282页题己巳十一月丁酉戌时丑将、三传子卯午；粹言题举人索占，与指南扣门声同盘异题，不能认定同一事件 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=219 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=281
     def test_己巳十一月扣门声(self):
         输出 = 运行("大六壬.py", "1629 12 30 19\n1\n1\n")
         self.assertIn("丁酉日，大吉丑将加戌时", 输出)
@@ -2860,7 +3676,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：卯 天空 父母", 输出)
         self.assertIn("末传：午 六合 兄弟", 输出)
 
-    # 《六壬指南》敏若夜闻鸦鸣，1925年国图扫描第219页；原刻己丑三月乙丑日亥时，1649-04-17为三月初六，按原纪年、日、将、时核盘 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=219
+    # 《六壬指南》敏若夜闻鸦鸣，1925年国图扫描第219页；原刻己丑三月乙丑日亥时，1649-04-17为三月初六，按原纪年、日、将、时核盘；《六壬粹言》抄本卷5PDF第278、279页题己丑三月乙丑亥时戌将、三传子亥戌 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=219 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=278
     def test_敏若夜闻鸦鸣(self):
         输出 = 运行("大六壬.py", "1649 04 17 21\n1\n1\n")
         self.assertIn("乙丑日，河魁戌将加亥时", 输出)
@@ -2868,7 +3684,7 @@ class 古籍占例(unittest.TestCase):
         self.assertIn("中传：亥 玄武 父母", 输出)
         self.assertIn("末传：戌 太阴 妻财", 输出)
 
-    # 《六壬指南》吴三占天宁寺夜惊，1925年国图扫描第220页；课图在第221页 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=220
+    # 《六壬指南》吴三占天宁寺夜惊，1925年国图扫描第220页；课图在第221页；《六壬粹言》抄本卷5PDF第279、280页题己丑六月乙未亥时未将、三传卯亥未；粹言题江南吴一山，指南题吴三 https://commons.wikimedia.org/wiki/File:NLC416-12jh005348-45347_六壬指南.pdf?page=220 https://commons.wikimedia.org/wiki/File:NCL-06574_六壬粹言.pdf?page=279
     def test_吴三占天宁寺夜惊(self):
         输出 = 运行("大六壬.py", "1649 07 16 21\n1\n1\n")
         self.assertIn("乙未日，小吉未将加亥时", 输出)
